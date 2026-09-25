@@ -506,5 +506,32 @@
     "description": "Lo sentimos, la página que buscas no existe, ha sido movida o nunca existió en este universo digital.",
     "goHome": "Ir al Inicio",
     "viewProjects": "Ver Proyectos"
+  },
+  "CookieConsent": {
+    "title": "Tu privacidad",
+    "description": "Uso cookies necesarias para que el sitio funcione y, sólo si lo aceptas, cookies de analítica para entender qué contenido es útil. Más detalles en la <cookies>política de cookies</cookies> y la <privacy>política de privacidad</privacy>.",
+    "accept": "Aceptar",
+    "reject": "Rechazar",
+    "customize": "Configurar preferencias",
+    "save": "Guardar preferencias",
+    "close": "Cerrar",
+    "preferences": "Preferencias de cookies",
+    "necessaryTitle": "Necesarias",
+    "necessaryDesc": "Idioma y tus preferencias de cookies. No te identifican.",
+    "alwaysOn": "Siempre activas",
+    "analyticsTitle": "Analítica",
+    "analyticsDesc": "Google Analytics, para medir visitas de forma agregada."
+  },
+  "Legal": {
+    "backHome": "Volver al Inicio",
+    "updated": "Última actualización: {date}"
+  },
+  "FooterLegal": {
+    "privacy": "Privacidad",
+    "cookies": "Cookies",
+    "terms": "Términos"
+  },
+  "FormPrivacy": {
+    "notice": "Al enviar, tus datos se usarán sólo para responderte, según la <privacy>política de privacidad</privacy>."
   }
 }
