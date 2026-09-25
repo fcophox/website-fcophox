@@ -4,9 +4,7 @@ import "./globals.css";
 import "./tiptap-content.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-import { Suspense } from 'react'
-import { GoogleAnalytics } from '@next/third-parties/google'
-import { GoogleAnalyticsPageview } from "@/components/google-analytics-pageview";
+import { ConsentedAnalytics, CookieConsent } from "@/components/cookie-consent";
 
 
 const sansation = Sansation({
@@ -102,10 +100,8 @@ export default async function RootLayout({
             </div>
             <Footer />
             <ChromaticEdge />
-            <GoogleAnalytics gaId="G-N30VCBN4MR" />
-            <Suspense fallback={null}>
-              <GoogleAnalyticsPageview />
-            </Suspense>
+            <CookieConsent />
+            <ConsentedAnalytics />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

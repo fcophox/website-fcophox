@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { User, Mail, MessageSquare, Send, Globe, Clock, Loader2, CheckCircle2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import type { Availability } from "@/utils/kontororu";
@@ -9,6 +10,20 @@ import type { Availability } from "@/utils/kontororu";
 /** "18:30" + "18:45" → "18:30 - 18:45 hrs", que es como lo lee la interfaz. */
 function etiquetaTramo(tramo: { start: string; end: string }): string {
   return `${tramo.start} - ${tramo.end} hrs`;
+}
+
+/** Aviso de privacidad junto al envío: informa en el momento de recoger los datos. */
+function FormPrivacyNotice() {
+  const t = useTranslations('FormPrivacy');
+  return (
+    <p className="-mt-4 text-xs text-muted leading-relaxed text-center text-pretty">
+      {t.rich('notice', {
+        privacy: (chunks) => (
+          <Link href="/legal/privacy" className="underline underline-offset-2 hover:text-foreground">{chunks}</Link>
+        ),
+      })}
+    </p>
+  );
 }
 
 function TypewriterEffect({ text }: { text: string }) {
@@ -156,6 +171,7 @@ export function MessageForm() {
       <button disabled={isLoading || !formData.name || !formData.email || !formData.message} className="w-full bg-surface hover:bg-surface/80 disabled:opacity-50 disabled:cursor-not-allowed text-foreground font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-colors border border-border/20 mt-4">
         {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <>{t('btnSend')} <Send className="w-5 h-5" /></>}
       </button>
+      <FormPrivacyNotice />
 
       <div className="flex items-center gap-4 bg-surface/50 p-4 rounded-2xl border border-border/10 mt-2">
         <div className="relative shrink-0">
@@ -367,6 +383,7 @@ export function ConsultingForm() {
       <button disabled={isLoading || !formData.name || !formData.email || !formData.message} className="w-full bg-surface hover:bg-surface/80 disabled:opacity-50 disabled:cursor-not-allowed text-foreground font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-colors border border-border/20 mt-2">
         {isLoading ? <Loader2 className="w-5 h-5 animate-spin" /> : <>{t('btnSend')} <Send className="w-5 h-5" /></>}
       </button>
+      <FormPrivacyNotice />
 
       <div className="flex items-center gap-4 bg-surface/50 p-4 rounded-2xl border border-border/10">
         <div className="relative shrink-0">
@@ -690,6 +707,7 @@ export function MeetingForm() {
       >
         {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <>{t('btnSend')} <Send className="w-5 h-5" /></>}
       </button>
+      <FormPrivacyNotice />
 
       <div className="flex items-center gap-4 bg-surface/50 p-4 rounded-2xl border border-border/10 mt-2">
         <div className="relative shrink-0">

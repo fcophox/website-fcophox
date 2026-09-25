@@ -6,9 +6,11 @@ import Image from "next/image";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
 import { CHROMATIC_EDGE_HEIGHT } from "@/components/chromatic-edge";
+import { CookiePreferencesButton } from "@/components/cookie-preferences-button";
 
 export function Footer() {
   const t = useTranslations('Footer');
+  const tLegal = useTranslations('FooterLegal');
 
   return (
     <footer
@@ -94,7 +96,13 @@ export function Footer() {
         </div>
 
         {/* Bottom footer */}
-        <div className="pt-8 border-t border-border/50 flex flex-col items-center justify-center gap-2">
+        <div className="pt-8 border-t border-border/50 flex flex-col items-center justify-center gap-4">
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted">
+            <Link href="/legal/privacy" className="hover:text-foreground transition-colors">{tLegal('privacy')}</Link>
+            <Link href="/legal/cookies" className="hover:text-foreground transition-colors">{tLegal('cookies')}</Link>
+            <Link href="/legal/terms" className="hover:text-foreground transition-colors">{tLegal('terms')}</Link>
+            <CookiePreferencesButton className="hover:text-foreground transition-colors" />
+          </nav>
           <div className="flex items-center justify-center gap-2 text-xs text-muted">
             <Image src="/brand/logotipo.svg" alt="Logo" width={16} height={16} className="opacity-50 grayscale" />
             <span>fcophox.com - {t('rights')} - {new Date().getFullYear()}</span>

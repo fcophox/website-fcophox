@@ -22,6 +22,9 @@ const estaticas: Entrada[] = [
   { url: `${SITE_URL}/resources`, changeFrequency: 'monthly', priority: 0.6, lastModified: ahora },
   { url: `${SITE_URL}/cv`, changeFrequency: 'yearly', priority: 0.5, lastModified: ahora },
   { url: `${SITE_URL}/contact`, changeFrequency: 'yearly', priority: 0.5, lastModified: ahora },
+  { url: `${SITE_URL}/legal/privacy`, changeFrequency: 'yearly', priority: 0.3, lastModified: ahora },
+  { url: `${SITE_URL}/legal/cookies`, changeFrequency: 'yearly', priority: 0.3, lastModified: ahora },
+  { url: `${SITE_URL}/legal/terms`, changeFrequency: 'yearly', priority: 0.3, lastModified: ahora },
 ];
 
 type Posts = Awaited<ReturnType<typeof kontororu.posts.list>>['data'];
