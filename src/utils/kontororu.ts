@@ -138,10 +138,19 @@ export class KontororuError extends Error {
  * en notFound(). Los demás errores sí se lanzan — un 401 silenciado como
  * "no hay contenido" vacía el blog sin que nadie se entere.
  */
-async function get<T>(path: string, tags: string[]): Promise<T | null> {
+async function get<T>(path: string, tags: string[], revalidate = 3600): Promise<T | null> {
+  /*
+   * `force-cache` es imprescindible: el layout lee el idioma de una cookie, así
+   * que todas las rutas son dinámicas y, sin él, cada visita pedía a la API.
+   * Kontorōru está en Render y se duerme sin tráfico: el primer visitante se
+   * comía el arranque en frío (se midieron 232 s en la home). Con caché, el
+   * webhook y el `revalidate` refrescan en segundo plano (stale-while-revalidate)
+   * y nadie espera a Render.
+   */
   const res = await fetch(`${baseUrl()}${path}`, {
     headers: { Authorization: `Bearer ${apiKey()}` },
-    next: { tags },
+    cache: "force-cache",
+    next: { tags, revalidate },
   });
 
   if (res.status === 404) return null;
@@ -233,7 +242,8 @@ export const kontororu = {
   async availability() {
     const res = await get<{ data: Availability }>(
       "/addons/calendar/availability",
-      ["availability"]
+      ["availability"],
+      30
     );
     return res?.data ?? null;
   },
