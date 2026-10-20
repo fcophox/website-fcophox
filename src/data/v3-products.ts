@@ -26,7 +26,7 @@ export type Product = {
   image?: string;
 };
 
-/** Color de la etiqueta de estado, compartido por la tarjeta y la página del producto. */
+/** Color de la etiqueta de estado en la página del producto. */
 export const PRODUCT_STATUS_STYLE: Record<ProductStatus, string> = {
   production: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
   beta: "bg-primary/10 text-primary border-primary/20",

@@ -50,7 +50,18 @@ export default async function HomeV3() {
       <PillarsV3 />
       <FeaturedProductsV3 />
       <ExperienceV3 />
-      <ProjectCard projects={projects} label={t("label")} title={t("title")} variant="v3" />
+      <ProjectCard
+        projects={projects}
+        label={t("label")}
+        title={t.rich("title", {
+          hl: (chunks) => (
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+              {chunks}
+            </span>
+          ),
+        })}
+        variant="v3"
+      />
       <Blog />
       <ContactCtaV3 />
     </main>

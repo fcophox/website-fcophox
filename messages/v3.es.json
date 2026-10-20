@@ -33,9 +33,6 @@
     "label": "Productos",
     "title": "De las ideas al código.",
     "description": "Una selección de productos, herramientas y experimentos donde participo directamente en la definición, diseño y construcción de soluciones digitales.",
-    "problemLabel": "Problema",
-    "stackLabel": "Stack",
-    "aiLabel": "IA",
     "visit": "Visitar",
     "learnMore": "Ver producto",
     "detail": {
@@ -85,7 +82,7 @@
   },
   "CaseStudies": {
     "label": "Casos de estudio",
-    "title": "Cómo entiendo y resuelvo problemas de producto.",
+    "title": "Del problema a <hl>la solución validada</hl>, en proyectos reales.",
     "description": "Proyectos de investigación, UX y diseño de producto: el contexto, las decisiones y lo que se validó."
   },
   "Contact": {
