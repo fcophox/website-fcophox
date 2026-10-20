@@ -1,0 +1,117 @@
+{
+  "Meta": {
+    "title": "Francisco Hormazábal | Product Builder & UX Engineer",
+    "description": "Product Builder and UX Engineer with 14+ years of experience. I design and build digital products combining UX, React, Next.js and artificial intelligence."
+  },
+  "Hero": {
+    "eyebrow": "Product Builder · UX Engineer · AI",
+    "title": "I turn ideas into digital products",
+    "titleAccent": "that work.",
+    "description": "I combine product strategy, design, code and artificial intelligence to solve real problems and build digital experiences end to end.",
+    "ctaPrimary": "Explore products",
+    "ctaSecondary": "See my experience"
+  },
+  "Pillars": {
+    "label": "How I work",
+    "title": "I understand the problem, design the solution and build the product.",
+    "items": [
+      {
+        "title": "I understand the problem",
+        "description": "I research contexts, needs and opportunities to find solutions that create real value."
+      },
+      {
+        "title": "I design the solution",
+        "description": "I turn ideas into clear, consistent, people-centred digital experiences."
+      },
+      {
+        "title": "I build the product",
+        "description": "I combine frontend development, prototyping and AI to turn proposals into working solutions."
+      }
+    ]
+  },
+  "Products": {
+    "label": "Products",
+    "title": "From ideas to code.",
+    "description": "A selection of products, tools and experiments where I take part directly in defining, designing and building digital solutions.",
+    "problemLabel": "Problem",
+    "stackLabel": "Stack",
+    "aiLabel": "AI",
+    "visit": "Visit",
+    "learnMore": "View product",
+    "detail": {
+      "back": "Back to products",
+      "aboutTitle": "About the product",
+      "problemTitle": "What problem does it solve?",
+      "aiTitle": "How it uses AI",
+      "stackTitle": "Tech stack",
+      "explore": "Explore more products",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "status": {
+      "concept": "Concept",
+      "prototype": "Prototype",
+      "mvp": "MVP",
+      "beta": "Beta",
+      "production": "In production"
+    },
+    "items": {
+      "kontororu": {
+        "tagline": "Multi-tenant headless CMS",
+        "description": "A content manager for teams and clients who need to publish to several sites from one place, each with its own brand and permissions.",
+        "problem": "Running one CMS per client multiplies work and risk. Kontorōru centralises content with strict isolation between workspaces.",
+        "note": "It manages the blog and case studies on this site."
+      },
+      "tanzo": {
+        "tagline": "A suite of UX and planning tools",
+        "description": "A set of tools to shape and organise products: sitemaps and flows (Kōsei), card sorting (Kādo) and visual roadmaps (Rebyū).",
+        "problem": "Information architecture and planning work tends to be scattered across generic tools that don't talk to each other."
+      },
+      "bijon": {
+        "tagline": "AI-assisted UX/CRO audit",
+        "description": "A Tanzō tool that analyses an experience and flags likely usability and conversion friction before launch.",
+        "problem": "Friction is often found late, once the experience is live and fixing it costs more.",
+        "ai": "Analysis and chat about the experience using a Gemini model."
+      }
+    }
+  },
+  "Experience": {
+    "label": "Background",
+    "statement": "I'm a Designer — 14+ years building <hl>digital experiences and products</hl>. I've worked as <hl>Product Designer, UX Manager and Head of UX</hl> across different projects.",
+    "industriesLabel": "Industries",
+    "industries": ["Banking", "Education", "Fintech", "Logistics", "Retail", "Ecommerce", "Healthcare", "Insurance", "Technology"],
+    "ctaAbout": "About me",
+    "ctaCv": "View CV"
+  },
+  "CaseStudies": {
+    "label": "Case studies",
+    "title": "How I understand and solve product problems.",
+    "description": "Research, UX and product design projects: the context, the decisions and what was validated."
+  },
+  "Contact": {
+    "linkedin": "LinkedIn",
+    "slides": [
+      {
+        "label": "Idea",
+        "title": "Got an idea?",
+        "description": "Every great idea deserves a chance. Let’s discover together how to transform it into a product ready for growth.",
+        "cta": "Let's make it real",
+        "form": "message"
+      },
+      {
+        "label": "Consulting",
+        "title": "Let's boost your product",
+        "description": "Sometimes a small change makes a big impact. Let's review your product and discover new growth opportunities.",
+        "cta": "I want a consulting session",
+        "form": "consulting"
+      },
+      {
+        "label": "Coffee",
+        "title": "A coffee and good ideas",
+        "description": "Let's talk about your project and discover together the next step to help it grow.",
+        "cta": "Let's book a slot",
+        "form": "meeting"
+      }
+    ]
+  }
+}
