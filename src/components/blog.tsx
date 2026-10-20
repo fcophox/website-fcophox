@@ -37,7 +37,13 @@ export async function Blog() {
       <div className="dm-container">
         <div className="flex items-end justify-between mb-12">
           <h2 className="text-title-section font-normal text-foreground text-left w-full md:max-w-[750px]">
-            {t('title')}
+            {t.rich('title', {
+              hl: (chunks) => (
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                  {chunks}
+                </span>
+              ),
+            })}
           </h2>
 
           <Link

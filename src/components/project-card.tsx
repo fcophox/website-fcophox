@@ -5,7 +5,7 @@ import { RevealImage } from "./reveal-image";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, type ReactNode } from "react";
 
 export interface Project {
   id?: string;
@@ -24,7 +24,8 @@ type Props = {
   projects?: Project[];
   /** Sobrescriben la cabecera por defecto (los usa la home v3). */
   label?: string;
-  title?: string;
+  /** Nodo y no sólo texto: la home v3 lo manda con un tramo en degradado. */
+  title?: ReactNode;
   /**
    * `v3` es la variante de la home nueva: sin `surface` (la tarjeta toma el
    * fondo más oscuro de la paleta), imagen al 70 % del ancho y la información

@@ -33,9 +33,6 @@
     "label": "Products",
     "title": "From ideas to code.",
     "description": "A selection of products, tools and experiments where I take part directly in defining, designing and building digital solutions.",
-    "problemLabel": "Problem",
-    "stackLabel": "Stack",
-    "aiLabel": "AI",
     "visit": "Visit",
     "learnMore": "View product",
     "detail": {
@@ -85,7 +82,7 @@
   },
   "CaseStudies": {
     "label": "Case studies",
-    "title": "How I understand and solve product problems.",
+    "title": "From problem to <hl>validated solution</hl>, in real projects.",
     "description": "Research, UX and product design projects: the context, the decisions and what was validated."
   },
   "Contact": {

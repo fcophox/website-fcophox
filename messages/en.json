@@ -95,7 +95,7 @@
     "viewStudies": "Check the studies"
   },
   "Blog": {
-    "title": "Articles about design, technology, and trends shaping the digital future.",
+    "title": "Articles about <hl>design, technology, and trends shaping</hl> the digital future.",
     "viewAll": "View all",
     "defaultCategory": "Technology",
     "readFull": "Read full article..."
