@@ -237,7 +237,17 @@ export function GradientField({
     // A context that is already lost counts as none: in development the
     // effect mounts twice, and the cleanup below loses the context the second
     // mount gets back.
-    if (!gl || gl.isContextLost()) return;
+    /*
+      Sin contexto (o uno perdido) no hay nada que dibujar: el canvas se queda
+      oculto y se ve el fondo oscuro de la sección. Hace falta forzarlo aquí y
+      no confiar en el `opacity: 0` inicial, porque un canvas reutilizado ya
+      trae el `opacity: 1` que le escribió su primer frame, y un contexto
+      perdido se pinta en blanco con el ícono de imagen rota.
+    */
+    if (!gl || gl.isContextLost()) {
+      canvas.style.opacity = "0";
+      return;
+    }
 
     const vs = compile(gl, gl.VERTEX_SHADER, VERT);
     const fs = compile(gl, gl.FRAGMENT_SHADER, FRAG);
@@ -372,7 +382,15 @@ export function GradientField({
       gl.deleteProgram(prog);
       gl.deleteShader(vs);
       gl.deleteShader(fs);
-      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      canvas.style.opacity = "0";
+      /*
+        Liberar el contexto sólo si el canvas salió del DOM. Next conserva la
+        página al navegar (y StrictMode repite el efecto): el mismo canvas
+        vuelve a montarse, y si aquí se hubiera perdido el contexto,
+        getContext devolvería ese contexto muerto y la sección quedaría en
+        blanco al volver a la página.
+      */
+      if (!canvas.isConnected) gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
   }, []);
 
