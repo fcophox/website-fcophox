@@ -43,7 +43,7 @@ export function AreasColaboracion() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-foreground text-center mb-16"
+          className="text-title-section font-medium text-foreground text-center mb-16"
         >
           Áreas en las que he colaborado
         </motion.h2>
@@ -58,13 +58,13 @@ export function AreasColaboracion() {
               transition={{ delay: index * 0.1 }}
               className="flex flex-col p-8 rounded-3xl border-none bg-surface hover:bg-[#1A1A1E] transition-colors min-h-[280px]"
             >
-              <div className="text-sm font-medium text-muted/60 mb-6">
+              <div className="text-caption font-medium text-muted/60 mb-6">
                 {area.num}
               </div>
-              <h3 className="text-xl md:text-2xl font-normal text-foreground mb-12">
+              <h3 className="text-title-card font-normal text-foreground mb-12">
                 {area.title}
               </h3>
-              <p className="text-muted leading-relaxed mt-auto text-sm md:text-base">
+              <p className="text-body-sm text-muted mt-auto">
                 {area.description}
               </p>
             </motion.div>

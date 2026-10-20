@@ -48,7 +48,7 @@ export function MethodologySchema() {
     <section className="dark bg-background relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-24 mt-16">
       <div className="max-w-6xl mx-auto px-6 relative">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-normal text-foreground">
+          <h2 className="text-title-section font-normal text-foreground">
             {t('mainSubtitle')}
           </h2>
         </div>
@@ -74,10 +74,10 @@ export function MethodologySchema() {
                 <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 ${step.bgLight}`}>
                   <step.icon className={`w-6 h-6 ${step.color}`} />
                 </div>
-                <h3 className={`text-xl font-medium tracking-wide mb-2 ${step.color}`}>
+                <h3 className={`text-title-card font-medium tracking-wide mb-2 ${step.color}`}>
                   {step.title}
                 </h3>
-                <p className="text-sm font-normal text-muted leading-relaxed">
+                <p className="text-body-sm text-muted">
                   {step.subtitle}
                 </p>
               </div>
@@ -86,7 +86,7 @@ export function MethodologySchema() {
               <div className="flex-1 mb-8">
                 <ul className="space-y-4">
                   {step.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm text-foreground/90">
+                    <li key={i} className="flex items-start gap-3 text-body-sm text-foreground/90">
                       <CheckCircle2 className={`w-4 h-4 mt-0.5 shrink-0 ${step.color} opacity-70`} />
                       <span className="leading-tight">{item}</span>
                     </li>
@@ -96,10 +96,10 @@ export function MethodologySchema() {
 
               {/* Output */}
               <div className="mt-auto pt-6 border-t border-border/10">
-                <div className="text-[9px] font-semibold text-muted tracking-widest mb-3 uppercase">
+                <div className="text-label font-semibold text-muted tracking-widest mb-3 uppercase">
                   {t('outputLabel')}
                 </div>
-                <div className="flex flex-wrap gap-2 text-xs text-muted">
+                <div className="flex flex-wrap gap-2 text-caption text-muted">
                   {step.output.map((out, i) => (
                     <span key={i} className="px-3 py-1.5 rounded-full bg-background/60 border-none whitespace-nowrap">
                       {out}
@@ -119,11 +119,11 @@ export function MethodologySchema() {
           transition={{ delay: 0.6 }}
           className="mt-24 flex flex-col w-full"
         >
-          <h3 className="text-3xl md:text-4xl font-normal text-foreground mb-4 text-left">
+          <h3 className="text-title-section font-normal text-foreground mb-4 text-left">
             El valor del UX Engineer
           </h3>
 
-          <p className="text-muted text-[15px] md:text-base leading-relaxed mb-12 text-left max-w-4xl">
+          <p className="text-body text-muted mb-12 text-left max-w-4xl">
             Mientras que los perfiles tradicionales se especializan en un extremo del espectro, el <strong>UX Engineer</strong> actúa como puente. <br className="hidden md:block" />
             Cobertura equilibrada e integradora entre diseño, tecnología, estrategia, analítica y entrega end-to-end.
           </p>
@@ -137,14 +137,14 @@ export function MethodologySchema() {
 
             {/* Right: Results */}
             <div className="w-full lg:w-[450px] flex flex-col gap-4">
-              <h4 className="text-2xl font-normal text-foreground mb-4 text-left">{t('resultsTitle')}</h4>
+              <h4 className="text-title-subsection font-normal text-foreground mb-4 text-left">{t('resultsTitle')}</h4>
               <div className="flex flex-col gap-4 w-full">
                 {(t.raw('results') as string[]).map((text, idx) => (
                   <div key={idx} className="bg-surface rounded-2xl p-6 flex items-center gap-4 hover:scale-[1.02] transition-transform duration-300">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                       <CheckCircle2 className="w-5 h-5 text-primary" />
                     </div>
-                    <span className="text-foreground/90 font-medium text-[15px] leading-snug">
+                    <span className="text-body font-medium text-foreground/90 leading-snug">
                       {text}
                     </span>
                   </div>

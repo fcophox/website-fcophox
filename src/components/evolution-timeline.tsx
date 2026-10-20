@@ -101,10 +101,10 @@ export function EvolutionTimeline() {
       <div className="max-w-6xl mx-auto px-6">
         {/* Header Section */}
         <div className="mb-20">
-          <h2 className="text-4xl md:text-5xl font-normal text-foreground mb-6">
+          <h2 className="text-title-section font-normal text-foreground mb-6">
             Evolución a lo largo del tiempo
           </h2>
-          <p className="text-lg text-muted max-w-3xl">
+          <p className="text-subtitle text-muted max-w-3xl">
             He pasado por diversas etapas, desde el diseño gráfico hasta el liderazgo en UX, siempre
             buscando resolver problemas reales y aportar valor a través del diseño.
           </p>
@@ -135,7 +135,7 @@ export function EvolutionTimeline() {
                       <div className="h-[4px] w-[4px] rounded-full bg-muted/40" />
                     )}
                   </div>
-                  <span className="text-sm md:text-base leading-tight">
+                  <span className="text-body-sm leading-tight">
                     {exp.title}
                   </span>
                 </button>
@@ -155,21 +155,21 @@ export function EvolutionTimeline() {
                 className="scroll-mt-48 transition-opacity duration-500"
                 style={{ opacity: activeId === exp.id ? 1 : 0.5 }}
               >
-                <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/30 bg-secondary/5 text-secondary text-xs font-medium tracking-wide mb-6">
+                <div className="inline-block px-4 py-1.5 rounded-full border border-secondary/30 bg-secondary/5 text-secondary text-label font-medium mb-6">
                   {exp.date}
                 </div>
                 
-                <h3 className="text-2xl md:text-3xl font-medium text-foreground mb-6">
+                <h3 className="text-title-subsection font-medium text-foreground mb-6">
                   {exp.title}
                 </h3>
                 
-                <p className="text-muted leading-relaxed mb-10 text-lg">
+                <p className="text-body text-muted mb-10">
                   {exp.description}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {exp.skills.map((skill, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-foreground font-medium text-sm">
+                    <div key={idx} className="flex items-center gap-3 text-body-sm font-medium text-foreground">
                       <CheckCircle2 className="text-primary w-5 h-5 shrink-0" />
                       <span>{skill}</span>
                     </div>

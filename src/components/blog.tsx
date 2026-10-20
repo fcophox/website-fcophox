@@ -36,7 +36,7 @@ export async function Blog() {
     <section className="w-full py-24 z-10 relative">
       <div className="dm-container">
         <div className="flex items-end justify-between mb-12">
-          <h2 className="text-[clamp(1.2rem,4vw,2.2rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px]">
+          <h2 className="text-title-section font-normal text-foreground text-left w-full md:max-w-[750px]">
             {t('title')}
           </h2>
 
@@ -73,16 +73,16 @@ export async function Blog() {
 
               <div className="flex flex-col">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs text-muted">{formatDate(article.published_at || article.created_at)}</span>
+                  <span className="text-caption text-muted">{formatDate(article.published_at || article.created_at)}</span>
                   {/* <span className="text-xs font-medium text-secondary bg-secondary/10 px-2.5 py-1 rounded-full ml-auto">
                     {article.category || t('defaultCategory')}
                   </span> */}
                 </div>
 
-                <h3 className="text-[clamp(1rem,2.4vw,1.3rem)] font-normal text-foreground leading-tight mb-2 group-hover:text-primary transition-colors">
+                <h3 className="text-title-card font-normal text-foreground mb-2 group-hover:text-primary transition-colors">
                   {article.title}
                 </h3>
-                <p className="text-base text-muted leading-relaxed line-clamp-2">
+                <p className="text-body-sm text-muted line-clamp-2">
                   {/* `content` ya es el excerpt que escribió el editor, no HTML. */}
                   {article.content || t('readFull')}
                 </p>

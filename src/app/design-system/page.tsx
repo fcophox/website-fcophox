@@ -16,6 +16,23 @@ const colors = [
   { id: 'muted', bgClass: 'bg-muted' },
 ];
 
+// Escala tipográfica — los nombres de clase se declaran literales para que
+// Tailwind los detecte al escanear este archivo.
+const typeScale = [
+  { role: 'display', className: 'text-display', sample: 'Display', meta: 'clamp(2.5rem, 6vw, 4.5rem) · lh 1.05' },
+  { role: 'titlePage', className: 'text-title-page', sample: 'Título de página', meta: 'clamp(2.25rem, 5vw, 3.5rem) · lh 1.1' },
+  { role: 'titleSection', className: 'text-title-section', sample: 'Título de sección', meta: 'clamp(1.5rem, 3vw, 2.25rem) · lh 1.2' },
+  { role: 'titleSubsection', className: 'text-title-subsection', sample: 'Subtítulo de bloque', meta: 'clamp(1.25rem, 2.2vw, 1.75rem) · lh 1.3' },
+  { role: 'titleCard', className: 'text-title-card', sample: 'Título de tarjeta', meta: '1.25rem · lh 1.35' },
+  { role: 'subtitle', className: 'text-subtitle', sample: 'Párrafo de entrada (lead)', meta: '1.25rem · lh 1.6' },
+  { role: 'body', className: 'text-body', sample: 'Párrafo principal con el tamaño base del sistema.', meta: '1rem · lh 1.7' },
+  { role: 'bodySm', className: 'text-body-sm', sample: 'Descripción de tarjeta o texto secundario.', meta: '0.875rem · lh 1.6' },
+  { role: 'label', className: 'text-label uppercase', sample: 'Etiqueta', meta: '0.75rem · tracking 0.08em' },
+  { role: 'caption', className: 'text-caption', sample: 'Meta o nota al pie', meta: '0.75rem · lh 1.5' },
+  { role: 'copyright', className: 'text-copyright', sample: 'fcophox.com — Todos los derechos reservados', meta: '0.75rem · lh 1.5' },
+  { role: 'code', className: 'text-code font-mono', sample: 'const token = "text-code";', meta: '0.875rem · lh 1.6' },
+];
+
 const SIGNATURE_HTML = `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse">
   <tbody><tr>
     <td width="60" height="60">
@@ -51,13 +68,13 @@ export default function DesignSystemPage() {
 
         {/* Page Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-16">
-          <h1 className="text-4xl md:text-[3.5rem] font-normal text-foreground mb-8 leading-tight tracking-tight">{t('title')}</h1>
-          <p className="text-lg md:text-xl text-muted leading-relaxed font-normal max-w-3xl">{t('subtitle')}</p>
+          <h1 className="text-title-page font-normal text-foreground mb-8">{t('title')}</h1>
+          <p className="text-subtitle text-muted font-normal max-w-3xl">{t('subtitle')}</p>
         </motion.div>
 
         {/* Colors - Light Mode */}
         <section className="mb-16">
-          <h2 className="text-2xl font-normal text-foreground mb-8">{t('colorsLight')}</h2>
+          <h2 className="text-title-section font-normal text-foreground mb-8">{t('colorsLight')}</h2>
           {/* Force light background context for light swatches */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 bg-[#f8fafc] rounded-3xl border border-border/50">
             {colors.map((color) => (
@@ -71,7 +88,7 @@ export default function DesignSystemPage() {
 
         {/* Colors - Dark Mode */}
         <section className="mb-24">
-          <h2 className="text-2xl font-normal text-foreground mb-8">{t('colorsDark')}</h2>
+          <h2 className="text-title-section font-normal text-foreground mb-8">{t('colorsDark')}</h2>
           {/* Inject `.dark` to force dark mode colors in this container */}
           <div className="dark grid grid-cols-2 md:grid-cols-4 gap-6 p-8 bg-background rounded-3xl border border-border">
             {colors.map((color) => (
@@ -85,7 +102,7 @@ export default function DesignSystemPage() {
 
         {/* Typography */}
         <section>
-          <h2 className="text-2xl font-normal text-foreground mb-8">{t('typography')}</h2>
+          <h2 className="text-title-section font-normal text-foreground mb-8">{t('typography')}</h2>
           <div className="flex flex-col md:flex-row gap-8 lg:gap-12">
 
             {/* Sans Serif */}
@@ -151,9 +168,30 @@ export default function DesignSystemPage() {
           </div>
         </section>
 
+        {/* Type Scale */}
+        <section className="mb-24">
+          <h2 className="text-title-section font-normal text-foreground mb-4">{t('typeScale')}</h2>
+          <p className="text-body-sm text-muted mb-8 max-w-3xl">{t('typeScaleNote')}</p>
+          <div className="rounded-3xl bg-surface border border-border divide-y divide-border overflow-hidden">
+            {typeScale.map((item) => (
+              <div
+                key={item.role}
+                className="flex flex-col lg:flex-row lg:items-baseline gap-3 lg:gap-10 p-6 md:p-8"
+              >
+                <div className="lg:w-60 shrink-0">
+                  <code className="text-code font-mono text-primary">{item.className}</code>
+                  <div className="text-caption text-muted mt-1.5">{t(`scaleRoles.${item.role}`)}</div>
+                  <div className="text-caption text-muted/60 font-mono mt-0.5">{item.meta}</div>
+                </div>
+                <div className={`${item.className} text-foreground min-w-0`}>{item.sample}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Email Signature */}
         <section className="mb-24">
-          <h2 className="text-2xl font-normal text-foreground mb-8">Firma de Correo</h2>
+          <h2 className="text-title-section font-normal text-foreground mb-8">Firma de Correo</h2>
           <div className="flex flex-col md:flex-row gap-8">
             <div className="flex-1 p-8 rounded-3xl bg-surface border border-border flex flex-col gap-6">
               <span className="text-sm text-muted font-mono uppercase tracking-wider block">Vista Previa (Copia esto visualmente)</span>

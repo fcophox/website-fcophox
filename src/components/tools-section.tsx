@@ -36,14 +36,14 @@ export function ToolsSection() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 flex flex-col items-start w-[85%] lg:w-full relative z-10"
           >
-            <span className="inline-block bg-[#dfb281]/10 text-[#dfb281] border border-[#dfb281]/20 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wide uppercase mb-6">
+            <span className="inline-block bg-[#dfb281]/10 text-[#dfb281] border border-[#dfb281]/20 px-3.5 py-1.5 rounded-full text-label font-mono uppercase mb-6">
               {t('badge')}
             </span>
             <h2
-              className="text-[clamp(1.8rem,4vw,2.5rem)] font-normal text-foreground leading-tight tracking-tight mb-6"
+              className="text-title-section font-normal text-foreground mb-6"
               dangerouslySetInnerHTML={{ __html: t.raw('title') }}
             />
-            <p className="text-muted text-base md:text-lg font-medium leading-relaxed mb-8">
+            <p className="text-subtitle text-muted font-medium mb-8">
               {t('description')}
             </p>
             <a

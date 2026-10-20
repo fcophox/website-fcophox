@@ -177,7 +177,7 @@ export function CertificationsSection() {
     <section className="dark bg-background w-full py-24">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col mb-10">
-          <h2 className="text-3xl md:text-4xl font-normal text-foreground mb-8">
+          <h2 className="text-title-section font-normal text-foreground mb-8">
             {t('title')}
           </h2>
 
@@ -196,7 +196,7 @@ export function CertificationsSection() {
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`pb-4 text-sm font-medium transition-colors relative ${activeTab === tab
+                  className={`pb-4 text-body-sm font-medium transition-colors relative ${activeTab === tab
                     ? "text-foreground"
                     : "text-muted hover:text-foreground/80"
                     }`}
@@ -241,14 +241,14 @@ export function CertificationsSection() {
                     </div>
                   ) : (
                     <div className="h-10 flex items-center">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-muted/50 border border-border/20 px-2.5 py-1 rounded-full bg-surface/50">
+                      <span className="text-label font-mono uppercase text-muted/50 border border-border/20 px-2.5 py-1 rounded-full bg-surface/50">
                         {getCategoryLabel(item.category)}
                       </span>
                     </div>
                   )}
 
                   {item.logo && (
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-muted/50 border border-border/20 px-2.5 py-1 rounded-full bg-surface/50">
+                    <span className="text-label font-mono uppercase text-muted/50 border border-border/20 px-2.5 py-1 rounded-full bg-surface/50">
                       {getCategoryLabel(item.category)}
                     </span>
                   )}
@@ -256,10 +256,10 @@ export function CertificationsSection() {
 
                 {/* Content */}
                 <div className="mt-auto flex flex-col gap-4">
-                  <h3 className="text-[1.1rem] font-medium text-foreground leading-snug">
+                  <h3 className="text-title-card font-medium text-foreground">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-muted font-mono uppercase tracking-wider">
+                  <p className="text-label text-muted font-mono uppercase">
                     {item.year} — {item.institution}
                   </p>
                 </div>

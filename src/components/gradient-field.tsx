@@ -42,6 +42,14 @@ export type FieldParams = {
    */
   bottomFade: number;
   /**
+   * The mirror of `bottomFade`: how far down the frame the TOP dissolves into
+   * the page background. The hero ends a section and has to hand off downward;
+   * a block that closes the page has to hand off upward instead, and there is
+   * no way to express that by flipping the canvas — the vignette and the noise
+   * are not symmetric.
+   */
+  topFade: number;
+  /**
    * Render scale. The field has no hard edges, so drawing it at a fraction of
    * the viewport and letting the browser upscale is invisible — and it is the
    * single biggest lever on cost, since this shader is fragment-bound.
@@ -60,6 +68,7 @@ export const FIELD_DEFAULTS: FieldParams = {
   vignette: 0.95,
   grain: 0.018,
   bottomFade: 0.7,
+  topFade: 0,
   resolution: 1,
 };
 
@@ -82,7 +91,7 @@ varying vec2 vUv;
 uniform float uTime;
 uniform vec2  uRes;
 uniform vec3  uA, uB, uBg;
-uniform float uScale, uSpeed, uWarp, uIntensity, uContrast, uMixBias, uVignette, uGrain, uBottomFade;
+uniform float uScale, uSpeed, uWarp, uIntensity, uContrast, uMixBias, uVignette, uGrain, uBottomFade, uTopFade;
 
 float hash(vec2 p) {
   return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
@@ -149,6 +158,10 @@ void main() {
   // to the page instead of stopping on an edge. vUv.y is 0 at the bottom here.
   col = mix(uBg, col, smoothstep(0.0, max(uBottomFade, 0.001), vUv.y));
 
+  // The same hand-off at the top, for blocks that close the page. Two masks
+  // applied in sequence; where both are 0 the field keeps its full colour.
+  col = mix(uBg, col, smoothstep(0.0, max(uTopFade, 0.001), 1.0 - vUv.y));
+
   // Ordered-ish dither. Wide, nearly flat gradients band badly in 8 bits.
   col += (hash(vUv * uRes) - 0.5) * uGrain;
 
@@ -159,7 +172,7 @@ void main() {
 const UNIFORMS = [
   "uTime", "uRes", "uA", "uB", "uBg",
   "uScale", "uSpeed", "uWarp", "uIntensity", "uContrast", "uMixBias",
-  "uVignette", "uGrain", "uBottomFade",
+  "uVignette", "uGrain", "uBottomFade", "uTopFade",
 ] as const;
 
 function compile(gl: WebGLRenderingContext, type: number, src: string) {
@@ -195,7 +208,6 @@ export function GradientField({
 
   const p: FieldParams = { ...FIELD_DEFAULTS, ...params };
   const paramsRef = useRef(p);
-  paramsRef.current = p;
 
   const redrawRef = useRef<(() => void) | null>(null);
   const resizeRef = useRef<(() => void) | null>(null);
@@ -205,13 +217,27 @@ export function GradientField({
     if (!canvas) return;
 
     const gl = canvas.getContext("webgl", {
-      alpha: false,
+      /*
+        `alpha: true`, not false. A context that hasn't painted yet — before the
+        first frame, while the shader is still compiling, or after a resize — is
+        not reliably empty-and-transparent when alpha is off: some engines
+        composite it as an opaque white (or black) rectangle over the section,
+        which is exactly the flash this is meant to avoid. With alpha on, an
+        unpainted or cleared buffer is simply transparent, so whatever sits
+        behind the canvas shows through. The fragment shader writes alpha 1.0,
+        so the painted result is identical either way.
+      */
+      alpha: true,
       antialias: false,
       powerPreference: "low-power",
     });
     // No WebGL: the canvas stays empty and whatever sits behind it shows
     // through. Callers keep a CSS gradient there as the fallback.
-    if (!gl) return;
+    //
+    // A context that is already lost counts as none: in development the
+    // effect mounts twice, and the cleanup below loses the context the second
+    // mount gets back.
+    if (!gl || gl.isContextLost()) return;
 
     const vs = compile(gl, gl.VERTEX_SHADER, VERT);
     const fs = compile(gl, gl.FRAGMENT_SHADER, FRAG);
@@ -267,8 +293,12 @@ export function GradientField({
       gl.uniform1f(u.uVignette, v.vignette);
       gl.uniform1f(u.uGrain, v.grain);
       gl.uniform1f(u.uBottomFade, v.bottomFade);
+      gl.uniform1f(u.uTopFade, v.topFade);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
+      // Only now is there something worth showing.
+      canvas.style.opacity = "1";
     };
+
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
@@ -296,6 +326,14 @@ export function GradientField({
       start = 0;
       raf = requestAnimationFrame(loop);
     };
+
+    // A lost context leaves the canvas blank, and some browsers paint that
+    // blank white over the hero. Hide it so the dark fallback shows instead.
+    const onContextLost = () => {
+      stop();
+      canvas.style.opacity = "0";
+    };
+    canvas.addEventListener("webglcontextlost", onContextLost);
 
     redrawRef.current = () => {
       if (!running) draw(lastT);
@@ -329,6 +367,7 @@ export function GradientField({
       ro.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
       reduced.removeEventListener("change", onMotionChange);
+      canvas.removeEventListener("webglcontextlost", onContextLost);
       gl.deleteBuffer(buf);
       gl.deleteProgram(prog);
       gl.deleteShader(vs);
@@ -338,8 +377,11 @@ export function GradientField({
   }, []);
 
   // Resolution changes the drawing-buffer size, so it needs a resize, not just
-  // a repaint. Everything else is a uniform.
+  // a repaint. Everything else is a uniform. Los params entran acá y no en el
+  // render: escribir un ref durante el render es un efecto secundario, y el
+  // bucle de dibujo ya lee `paramsRef.current` en cada frame.
   useEffect(() => {
+    paramsRef.current = p;
     resizeRef.current?.();
     redrawRef.current?.();
   });
@@ -349,6 +391,13 @@ export function GradientField({
       ref={canvasRef}
       aria-hidden
       className={`pointer-events-none block h-full w-full ${className}`}
+      /*
+        Invisible until the first frame is drawn. Redundant now that the context
+        is created with alpha, but kept: it also spares the first composite of a
+        half-drawn frame, and it costs nothing. Inline, so it holds before the
+        stylesheet arrives too.
+      */
+      style={{ opacity: 0, transition: "opacity 600ms ease-out" }}
     />
   );
 }

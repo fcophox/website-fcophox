@@ -376,6 +376,22 @@
     "typography": "Tipografía",
     "typographySans": "Sans Serif (Principal)",
     "typographyMono": "Monospace (Código & Etiquetas)",
+    "typeScale": "Escala Tipográfica",
+    "typeScaleNote": "Cada rol es una clase Tailwind con su line-height y letter-spacing ya definidos. Úsalas en lugar de text-sm / text-[clamp(...)].",
+    "scaleRoles": {
+      "display": "Hero / titular de marketing",
+      "titlePage": "Título de página (H1)",
+      "titleSection": "Título de sección (H2)",
+      "titleSubsection": "Subtítulo de bloque (H3)",
+      "titleCard": "Título de tarjeta",
+      "subtitle": "Párrafo de entrada (lead)",
+      "body": "Párrafo principal",
+      "bodySm": "Descripción de tarjeta / texto secundario",
+      "label": "Eyebrow / etiqueta uppercase",
+      "caption": "Meta / nota",
+      "copyright": "Línea legal del footer",
+      "code": "Código / monoespaciado"
+    },
     "colorNames": {
       "background": "Background",
       "foreground": "Foreground",

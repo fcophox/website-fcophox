@@ -104,13 +104,13 @@ export function ConversationCta() {
           <div aria-hidden className="grid invisible">
             {slides.map((s, i) => (
               <div key={i} className="[grid-area:1/1] flex flex-col items-center">
-                <div className="mb-8 font-mono text-[10px] uppercase tracking-[0.18em] md:text-xs">
+                <div className="mb-8 font-mono text-label uppercase tracking-[0.18em]">
                   {s.label}
                 </div>
-                <div className="mb-6 max-w-3xl text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">
+                <div className="mb-6 max-w-3xl text-display">
                   {s.title}
                 </div>
-                <div className="mb-10 max-w-xl text-base leading-relaxed md:text-lg">
+                <div className="mb-10 max-w-xl text-body">
                   {s.description}
                 </div>
               </div>
@@ -124,13 +124,13 @@ export function ConversationCta() {
                 {...swap}
                 className="flex flex-col items-center"
               >
-                <p className="mb-8 font-mono text-[10px] uppercase tracking-[0.18em] text-primary md:text-xs">
+                <p className="mb-8 font-mono text-label uppercase tracking-[0.18em] text-primary">
                   {slide.label}
                 </p>
-                <h2 className="mb-6 max-w-3xl text-4xl font-normal leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                <h2 className="mb-6 max-w-3xl text-display font-normal text-foreground">
                   {slide.title}
                 </h2>
-                <p className="mb-10 max-w-xl text-base leading-relaxed text-muted md:text-lg">
+                <p className="mb-10 max-w-xl text-body text-muted">
                   {slide.description}
                 </p>
               </motion.div>

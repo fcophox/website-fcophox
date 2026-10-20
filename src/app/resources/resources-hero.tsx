@@ -139,7 +139,7 @@ export function ResourcesHero({ onUnlock }: { onUnlock?: () => void }) {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <Link href="/" className="inline-flex items-center text-sm font-medium text-muted hover:text-foreground transition-colors font-sans">
+          <Link href="/" className="inline-flex items-center text-body-sm font-medium text-muted hover:text-foreground transition-colors font-sans">
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('backHome')}
           </Link>
@@ -153,21 +153,21 @@ export function ResourcesHero({ onUnlock }: { onUnlock?: () => void }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20">
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-body-sm font-medium mb-6 border border-primary/20">
               <KeyRound className="w-4 h-4" />
               Recursos Exclusivos
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-foreground leading-tight mb-6">
+            <h1 className="text-title-page font-normal text-foreground mb-6">
               Desbloquea el
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary font-normal">
                 contenido especial
               </span>
             </h1>
-            <p className="text-lg text-muted max-w-2xl mb-8 leading-relaxed">
+            <p className="text-subtitle text-muted max-w-2xl mb-8">
               Ingresa el código de acceso de 4 dígitos para acceder a todos nuestros recursos exclusivos para community.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center text-sm text-muted">
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center text-body-sm text-muted">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span>¿No tienes un código de acceso? Ponte en contacto para obtener uno.</span>
@@ -185,8 +185,8 @@ export function ResourcesHero({ onUnlock }: { onUnlock?: () => void }) {
             className="w-full max-w-md bg-surface/40 backdrop-blur-xl border border-border/80 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden"
           >
             <div className="relative z-10">
-              <h2 className="text-xl font-medium text-foreground mb-2">Código de acceso</h2>
-              <p className="text-sm text-muted mb-8">Por favor, escribe el código de 4 dígitos para continuar.</p>
+              <h2 className="text-title-card font-medium text-foreground mb-2">Código de acceso</h2>
+              <p className="text-body-sm text-muted mb-8">Por favor, escribe el código de 4 dígitos para continuar.</p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="flex justify-between gap-2 sm:gap-3">
@@ -216,7 +216,7 @@ export function ResourcesHero({ onUnlock }: { onUnlock?: () => void }) {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="flex items-center gap-2 text-rose-500 text-sm bg-rose-500/10 p-3 rounded-lg border border-rose-500/20"
+                      className="flex items-center gap-2 text-rose-500 text-body-sm bg-rose-500/10 p-3 rounded-lg border border-rose-500/20"
                     >
                       <ShieldAlert className="w-5 h-5 flex-shrink-0" />
                       <span>Código incorrecto. Inténtalo de nuevo.</span>
@@ -228,7 +228,7 @@ export function ResourcesHero({ onUnlock }: { onUnlock?: () => void }) {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="flex items-center gap-2 text-emerald-500 text-sm bg-emerald-500/10 p-3 rounded-lg border border-emerald-500/20"
+                      className="flex items-center gap-2 text-emerald-500 text-body-sm bg-emerald-500/10 p-3 rounded-lg border border-emerald-500/20"
                     >
                       <Check className="w-5 h-5 flex-shrink-0" />
                       <span>Acceso concedido. ¡Redirigiendo a descargas!</span>
@@ -239,7 +239,7 @@ export function ResourcesHero({ onUnlock }: { onUnlock?: () => void }) {
                 <button
                   type="submit"
                   disabled={loading || code.some((d) => d === "") || status === "success"}
-                  className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 text-base font-medium transition-all duration-200 border ${status === "success"
+                  className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 text-body font-medium transition-all duration-200 border ${status === "success"
                     ? "bg-emerald-600 border-emerald-500 text-white cursor-default"
                     : "bg-primary border-primary/30 hover:bg-primary/90 text-white shadow-lg shadow-primary/20 disabled:opacity-40 disabled:hover:bg-primary disabled:cursor-not-allowed"
                     }`}

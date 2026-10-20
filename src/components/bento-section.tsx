@@ -46,10 +46,10 @@ export function BentoSection() {
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none transition-transform duration-700 group-hover:scale-110 z-0" />
 
             <div className="z-10 mb-12">
-              <h3 className="text-[clamp(1.2rem,4vw,2.2rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px] mb-4">
+              <h3 className="text-title-subsection font-normal text-foreground text-left w-full md:max-w-[750px] mb-4">
                 {t('card1Title')}
               </h3>
-              <p className="text-muted text-sm md:text-base max-w-md">
+              <p className="text-body-sm text-muted max-w-md">
                 {t('card1Desc')}
               </p>
             </div>
@@ -72,7 +72,7 @@ export function BentoSection() {
                     <div className={`w-14 h-14 rounded-full border flex items-center justify-center transition-all duration-500 ${isActive ? 'border-primary bg-primary/10 shadow-[0_0_15px_rgba(var(--primary),0.2)]' : 'border-border bg-surface hover:border-primary/50'}`}>
                       <Icon size={20} className={`transition-colors duration-500 ${isActive ? 'text-primary' : 'text-muted'}`} />
                     </div>
-                    <span className={`text-xs font-medium px-2 rounded-full border transition-all duration-500 ${isActive ? 'text-foreground bg-surface/80 border-primary/30' : 'text-muted border-transparent bg-transparent'}`}>
+                    <span className={`text-caption font-medium px-2 rounded-full border transition-all duration-500 ${isActive ? 'text-foreground bg-surface/80 border-primary/30' : 'text-muted border-transparent bg-transparent'}`}>
                       {step.title}
                     </span>
                   </div>
@@ -94,7 +94,7 @@ export function BentoSection() {
             </div>
             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-primary/10 to-transparent opacity-50 pointer-events-none z-0" />
 
-            <h3 className="text-[clamp(1.1rem,2.5vw,1.6rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px] mb-8 z-10">
+            <h3 className="text-title-subsection font-normal text-foreground text-left w-full md:max-w-[750px] mb-8 z-10">
               {t('card2Title')}
             </h3>
 
@@ -118,7 +118,7 @@ export function BentoSection() {
             </div>
             <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/20 rounded-full blur-[80px] pointer-events-none z-0" />
 
-            <h3 className="text-[clamp(1.1rem,2.5vw,1.6rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px] mb-6 z-10 relative shrink-0">
+            <h3 className="text-title-subsection font-normal text-foreground text-left w-full md:max-w-[750px] mb-6 z-10 relative shrink-0">
               {t('card3Title')}
             </h3>
 
@@ -151,7 +151,7 @@ export function BentoSection() {
                 ].map((service, i) => (
                   <div
                     key={i}
-                    className="bg-background/30 backdrop-blur-sm text-muted font-medium text-xs py-2.5 px-4 rounded-xl shadow-sm transition-all duration-300 hover:bg-surface hover:text-foreground hover:border-primary/30 w-full shrink-0"
+                    className="bg-background/30 backdrop-blur-sm text-muted font-medium text-caption py-2.5 px-4 rounded-xl shadow-sm transition-all duration-300 hover:bg-surface hover:text-foreground hover:border-primary/30 w-full shrink-0"
                   >
                     {service}
                   </div>
@@ -169,10 +169,10 @@ export function BentoSection() {
             className="md:col-span-2 rounded-3xl bg-surface border-none p-8 md:p-10 flex flex-col relative overflow-hidden group"
           >
             <div className="z-10 mb-8 max-w-xl">
-              <h3 className="text-[clamp(1.1rem,2.5vw,1.6rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px] mb-4">
+              <h3 className="text-title-subsection font-normal text-foreground text-left w-full md:max-w-[750px] mb-4">
                 {t('card4Title')}
               </h3>
-              <p className="text-muted text-sm md:text-base">
+              <p className="text-body-sm text-muted">
                 {t('card4Desc')}
               </p>
             </div>
@@ -182,32 +182,32 @@ export function BentoSection() {
               <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-6">
                 <button
                   onClick={() => setActiveTab(0)}
-                  className={`flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all ${activeTab === 0 ? 'bg-primary/10 border border-primary text-primary shadow-[0_0_10px_rgba(var(--primary),0.2)]' : 'bg-surface border border-border text-muted hover:border-primary/50'}`}
+                  className={`flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-label font-medium transition-all ${activeTab === 0 ? 'bg-primary/10 border border-primary text-primary shadow-[0_0_10px_rgba(var(--primary),0.2)]' : 'bg-surface border border-border text-muted hover:border-primary/50'}`}
                 >
                   <Lightbulb size={14} className="md:w-4 md:h-4" /> {t('tab1')}
                 </button>
                 <button
                   onClick={() => setActiveTab(1)}
-                  className={`flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all ${activeTab === 1 ? 'bg-primary/10 border border-primary text-primary shadow-[0_0_10px_rgba(var(--primary),0.2)]' : 'bg-surface border border-border text-muted hover:border-primary/50'}`}
+                  className={`flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-label font-medium transition-all ${activeTab === 1 ? 'bg-primary/10 border border-primary text-primary shadow-[0_0_10px_rgba(var(--primary),0.2)]' : 'bg-surface border border-border text-muted hover:border-primary/50'}`}
                 >
                   <Zap size={14} className="md:w-4 md:h-4" /> {t('tab2')}
                 </button>
                 <button
                   onClick={() => setActiveTab(2)}
-                  className={`flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all ${activeTab === 2 ? 'bg-primary/10 border border-primary text-primary shadow-[0_0_10px_rgba(var(--primary),0.2)]' : 'bg-surface border border-border text-muted hover:border-primary/50'}`}
+                  className={`flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-label font-medium transition-all ${activeTab === 2 ? 'bg-primary/10 border border-primary text-primary shadow-[0_0_10px_rgba(var(--primary),0.2)]' : 'bg-surface border border-border text-muted hover:border-primary/50'}`}
                 >
                   <LineChart size={14} className="md:w-4 md:h-4" /> {t('tab3')}
                 </button>
                 <button
                   onClick={() => setActiveTab(3)}
-                  className={`flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all ${activeTab === 3 ? 'bg-primary/10 border border-primary text-primary shadow-[0_0_10px_rgba(var(--primary),0.2)]' : 'bg-surface border border-border text-muted hover:border-primary/50'}`}
+                  className={`flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full text-label font-medium transition-all ${activeTab === 3 ? 'bg-primary/10 border border-primary text-primary shadow-[0_0_10px_rgba(var(--primary),0.2)]' : 'bg-surface border border-border text-muted hover:border-primary/50'}`}
                 >
                   <Send size={14} className="md:w-4 md:h-4" /> {t('tab4')}
                 </button>
               </div>
 
               <div className="mb-6">
-                <p className="text-foreground font-medium text-base md:text-lg">
+                <p className="text-subtitle font-medium text-foreground">
                   {activeTab === 0 && t('tab1Desc')}
                   {activeTab === 1 && t('tab2Desc')}
                   {activeTab === 2 && t('tab3Desc')}
@@ -216,7 +216,7 @@ export function BentoSection() {
               </div>
 
               <div className="flex items-center justify-between">
-                <Link href="#" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium text-sm">
+                <Link href="#" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium text-body-sm">
                   {t('viewMore')} <ArrowUpRight size={16} />
                 </Link>
 

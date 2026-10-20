@@ -310,11 +310,11 @@ function SectionHeading({ eyebrow, title, centered }: { eyebrow?: string; title:
       className={`mb-12 ${centered ? "text-center" : ""}`}
     >
       {eyebrow && (
-        <span className="block text-[10px] font-mono uppercase tracking-[0.2em] text-muted/70 mb-4">
+        <span className="block text-label font-mono uppercase tracking-[0.2em] text-muted/70 mb-4">
           {eyebrow}
         </span>
       )}
-      <h2 className="text-3xl md:text-[2.5rem] font-normal text-foreground leading-[1.2] tracking-tight">
+      <h2 className="text-title-section font-normal text-foreground">
         {title}
       </h2>
     </motion.div>
@@ -324,12 +324,12 @@ function SectionHeading({ eyebrow, title, centered }: { eyebrow?: string; title:
 function PillarList({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <h4 className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted/70 mb-4">
+      <h4 className="text-label font-mono uppercase tracking-[0.2em] text-muted/70 mb-4">
         {title}
       </h4>
       <ul className="flex flex-col gap-2">
         {items.map((item) => (
-          <li key={item} className="flex gap-3 text-sm text-muted leading-relaxed">
+          <li key={item} className="flex gap-3 text-body-sm text-muted">
             <span className="mt-2 w-1 h-1 rounded-full bg-foreground/40 shrink-0" />
             {item}
           </li>
@@ -352,7 +352,7 @@ function FlowDiagram({ steps, highlightLast }: { steps: string[]; highlightLast?
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3, delay: Math.min(index * 0.04, 0.4) }}
-              className={`inline-flex items-center justify-center px-5 py-2.5 rounded-full border text-sm ${isHighlighted
+              className={`inline-flex items-center justify-center px-5 py-2.5 rounded-full border text-body-sm ${isHighlighted
                 ? "border-foreground/40 bg-foreground/10 text-foreground font-medium"
                 : "border-border/50 bg-surface/50 text-muted font-normal"
                 }`}
@@ -380,7 +380,7 @@ export default function MethodologyPage() {
         >
           <Link
             href="/"
-            className="inline-flex items-center text-sm font-medium text-muted hover:text-foreground transition-colors"
+            className="inline-flex items-center text-body-sm font-medium text-muted hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Volver al inicio
@@ -393,10 +393,10 @@ export default function MethodologyPage() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-16 max-w-6xl"
         >
-          <h1 className="text-4xl md:text-[3.5rem] font-normal text-foreground mb-8 leading-tight tracking-tight">
-            Metodología: Full Stack Experience Builder <span className="text-muted/70 text-lg md:text-xl">(FSEB)</span>
+          <h1 className="text-title-page font-normal text-foreground mb-8">
+            Metodología: Full Stack Experience Builder <span className="text-subtitle text-muted/70">(FSEB)</span>
           </h1>
-          <div className="flex flex-col gap-4 text-lg md:text-xl text-muted leading-relaxed font-normal">
+          <div className="flex flex-col gap-4 text-subtitle text-muted font-normal">
             <p>
               Conecto <strong className="text-foreground font-medium">estrategia</strong>,{" "}
               <strong className="text-foreground font-medium">investigación</strong>,{" "}
@@ -458,7 +458,7 @@ export default function MethodologyPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="flex flex-col gap-6 text-muted text-base md:text-lg leading-relaxed"
+                className="flex flex-col gap-6 text-body text-muted"
               >
                 <p>
                   Durante años el trabajo de UX se ha limitado a wireframes, research o interfaces ya que eso se cotrata por el negocio y esta bien, pero,
@@ -469,7 +469,7 @@ export default function MethodologyPage() {
                   {disciplines.map((item) => (
                     <li
                       key={item}
-                      className="text-sm border border-secondary/30 bg-secondary/10 text-secondary rounded-full px-4 py-1.5 font-medium"
+                      className="text-body-sm border border-secondary/30 bg-secondary/10 text-secondary rounded-full px-4 py-1.5 font-medium"
                     >
                       {item}
                     </li>
@@ -511,7 +511,7 @@ export default function MethodologyPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-6 flex flex-col gap-6 text-muted text-base md:text-lg leading-relaxed"
+              className="lg:col-span-6 flex flex-col gap-6 text-body text-muted"
             >
               <p>
                 <strong className="text-foreground font-medium">
@@ -539,11 +539,11 @@ export default function MethodologyPage() {
                 </div>
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary font-medium">
+                    <span className="text-label font-mono uppercase tracking-[0.2em] text-primary font-medium">
                       Próximamente • Ebook
                     </span>
                   </div>
-                  <p className="text-sm md:text-base text-foreground/90 font-normal leading-relaxed">
+                  <p className="text-body-sm text-foreground/90 font-normal">
                     Actualmente estoy escribiendo el <strong className="font-medium text-foreground">Ebook oficial de este framework</strong>. En diciembre estará listo para compartirlo con la comunidad.
                   </p>
                 </div>
@@ -557,10 +557,10 @@ export default function MethodologyPage() {
       <section className="dark bg-background w-full py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-[2.5rem] font-normal text-foreground leading-[1.2] tracking-tight">
+            <h2 className="text-title-section font-normal text-foreground">
               Los tres pilares del Framework
             </h2>
-            <p className="text-muted text-lg md:text-xl font-normal mt-4">
+            <p className="text-subtitle text-muted font-normal mt-4">
               De la idea al producto digital que genera valor real.
             </p>
           </div>
@@ -588,17 +588,17 @@ export default function MethodologyPage() {
                     <pillar.icon className="w-6 h-6 text-foreground" aria-hidden="true" />
                   </div>
 
-                  <h3 className="text-xl font-medium tracking-wide mb-2 text-foreground">
+                  <h3 className="text-title-card font-medium tracking-wide mb-2 text-foreground">
                     {pillar.title}
                   </h3>
-                  <p className="text-sm font-normal text-muted leading-relaxed mb-6">
+                  <p className="text-body-sm text-muted mb-6">
                     {pillar.subtitle}
                   </p>
 
                   {/* List */}
                   <ul className="space-y-4 mb-8">
                     {pillar.points.map((point) => (
-                      <li key={point} className="flex items-start gap-3 text-sm text-foreground/90">
+                      <li key={point} className="flex items-start gap-3 text-body-sm text-foreground/90">
                         <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-foreground opacity-70" aria-hidden="true" />
                         <span className="leading-tight">{point}</span>
                       </li>
@@ -608,10 +608,10 @@ export default function MethodologyPage() {
 
                 {/* Output */}
                 <div className="relative z-10 mt-auto pt-6 border-t border-border/10">
-                  <div className="text-[9px] font-semibold text-muted tracking-widest mb-3 uppercase">
+                  <div className="text-label font-semibold text-muted tracking-widest mb-3 uppercase">
                     OUTPUT
                   </div>
-                  <div className="flex flex-wrap gap-2 text-xs text-muted">
+                  <div className="flex flex-wrap gap-2 text-caption text-muted">
                     {pillar.outputs.map((output) => (
                       <span
                         key={output}
@@ -630,7 +630,7 @@ export default function MethodologyPage() {
           <div className="flex justify-center mt-12">
             <button
               onClick={() => setShowComparison(!showComparison)}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border/50 bg-surface/50 hover:bg-surface hover:border-foreground/30 text-sm font-medium text-muted hover:text-foreground transition-all duration-300 shadow-sm hover:shadow"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border/50 bg-surface/50 hover:bg-surface hover:border-foreground/30 text-body-sm font-medium text-muted hover:text-foreground transition-all duration-300 shadow-sm hover:shadow"
             >
               <span>Revisa los detalles</span>
               {showComparison ? (
@@ -663,7 +663,7 @@ export default function MethodologyPage() {
                   >
                     {/* Category name (Left Column) */}
                     <div className="lg:col-span-1">
-                      <h4 className="text-xs font-mono uppercase tracking-[0.2em] text-muted/50 lg:sticky lg:top-24">
+                      <h4 className="text-label font-mono uppercase tracking-[0.2em] text-muted/50 lg:sticky lg:top-24">
                         {section.label}
                       </h4>
                     </div>
@@ -675,16 +675,16 @@ export default function MethodologyPage() {
                           <div key={pillar.number} className="flex flex-col gap-2">
                             {/* Mobile/Tablet header for column identification */}
                             <div className="flex items-center gap-2 md:hidden mb-2">
-                              <span className="text-[10px] font-mono bg-surface border border-border/50 text-muted px-2 py-0.5 rounded">
+                              <span className="text-label font-mono bg-surface border border-border/50 text-muted px-2 py-0.5 rounded">
                                 Pilar {pillar.number}
                               </span>
-                              <span className="text-xs text-foreground font-medium">
+                              <span className="text-caption text-foreground font-medium">
                                 {pillar.title}
                               </span>
                             </div>
                             <ul className="flex flex-col gap-2.5">
                               {items.map((item) => (
-                                <li key={item} className="flex gap-3 text-sm text-muted leading-relaxed">
+                                <li key={item} className="flex gap-3 text-body-sm text-muted">
                                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-foreground/30 shrink-0" />
                                   <span>{item}</span>
                                 </li>
@@ -719,7 +719,7 @@ export default function MethodologyPage() {
               </caption>
               <thead>
                 <tr className="border-b border-border/50">
-                  <th scope="col" className="px-6 py-5 text-[10px] font-mono uppercase tracking-[0.2em] text-muted/70 font-normal">
+                  <th scope="col" className="px-6 py-5 text-label font-mono uppercase tracking-[0.2em] text-muted/70 font-normal">
                     Capacidades
                   </th>
                   {comparisonColumns.map((column, index) => {
@@ -728,7 +728,7 @@ export default function MethodologyPage() {
                       <th
                         key={column}
                         scope="col"
-                        className={`px-6 py-5 text-xs text-center ${isHighlighted
+                        className={`px-6 py-5 text-caption text-center ${isHighlighted
                           ? "text-accent font-semibold"
                           : "text-muted font-medium"
                           }`}
@@ -742,7 +742,7 @@ export default function MethodologyPage() {
               <tbody>
                 {comparisonRows.map((row) => (
                   <tr key={row.capability} className="border-b border-border/30 last:border-b-0">
-                    <th scope="row" className="px-6 py-4 text-sm font-normal text-foreground">
+                    <th scope="row" className="px-6 py-4 text-body-sm font-normal text-foreground">
                       {row.capability}
                     </th>
                     {row.scores.map((score, index) => {
@@ -786,8 +786,8 @@ export default function MethodologyPage() {
                     <item.icon className="w-6 h-6 text-primary" aria-hidden="true" />
                   </div>
                 )}
-                <h3 className="text-xl font-normal text-foreground">{item.title}</h3>
-                <p className="text-sm text-muted leading-relaxed">{item.description}</p>
+                <h3 className="text-title-card font-normal text-foreground">{item.title}</h3>
+                <p className="text-body-sm text-muted">{item.description}</p>
               </motion.article>
             ))}
           </div>
@@ -813,10 +813,10 @@ export default function MethodologyPage() {
                     transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.3) }}
                     className="flex items-center gap-5 py-5"
                   >
-                    <span className="w-8 h-8 rounded-full border border-primary/30 bg-primary/10 text-primary font-mono text-xs font-medium flex items-center justify-center shrink-0 shadow-sm">
+                    <span className="w-8 h-8 rounded-full border border-primary/30 bg-primary/10 text-primary font-mono text-caption font-medium flex items-center justify-center shrink-0 shadow-sm">
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-lg md:text-xl font-normal text-foreground">{principle}</span>
+                    <span className="text-subtitle font-normal text-foreground">{principle}</span>
                   </motion.li>
                 ))}
               </ul>
@@ -840,14 +840,14 @@ export default function MethodologyPage() {
                 viewport={{ once: true }}
                 className="flex flex-col gap-8"
               >
-                <p className="text-muted text-base md:text-lg leading-relaxed">
+                <p className="text-body text-muted">
                   Este framework es ideal para:
                 </p>
                 <ul className="flex flex-wrap gap-3">
                   {useCases.map((useCase) => (
                     <li
                       key={useCase}
-                      className="text-sm text-muted border border-border/50 bg-surface/50 rounded-full px-5 py-2"
+                      className="text-body-sm text-muted border border-border/50 bg-surface/50 rounded-full px-5 py-2"
                     >
                       {useCase}
                     </li>
@@ -868,10 +868,10 @@ export default function MethodologyPage() {
             viewport={{ once: true }}
             className="flex flex-col gap-8 max-w-4xl"
           >
-            <h2 className="text-3xl md:text-[2.5rem] font-normal text-foreground leading-[1.2] tracking-tight">
+            <h2 className="text-title-section font-normal text-foreground">
               Más que UX. Más que desarrollo.
             </h2>
-            <div className="flex flex-col gap-6 text-muted text-base md:text-lg leading-relaxed">
+            <div className="flex flex-col gap-6 text-body text-muted">
               <p>
                 <strong className="text-foreground font-medium">
                   Full Stack Experience Builder
@@ -882,7 +882,7 @@ export default function MethodologyPage() {
                 Una metodología donde la investigación, la estrategia, el diseño, la tecnología, los
                 datos y la inteligencia artificial trabajan como un único sistema.
               </p>
-              <p className="text-foreground text-lg md:text-xl font-normal leading-relaxed">
+              <p className="text-subtitle text-foreground font-normal">
                 Son productos digitales que generan valor para las personas y resultados para el
                 negocio.
               </p>

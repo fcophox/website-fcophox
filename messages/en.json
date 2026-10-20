@@ -376,6 +376,22 @@
     "typography": "Typography",
     "typographySans": "Sans Serif (Primary)",
     "typographyMono": "Monospace (Code & Badges)",
+    "typeScale": "Type Scale",
+    "typeScaleNote": "Every role ships as a Tailwind class with its line-height and letter-spacing locked in. Use these instead of text-sm / text-[clamp(...)].",
+    "scaleRoles": {
+      "display": "Hero / marketing headline",
+      "titlePage": "Page title (H1)",
+      "titleSection": "Section title (H2)",
+      "titleSubsection": "Block subtitle (H3)",
+      "titleCard": "Card title",
+      "subtitle": "Lead paragraph",
+      "body": "Body paragraph",
+      "bodySm": "Card description / secondary text",
+      "label": "Eyebrow / uppercase label",
+      "caption": "Meta / caption",
+      "copyright": "Footer legal line",
+      "code": "Code / monospace"
+    },
     "colorNames": {
       "background": "Background",
       "foreground": "Foreground",

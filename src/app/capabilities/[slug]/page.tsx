@@ -77,7 +77,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <div className="mb-12">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-muted hover:text-foreground text-sm font-medium transition-colors mb-8 group"
+              className="inline-flex items-center gap-2 text-muted hover:text-foreground text-body-sm font-medium transition-colors mb-8 group"
             >
               <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
               {labels.back}
@@ -87,7 +87,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               <MotionSpan
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="self-start bg-muted/10 dark:bg-muted/5 border border-border/40 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider text-muted uppercase"
+                className="self-start bg-muted/10 dark:bg-muted/5 border border-border/40 px-3.5 py-1.5 rounded-full text-label font-semibold text-muted uppercase"
               >
                 {data.badge}
               </MotionSpan>
@@ -95,7 +95,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-3xl md:text-6xl font-normal text-foreground leading-tight tracking-tight"
+                className="text-title-page font-normal text-foreground"
               >
                 {data.title}
               </MotionH1>
@@ -103,7 +103,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-base md:text-xl text-muted font-normal max-w-3xl leading-relaxed mt-2"
+                className="text-subtitle text-muted font-normal max-w-3xl mt-2"
               >
                 {data.shortDesc}
               </MotionP>
@@ -138,10 +138,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           >
             {/* Description */}
             <div className="mb-10 md:mb-12">
-              <h2 className="text-2xl font-normal text-foreground tracking-tight mb-4">
+              <h2 className="text-title-section font-normal text-foreground mb-4">
                 {isEs ? "Descripción de la capacidad" : "Capability Description"}
               </h2>
-              <p className="text-muted leading-relaxed text-base md:text-lg whitespace-pre-line">
+              <p className="text-body text-muted whitespace-pre-line">
                 {data.longDesc}
               </p>
             </div>
@@ -169,18 +169,18 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-42"
           >
             <div>
-              <h3 className="text-xl md:text-2xl font-normal text-foreground tracking-tight mb-4">
+              <h3 className="text-title-subsection font-normal text-foreground mb-4">
                 {isEs ? "¿Por qué lo necesitarías?" : "Why would you need it?"}
               </h3>
-              <p className="text-muted text-sm md:text-base leading-relaxed">
+              <p className="text-body-sm text-muted">
                 {data.whyNeed}
               </p>
             </div>
             <div>
-              <h3 className="text-xl md:text-2xl font-normal text-foreground tracking-tight mb-4">
+              <h3 className="text-title-subsection font-normal text-foreground mb-4">
                 {isEs ? "¿Qué obtendrías como aporte?" : "What would you get?"}
               </h3>
-              <p className="text-muted text-sm md:text-base leading-relaxed">
+              <p className="text-body-sm text-muted">
                 {data.whatYouGet}
               </p>
             </div>
@@ -194,7 +194,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             transition={{ duration: 0.5 }}
             className="mb-18 md:mb-48"
           >
-            <h2 className="text-[clamp(1.2rem,4vw,2.2rem)] font-normal text-foreground leading-tight text-left mb-20">
+            <h2 className="text-title-section font-normal text-foreground text-left mb-20">
               {isEs ? "Actividades basado en la metdología" : "Activities based on the methodology"}
             </h2>
 
@@ -203,10 +203,10 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               {/* Left — Intro + Vertical Distribution Bar */}
               <div className="lg:col-span-4">
                 <div className="lg:sticky lg:top-32">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted mb-3">
+                  <p className="text-label font-semibold uppercase tracking-[0.2em] text-muted mb-3">
                     {isEs ? "Hitos del proceso" : "Process milestones"}
                   </p>
-                  <p className="text-sm text-muted leading-relaxed mb-8">
+                  <p className="text-body-sm text-muted mb-8">
                     {isEs
                       ? "Un paso a paso claro y estructurado para asegurar que cada etapa del proyecto aporte valor y nos acerque al objetivo final."
                       : "A clear, structured step-by-step process to ensure every project stage delivers value and moves us closer to the final goal."}
@@ -223,13 +223,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     {data.roadmap.map((item, index) => (
                       <div key={index} className="relative pl-14 md:pl-16">
                         <div className="absolute left-0 top-0 z-10 w-[41px] h-[41px] rounded-full bg-background border border-2 border-primary flex items-center justify-center">
-                          <span className="text-xs font-semibold text-primary leading-none">{item.percentage}</span>
+                          <span className="text-caption font-semibold text-primary leading-none">{item.percentage}</span>
                         </div>
 
-                        <h3 className="text-xl md:text-2xl font-normal text-foreground mb-1.5">
+                        <h3 className="text-title-subsection font-normal text-foreground mb-1.5">
                           {index + 1}. {item.milestone}
                         </h3>
-                        <p className="text-sm md:text-base text-muted leading-relaxed">
+                        <p className="text-body-sm text-muted">
                           {item.description}
                         </p>
                       </div>
@@ -248,7 +248,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             transition={{ duration: 0.5 }}
             className="mb-16 md:mb-24"
           >
-            <h2 className="text-[clamp(1.2rem,4vw,2.2rem)] font-normal text-foreground leading-tight mb-6 md:mb-8 tracking-tight text-center">
+            <h2 className="text-title-section font-normal text-foreground mb-6 md:mb-8 text-center">
               {labels.plans}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
@@ -262,29 +262,29 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     className="rounded-2xl p-6 md:p-8 flex flex-col bg-surface border border-border/40 transition-all duration-300 hover:-translate-y-1 hover:border-border/70"
                   >
                     {/* Tier Badge */}
-                    <span className="self-start border border-border/60 px-3 py-1 rounded-full text-[10px] font-semibold tracking-[0.15em] text-muted uppercase mb-5">
+                    <span className="self-start border border-border/60 px-3 py-1 rounded-full text-label font-semibold text-muted uppercase mb-5">
                       {tierLabels[index] ?? tierLabels[0]}
                     </span>
 
                     {/* Plan Name */}
-                    <h3 className="text-2xl font-normal text-foreground mb-2 leading-tight">
+                    <h3 className="text-title-subsection font-normal text-foreground mb-2">
                       {plan.name.includes("—") ? plan.name.split("—").pop()!.trim() : plan.name}
                     </h3>
 
                     {/* Subtitle */}
-                    <p className="text-sm text-muted/70 leading-relaxed mb-6 md:mb-8">
+                    <p className="text-body-sm text-muted/70 mb-6 md:mb-8">
                       {plan.subtitle}
                     </p>
 
                     {/* Includes Label */}
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-muted mb-4">
+                    <p className="text-label font-semibold uppercase text-muted mb-4">
                       {isEs ? "INCLUYE" : "INCLUDES"}
                     </p>
 
                     {/* Includes List */}
                     <ul className="space-y-3 flex-1">
                       {plan.includes.map((inc, i) => (
-                        <li key={i} className="flex items-start gap-2.5 text-sm text-muted leading-relaxed">
+                        <li key={i} className="flex items-start gap-2.5 text-body-sm text-muted">
                           <Check size={14} strokeWidth={2.5} className="shrink-0 text-primary mt-0.5" />
                           {inc}
                         </li>
@@ -304,13 +304,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             transition={{ duration: 0.5 }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-[clamp(1.2rem,4vw,2.2rem)] font-normal text-foreground leading-tight text-left mb-6">
+            <h2 className="text-title-section font-normal text-foreground text-left mb-6">
               {labels.conditions}
             </h2>
             <ul className="space-y-3">
               {data.conditions.map((item, index) => (
-                <li key={index} className="text-xs md:text-sm text-muted leading-relaxed flex items-start gap-3">
-                  <span className="text-xs font-semibold text-muted/60 mt-0.5 shrink-0">
+                <li key={index} className="text-body-sm text-muted flex items-start gap-3">
+                  <span className="text-caption font-semibold text-muted/60 mt-0.5 shrink-0">
                     {(index + 1).toString().padStart(2, '0')}.
                   </span>
                   {item}
@@ -330,7 +330,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
             return (
               <div className="mt-20 md:mt-32 border-t border-border/30 pt-12 md:pt-16">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted mb-8">
+                <p className="text-label font-semibold uppercase tracking-[0.2em] text-muted mb-8">
                   {isEs ? "Explorar más capabilities" : "Explore more capabilities"}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
@@ -345,13 +345,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-muted mb-1 block">
+                    <span className="text-label font-semibold uppercase tracking-[0.15em] text-muted mb-1 block">
                       {isEs ? "Anterior" : "Previous"}
                     </span>
-                    <h3 className="text-lg md:text-xl font-normal text-foreground group-hover:text-primary transition-colors mb-1">
+                    <h3 className="text-title-card font-normal text-foreground group-hover:text-primary transition-colors mb-1">
                       {prevData.title}
                     </h3>
-                    <p className="text-sm text-muted leading-relaxed line-clamp-2">
+                    <p className="text-body-sm text-muted line-clamp-2">
                       {prevData.shortDesc}
                     </p>
                   </Link>
@@ -367,13 +367,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-muted mb-1 block">
+                    <span className="text-label font-semibold uppercase tracking-[0.15em] text-muted mb-1 block">
                       {isEs ? "Siguiente" : "Next"}
                     </span>
-                    <h3 className="text-lg md:text-xl font-normal text-foreground group-hover:text-primary transition-colors mb-1">
+                    <h3 className="text-title-card font-normal text-foreground group-hover:text-primary transition-colors mb-1">
                       {nextData.title}
                     </h3>
-                    <p className="text-sm text-muted leading-relaxed line-clamp-2">
+                    <p className="text-body-sm text-muted line-clamp-2">
                       {nextData.shortDesc}
                     </p>
                   </Link>

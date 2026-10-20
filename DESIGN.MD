@@ -77,6 +77,44 @@ shadows.lg: "0 10px 15px -3px rgb(0 0 0 / 0.1)"
 animations.fast: "150ms"
 animations.normal: "300ms"
 animations.slow: "500ms"
+# Escala tipográfica — roles semánticos.
+# Genera utilidades Tailwind `text-<rol>` con line-height y tracking acoplados.
+typography.display.size: "clamp(2.5rem, 6vw, 4.5rem)"
+typography.display.lineHeight: "1.05"
+typography.display.tracking: "-0.02em"
+typography.titlePage.size: "clamp(2.25rem, 5vw, 3.5rem)"
+typography.titlePage.lineHeight: "1.1"
+typography.titlePage.tracking: "-0.02em"
+typography.titleSection.size: "clamp(1.5rem, 3vw, 2.25rem)"
+typography.titleSection.lineHeight: "1.2"
+typography.titleSection.tracking: "-0.01em"
+typography.titleSubsection.size: "clamp(1.25rem, 2.2vw, 1.75rem)"
+typography.titleSubsection.lineHeight: "1.3"
+typography.titleSubsection.tracking: "-0.01em"
+typography.titleCard.size: "1.25rem"
+typography.titleCard.lineHeight: "1.35"
+typography.titleCard.tracking: "-0.01em"
+typography.subtitle.size: "1.25rem"
+typography.subtitle.lineHeight: "1.6"
+typography.subtitle.tracking: "0"
+typography.body.size: "1rem"
+typography.body.lineHeight: "1.7"
+typography.body.tracking: "0"
+typography.bodySm.size: "0.875rem"
+typography.bodySm.lineHeight: "1.6"
+typography.bodySm.tracking: "0"
+typography.label.size: "0.75rem"
+typography.label.lineHeight: "1.4"
+typography.label.tracking: "0.08em"
+typography.caption.size: "0.75rem"
+typography.caption.lineHeight: "1.5"
+typography.caption.tracking: "0"
+typography.copyright.size: "0.75rem"
+typography.copyright.lineHeight: "1.5"
+typography.copyright.tracking: "0"
+typography.code.size: "0.875rem"
+typography.code.lineHeight: "1.6"
+typography.code.tracking: "0"
 ---
 ```
 
@@ -101,6 +139,31 @@ animations.slow: "500ms"
 |-------|-------------------------------------|
 | Sans  | `Sansation, system-ui, sans-serif`  |
 | Mono  | `Geist Mono, Fira Code, monospace`  |
+
+## Tipografía — Escala de tamaños
+
+Cada rol genera una utilidad Tailwind `text-<rol>` con su `line-height` y
+`letter-spacing` ya acoplados. **Usa siempre estas clases en lugar de
+`text-sm`, `text-[clamp(...)]` o valores ad-hoc.** El `font-weight` y el
+`uppercase` se aplican aparte con las utilidades `font-*` / `uppercase`.
+
+| Clase                  | Rol                         | Tamaño (móvil → desktop)         | Peso sugerido |
+|------------------------|-----------------------------|----------------------------------|---------------|
+| `text-display`         | Hero / titular marketing    | `clamp(2.5rem, 6vw, 4.5rem)`     | 400           |
+| `text-title-page`      | H1 de página                | `clamp(2.25rem, 5vw, 3.5rem)`    | 400           |
+| `text-title-section`   | H2 de sección               | `clamp(1.5rem, 3vw, 2.25rem)`    | 400           |
+| `text-title-subsection`| H3 / subtítulo de bloque    | `clamp(1.25rem, 2.2vw, 1.75rem)` | 400           |
+| `text-title-card`      | Título de tarjeta           | `1.25rem`                        | 500           |
+| `text-subtitle`        | Bajada / lead paragraph     | `1.25rem`                        | 400           |
+| `text-body`            | Párrafo principal           | `1rem`                           | 400           |
+| `text-body-sm`         | Descripción de tarjeta / texto secundario | `0.875rem`         | 400           |
+| `text-label`           | Eyebrow / etiqueta uppercase| `0.75rem` + tracking `0.08em`    | 600           |
+| `text-caption`         | Meta, notas al pie          | `0.75rem`                        | 400           |
+| `text-copyright`       | Línea legal del footer      | `0.75rem`                        | 400           |
+| `text-code`            | Mono / bloques de código    | `0.875rem`                       | 400           |
+
+> Compatibilidad: los modificadores de Tailwind (`md:text-title-section`,
+> `lg:text-display`) funcionan igual que con cualquier tamaño nativo.
 
 ## Espaciado
 

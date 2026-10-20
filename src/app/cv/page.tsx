@@ -128,7 +128,7 @@ export default function CvPage() {
         <div className="flex justify-between items-center mb-12 no-print">
           <Link 
             href="/" 
-            className="inline-flex items-center text-sm font-medium text-muted hover:text-foreground transition-colors"
+            className="inline-flex items-center text-body-sm font-medium text-muted hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('backHome')}
@@ -136,7 +136,7 @@ export default function CvPage() {
           
           <button
             onClick={handlePrint}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-medium text-sm transition-all duration-200 hover:scale-105 shadow-md shadow-[#0ea5e9]/20"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-medium text-body-sm transition-all duration-200 hover:scale-105 shadow-md shadow-[#0ea5e9]/20"
           >
             <Printer className="w-4 h-4" />
             {t('printPdf')}
@@ -152,15 +152,15 @@ export default function CvPage() {
         >
           {/* Header */}
           <header className="border-b border-border/20 pb-8 mb-12 print:border-slate-200 print:pb-4 print:mb-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3 tracking-tight print:text-slate-900">
+            <h1 className="text-title-page font-bold text-foreground mb-3 print:text-slate-900">
               Francisco Hormazábal
             </h1>
             
-            <p className="text-xl md:text-2xl font-normal text-[#0ea5e9] dark:text-[#38bdf8] mb-4 print:text-[#0ea5e9] print:mb-2 print:text-sm print:font-semibold">
+            <p className="text-subtitle font-normal text-[#0ea5e9] dark:text-[#38bdf8] mb-4 print:text-[#0ea5e9] print:mb-2 print:text-sm print:font-semibold">
               {t('role')}
             </p>
             
-            <div className="flex flex-wrap gap-2 text-xs font-mono uppercase tracking-wider text-muted/80 print:text-slate-500 print:text-[8pt] print:mb-2">
+            <div className="flex flex-wrap gap-2 text-label font-mono uppercase text-muted/80 print:text-slate-500 print:text-[8pt] print:mb-2">
               <span>{t('tag1')}</span>
               <span className="text-muted/30">•</span>
               <span>{t('tag2')}</span>
@@ -192,31 +192,31 @@ export default function CvPage() {
               
               {/* Perfil */}
               <section>
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground/70 mb-5 flex items-center gap-2 print:text-slate-800 print:text-xs">
+                <h2 className="text-label font-bold uppercase text-foreground/70 mb-5 flex items-center gap-2 print:text-slate-800 print:text-xs">
                   <Compass className="w-4 h-4 print:hidden text-foreground/60" />
                   {t('profileTitle')}
                 </h2>
                 <p 
-                  className="text-muted leading-relaxed font-normal text-sm md:text-base print:text-slate-700"
+                  className="text-body-sm text-muted font-normal print:text-slate-700"
                   dangerouslySetInnerHTML={{ __html: t('profileP1') }}
                 />
                 <p 
-                  className="text-muted leading-relaxed font-normal text-sm md:text-base mt-4.5 print:text-slate-700 print:mt-2"
+                  className="text-body-sm text-muted font-normal mt-4.5 print:text-slate-700 print:mt-2"
                   dangerouslySetInnerHTML={{ __html: t('profileP2') }}
                 />
                 <p 
-                  className="text-muted leading-relaxed font-normal text-sm md:text-base mt-4.5 print:text-slate-700 print:mt-2"
+                  className="text-body-sm text-muted font-normal mt-4.5 print:text-slate-700 print:mt-2"
                   dangerouslySetInnerHTML={{ __html: t('profileP3') }}
                 />
               </section>
 
               {/* Impacto */}
               <section>
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground/70 mb-5 flex items-center gap-2 print:text-slate-800 print:text-xs">
+                <h2 className="text-label font-bold uppercase text-foreground/70 mb-5 flex items-center gap-2 print:text-slate-800 print:text-xs">
                   <Sparkles className="w-4 h-4 print:hidden text-foreground/60" />
                   {t('impactTitle')}
                 </h2>
-                <ul className="space-y-3.5 text-sm text-muted print:text-slate-700 print:space-y-1.5">
+                <ul className="space-y-3.5 text-body-sm text-muted print:text-slate-700 print:space-y-1.5">
                   {impactItems.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 font-normal">
                       <span className="text-[#0ea5e9] dark:text-[#38bdf8] font-bold select-none shrink-0 print:text-slate-600">•</span>
@@ -228,7 +228,7 @@ export default function CvPage() {
 
               {/* Experiencia */}
               <section>
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground/70 mb-8 flex items-center gap-2 print:text-slate-800 print:text-xs">
+                <h2 className="text-label font-bold uppercase text-foreground/70 mb-8 flex items-center gap-2 print:text-slate-800 print:text-xs">
                   <Briefcase className="w-4 h-4 print:hidden text-foreground/60" />
                   {t('experienceTitle')}
                 </h2>
@@ -244,10 +244,10 @@ export default function CvPage() {
                         )}
                         <div className={`absolute left-[7px] top-1.5 w-2.5 h-2.5 rounded-full print:left-[0px] ${isFirst ? 'bg-[#0ea5e9] print:bg-slate-800' : 'bg-muted-foreground/30 print:bg-slate-400'}`} />
                         <div className="flex flex-col md:flex-row md:justify-between mb-3 print:mb-1">
-                          <h3 className="font-bold text-foreground text-base print:text-slate-950 print:text-[10pt]">{job.title}</h3>
-                          <span className="text-xs font-mono text-muted/80 uppercase print:text-[8pt] print:text-slate-500">{job.company}</span>
+                          <h3 className="font-bold text-foreground text-body print:text-slate-950 print:text-[10pt]">{job.title}</h3>
+                          <span className="text-label font-mono text-muted/80 uppercase print:text-[8pt] print:text-slate-500">{job.company}</span>
                         </div>
-                        <ul className="list-disc pl-4 space-y-2 text-sm text-muted font-normal print:text-slate-700 print:space-y-1">
+                        <ul className="list-disc pl-4 space-y-2 text-body-sm text-muted font-normal print:text-slate-700 print:space-y-1">
                           {job.tasks.map((task, tIdx) => (
                             <li key={tIdx}>{task}</li>
                           ))}
@@ -266,10 +266,10 @@ export default function CvPage() {
               
               {/* Contacto (Hidden on print because it is rendered inline at the top for ATS efficiency) */}
               <section className="print:hidden">
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground/70 mb-5">
+                <h2 className="text-label font-bold uppercase text-foreground/70 mb-5">
                   {t('contactTitle')}
                 </h2>
-                <ul className="space-y-4 text-sm text-muted">
+                <ul className="space-y-4 text-body-sm text-muted">
                   <li className="flex items-center gap-3">
                     <MapPin className="w-4 h-4 shrink-0 text-[#0ea5e9] dark:text-[#38bdf8]" />
                     <span>Santiago, Chile</span>
@@ -291,14 +291,14 @@ export default function CvPage() {
 
               {/* Skills */}
               <section>
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground/70 mb-5 print:text-slate-800 print:text-xs">
+                <h2 className="text-label font-bold uppercase text-foreground/70 mb-5 print:text-slate-800 print:text-xs">
                   {t('skillsTitle')}
                 </h2>
                 <div className="flex flex-wrap gap-2 print:hidden">
                   {skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 rounded-full bg-surface/50 border border-border/20 text-xs text-muted"
+                      className="px-3 py-1 rounded-full bg-surface/50 border border-border/20 text-caption text-muted"
                     >
                       {skill}
                     </span>
@@ -312,14 +312,14 @@ export default function CvPage() {
 
               {/* Herramientas */}
               <section>
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground/70 mb-5 print:text-slate-800 print:text-xs">
+                <h2 className="text-label font-bold uppercase text-foreground/70 mb-5 print:text-slate-800 print:text-xs">
                   {t('toolsTitle')}
                 </h2>
                 <div className="flex flex-wrap gap-2 print:hidden">
                   {tools.map((tool) => (
                     <span
                       key={tool}
-                      className="px-3 py-1 rounded-full bg-[#0ea5e9]/10 border border-[#0ea5e9]/20 text-xs text-[#0ea5e9] dark:text-[#38bdf8] dark:bg-[#38bdf8]/10 dark:border-[#38bdf8]/20"
+                      className="px-3 py-1 rounded-full bg-[#0ea5e9]/10 border border-[#0ea5e9]/20 text-caption text-[#0ea5e9] dark:text-[#38bdf8] dark:bg-[#38bdf8]/10 dark:border-[#38bdf8]/20"
                     >
                       {tool}
                     </span>
@@ -333,14 +333,14 @@ export default function CvPage() {
 
               {/* Educación */}
               <section>
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground/70 mb-5 print:text-slate-800 print:text-xs">
+                <h2 className="text-label font-bold uppercase text-foreground/70 mb-5 print:text-slate-800 print:text-xs">
                   {t('educationTitle')}
                 </h2>
-                <div className="space-y-6 text-sm text-muted print:text-slate-800 print:space-y-2">
+                <div className="space-y-6 text-body-sm text-muted print:text-slate-800 print:space-y-2">
                   {education.map((edu, idx) => (
                     <div key={idx}>
                       <h4 className="font-semibold text-foreground print:text-slate-900 print:text-[10pt]">{edu.title}</h4>
-                      <p className="text-xs font-mono uppercase tracking-wider print:text-[8pt] print:text-slate-500">{edu.institution}</p>
+                      <p className="text-label font-mono uppercase print:text-[8pt] print:text-slate-500">{edu.institution}</p>
                     </div>
                   ))}
                 </div>
@@ -348,10 +348,10 @@ export default function CvPage() {
 
               {/* Keywords: kept visible in print too — this is exactly the text an ATS keyword-matches against */}
               <section>
-                <h2 className="text-xs md:text-sm font-bold uppercase tracking-wider text-foreground/70 mb-4 print:text-slate-800 print:text-xs print:mb-2">
+                <h2 className="text-label font-bold uppercase text-foreground/70 mb-4 print:text-slate-800 print:text-xs print:mb-2">
                   {t('keywordsTitle')}
                 </h2>
-                <p className="text-xs font-mono text-muted/80 leading-relaxed print:text-[8pt] print:text-slate-600">
+                <p className="text-caption font-mono text-muted/80 print:text-[8pt] print:text-slate-600">
                   UX Design · Product Design · IA · CRO · Data · UX Research · Estrategia
                 </p>
               </section>

@@ -7,7 +7,7 @@ export function HeaderBackground() {
   const pathname = usePathname();
 
   // Exclude the home page (which has the Hero), dashboard pages, and login page
-  const isHome = pathname === "/";
+  const isHome = pathname === "/" || pathname === "/v3";
   const isDashboard = pathname?.startsWith("/dashboard");
   const isLogin = pathname === "/login";
 

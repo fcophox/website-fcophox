@@ -51,17 +51,17 @@ export function ServicesSection() {
               className="w-full"
             >
               {/* Badge */}
-              <span className="inline-block bg-muted/10 dark:bg-muted/5 border border-border/40 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wide text-foreground/80 uppercase mb-6">
+              <span className="inline-block bg-muted/10 dark:bg-muted/5 border border-border/40 px-3.5 py-1.5 rounded-full text-label font-mono text-foreground/80 uppercase mb-6">
                 {t("badge")}
               </span>
 
               {/* Title */}
-              <h2 className="text-[clamp(1.2rem,4vw,2.2rem)] font-normal text-foreground leading-tight text-left mb-6">
+              <h2 className="text-title-section font-normal text-foreground text-left mb-6">
                 {t("title")}
               </h2>
 
               {/* Description */}
-              <p className="text-muted leading-relaxed text-sm md:text-base max-w-md">
+              <p className="text-body-sm text-muted max-w-md">
                 {t("description")}
               </p>
             </motion.div>
@@ -99,10 +99,10 @@ export function ServicesSection() {
                   </div>
 
                   {/* Text content */}
-                  <h3 className="text-2xl md:text-3xl font-normal text-foreground mb-3 tracking-tight group-hover:text-primary transition-colors">
+                  <h3 className="text-title-subsection font-normal text-foreground mb-3 group-hover:text-primary transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-muted leading-relaxed text-sm md:text-base max-w-xl">
+                  <p className="text-body-sm text-muted max-w-xl">
                     {service.description}
                   </p>
                 </Link>

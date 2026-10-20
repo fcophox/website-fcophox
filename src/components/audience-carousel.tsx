@@ -99,7 +99,7 @@ function getCardIcon(card: AudienceCard, index: number): LucideIcon {
 export function AudienceCarousel({ cards, title }: AudienceCarouselProps) {
   return (
     <div className="mb-14 md:mb-20">
-      <h2 className="text-[clamp(1.2rem,4vw,2.2rem)] font-normal text-foreground leading-tight mb-8 md:mb-12">
+      <h2 className="text-title-section font-normal text-foreground mb-8 md:mb-12">
         {title}
       </h2>
 
@@ -117,10 +117,10 @@ export function AudienceCarousel({ cards, title }: AudienceCarouselProps) {
               </div>
 
               {/* Text underneath */}
-              <h3 className="text-lg md:text-xl font-medium text-foreground tracking-tight mb-2.5">
+              <h3 className="text-title-card font-medium text-foreground mb-2.5">
                 {card.title}
               </h3>
-              <p className="text-sm text-muted leading-relaxed">
+              <p className="text-body-sm text-muted">
                 {card.description}
               </p>
             </div>

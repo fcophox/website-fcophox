@@ -31,6 +31,7 @@ const CONTROLS: Control[] = [
   { key: "vignette", label: "Viñeta", hint: "Oscurece las esquinas", min: 0, max: 1.2, step: 0.01 },
   { key: "grain", label: "Grano", hint: "Rompe el bandeado de los degradados anchos", min: 0, max: 0.12, step: 0.002 },
   { key: "bottomFade", label: "Fundido inferior", hint: "Cuánto se difumina la base hacia el color de fondo", min: 0, max: 1, step: 0.01 },
+  { key: "topFade", label: "Fundido superior", hint: "Lo mismo, pero en el borde de arriba. Para bloques que cierran la página", min: 0, max: 1, step: 0.01 },
   { key: "resolution", label: "Resolución", hint: "La palanca de rendimiento. 0.5 suele ser indistinguible", min: 0.15, max: 1, step: 0.05 },
 ];
 

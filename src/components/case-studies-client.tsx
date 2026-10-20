@@ -80,7 +80,7 @@ export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <Link href="/" className="inline-flex items-center text-sm font-medium text-muted hover:text-foreground transition-colors">
+          <Link href="/" className="inline-flex items-center text-body-sm font-medium text-muted hover:text-foreground transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('backHome')}
           </Link>
@@ -92,10 +92,10 @@ export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
           animate={{ opacity: 1, y: 0 }}
           className="mb-16 max-w-6xl"
         >
-          <h1 className="text-4xl md:text-[3.5rem] font-normal text-foreground mb-8 leading-tight tracking-tight">
+          <h1 className="text-title-page font-normal text-foreground mb-8">
             {t('title')}
           </h1>
-          <p className="text-lg md:text-xl text-muted leading-relaxed font-normal">
+          <p className="text-subtitle text-muted font-normal">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -112,7 +112,7 @@ export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${activeCategory === category
+              className={`px-6 py-2.5 rounded-full text-body-sm font-medium transition-all duration-300 cursor-pointer ${activeCategory === category
                 ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
                 : "bg-surface border border-border text-muted hover:text-foreground hover:border-foreground/30"
                 }`}
@@ -148,16 +148,16 @@ export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
 
               <div className="w-full md:w-2/5 flex flex-col justify-center">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-sm text-muted">{formatYear(featuredCase.published_at || featuredCase.created_at)}</span>
+                  <span className="text-caption text-muted">{formatYear(featuredCase.published_at || featuredCase.created_at)}</span>
                   {/* <span className="text-xs font-medium text-secondary bg-secondary/10 px-3 py-1.5 rounded-full">
                     {featuredCase.category}
                   </span> */}
                 </div>
 
-                <h2 className="text-xl md:text-3xl font-normal text-foreground mb-4 group-hover:text-primary transition-colors leading-tight">
+                <h2 className="text-title-subsection font-normal text-foreground mb-4 group-hover:text-primary transition-colors">
                   {featuredCase.title}
                 </h2>
-                <div className="text-base md:text-lg text-muted leading-relaxed line-clamp-3">
+                <div className="text-body text-muted line-clamp-3">
                   {featuredCase.content.replace(/<[^>]*>/g, '')}
                 </div>
               </div>
@@ -192,16 +192,16 @@ export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
 
                   <div className="flex flex-col flex-1">
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-xs text-muted">{formatYear(c.published_at || c.created_at)}</span>
+                      <span className="text-caption text-muted">{formatYear(c.published_at || c.created_at)}</span>
                       {/* <span className="text-xs font-medium text-secondary bg-secondary/10 px-2.5 py-1 rounded-full ml-auto">
                         {c.category}
                       </span> */}
                     </div>
 
-                    <h3 className="text-[clamp(1rem,2.4vw,1.3rem)] font-normal text-foreground leading-tight text-left w-full mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                    <h3 className="text-title-card font-normal text-foreground text-left w-full mb-3 group-hover:text-primary transition-colors line-clamp-2">
                       {c.title}
                     </h3>
-                    <div className="text-base text-muted leading-relaxed mt-auto line-clamp-2">
+                    <div className="text-body-sm text-muted mt-auto line-clamp-2">
                       {c.content.replace(/<[^>]*>/g, '')}
                     </div>
                   </div>
