@@ -95,7 +95,7 @@
     "viewStudies": "Revisa los estudios"
   },
   "Blog": {
-    "title": "Artículos sobre diseño, tecnología y tendencias que moldean el futuro digital.",
+    "title": "Artículos sobre <hl>diseño, tecnología y tendencias que moldean</hl> el futuro digital.",
     "viewAll": "Ver todos",
     "defaultCategory": "Tecnología",
     "readFull": "Leer artículo completo..."
