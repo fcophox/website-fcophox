@@ -25,11 +25,11 @@ export function UxBento() {
               className="mb-2"
             >
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-xs font-mono tracking-wide text-foreground/80 uppercase">
+                <span className="text-label font-mono text-foreground/80 uppercase">
                   {t('headerLabel')}
                 </span>
               </div>
-              <h2 className="text-[clamp(1.2rem,4vw,2.2rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px]">
+              <h2 className="text-title-section font-normal text-foreground text-left w-full md:max-w-[750px]">
                 {t('headerTitle')}
               </h2>
             </motion.div>
@@ -49,10 +49,10 @@ export function UxBento() {
                   <Image src="/methodology/bg-card-1.svg" alt="Background" fill className="object-cover" />
                 </div>
                 <h3
-                  className="relative z-10 text-[clamp(1.1rem,2.5vw,1.6rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px] mb-4"
+                  className="relative z-10 text-title-subsection font-normal text-foreground text-left w-full md:max-w-[750px] mb-4"
                   dangerouslySetInnerHTML={{ __html: t('card1Title') }}
                 />
-                <p className="relative z-10 text-md text-muted">
+                <p className="relative z-10 text-body-sm text-muted">
                   {t('card1Desc')}
                 </p>
               </motion.div>
@@ -69,10 +69,10 @@ export function UxBento() {
                   <Image src="/methodology/bg-card-3.svg" alt="Background" fill className="object-cover" />
                 </div>
                 <h3
-                  className="relative z-10 text-[clamp(1.1rem,2.5vw,1.6rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px] mb-4"
+                  className="relative z-10 text-title-subsection font-normal text-foreground text-left w-full md:max-w-[750px] mb-4"
                   dangerouslySetInnerHTML={{ __html: t('card2Title') }}
                 />
-                <p className="relative z-10 text-md text-muted">
+                <p className="relative z-10 text-body-sm text-muted">
                   {t('card2Desc')}
                 </p>
               </motion.div>
@@ -95,10 +95,10 @@ export function UxBento() {
 
               <div className="relative z-10 max-w-md mt-auto pt-24">
                 <h3
-                  className="text-[clamp(1.1rem,2.5vw,1.6rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px] mb-3"
+                  className="text-title-subsection font-normal text-foreground text-left w-full md:max-w-[750px] mb-3"
                   dangerouslySetInnerHTML={{ __html: t('card3Title') }}
                 />
-                <p className="text-md text-muted">
+                <p className="text-body-sm text-muted">
                   {t('card3Desc')}
                 </p>
               </div>
@@ -128,10 +128,10 @@ export function UxBento() {
 
               <div className="mt-auto">
                 <h3
-                  className="text-[clamp(1.1rem,2.5vw,1.6rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px] mb-2"
+                  className="text-title-subsection font-normal text-foreground text-left w-full md:max-w-[750px] mb-2"
                   dangerouslySetInnerHTML={{ __html: t('card4Title') }}
                 />
-                <p className="text-md text-muted">
+                <p className="text-body-sm text-muted">
                   {t('card4Desc')}
                 </p>
               </div>

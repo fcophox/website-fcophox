@@ -57,7 +57,7 @@ export default async function LogsPage() {
         <div className="mb-8">
           <Link
             href="/"
-            className="inline-flex items-center text-sm font-medium text-muted hover:text-foreground transition-colors"
+            className="inline-flex items-center text-body-sm font-medium text-muted hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t("backHome")}
@@ -65,10 +65,10 @@ export default async function LogsPage() {
         </div>
 
         <div className="mb-16">
-          <h1 className="text-4xl md:text-[3.5rem] font-normal text-foreground mb-8 leading-tight tracking-tight">
+          <h1 className="text-title-page font-normal text-foreground mb-8">
             {t("title")}
           </h1>
-          <p className="text-lg md:text-xl text-muted leading-relaxed font-normal">
+          <p className="text-subtitle text-muted font-normal">
             {t("subtitle")}
           </p>
         </div>
@@ -81,13 +81,13 @@ export default async function LogsPage() {
               <li key={`${entry.date}-${index}`} className="relative pl-8 pb-12 last:pb-0">
                 <span className="absolute -left-[7px] top-1.5 w-3.5 h-3.5 rounded-full bg-background border-2 border-primary" />
 
-                <span className="block text-sm text-muted mb-2">{formatDate(entry.date)}</span>
+                <span className="block text-caption text-muted mb-2">{formatDate(entry.date)}</span>
 
-                <span className={`text-xs font-medium ${TYPE_STYLES[entry.type]}`}>
+                <span className={`text-label font-medium ${TYPE_STYLES[entry.type]}`}>
                   {typeLabels[entry.type]}
                 </span>
-                <h2 className="text-lg font-medium text-foreground mt-1 mb-2">{entry.title}</h2>
-                <p className="text-sm text-muted leading-relaxed">{entry.summary}</p>
+                <h2 className="text-title-card font-medium text-foreground mt-1 mb-2">{entry.title}</h2>
+                <p className="text-body-sm text-muted">{entry.summary}</p>
               </li>
             ))}
           </ol>

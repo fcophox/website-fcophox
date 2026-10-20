@@ -113,7 +113,7 @@ export function Hero() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-border/80 bg-surface/30 backdrop-blur-md text-xs font-mono tracking-wide text-foreground/80 mb-6 hover:border-primary/30 transition-colors duration-300 shadow-sm"
+          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-border/80 bg-surface/30 backdrop-blur-md text-label font-mono text-foreground/80 mb-6 hover:border-primary/30 transition-colors duration-300 shadow-sm"
         >
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary/70 opacity-75"></span>
@@ -130,7 +130,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="text-4xl md:text-6xl lg:text-7xl font-normal tracking-tight text-foreground leading-tight absolute w-full text-center"
+              className="text-display font-normal text-foreground absolute w-full text-center"
             >
               {currentTitle.line1}
               <br />
@@ -141,7 +141,7 @@ export function Hero() {
           </AnimatePresence>
         </div>
 
-        <p className="text-lg md:text-xl text-muted max-w-4xl mb-10 leading-relaxed">
+        <p className="text-subtitle text-muted max-w-4xl mb-10">
           {t('subtitle')}
         </p>
 

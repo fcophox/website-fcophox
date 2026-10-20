@@ -1,0 +1,117 @@
+{
+  "Meta": {
+    "title": "Francisco Hormazábal | Product Builder & UX Engineer",
+    "description": "Product Builder y UX Engineer con más de 14 años de experiencia. Diseño y construyo productos digitales combinando UX, React, Next.js e inteligencia artificial."
+  },
+  "Hero": {
+    "eyebrow": "Product Builder · UX Engineer · AI",
+    "title": "Transformo ideas en productos digitales",
+    "titleAccent": "que funcionan.",
+    "description": "Combino estrategia de producto, diseño, código e inteligencia artificial para resolver problemas reales y crear experiencias digitales de principio a fin.",
+    "ctaPrimary": "Explorar productos",
+    "ctaSecondary": "Conocer mi experiencia"
+  },
+  "Pillars": {
+    "label": "Cómo trabajo",
+    "title": "Entiendo el problema, diseño la solución y construyo el producto.",
+    "items": [
+      {
+        "title": "Entiendo el problema",
+        "description": "Investigo contextos, necesidades y oportunidades para encontrar soluciones que generen valor real."
+      },
+      {
+        "title": "Diseño la solución",
+        "description": "Transformo ideas en experiencias digitales claras, consistentes y centradas en las personas."
+      },
+      {
+        "title": "Construyo el producto",
+        "description": "Combino desarrollo frontend, prototipado e inteligencia artificial para convertir propuestas en soluciones funcionales."
+      }
+    ]
+  },
+  "Products": {
+    "label": "Productos",
+    "title": "De las ideas al código.",
+    "description": "Una selección de productos, herramientas y experimentos donde participo directamente en la definición, diseño y construcción de soluciones digitales.",
+    "problemLabel": "Problema",
+    "stackLabel": "Stack",
+    "aiLabel": "IA",
+    "visit": "Visitar",
+    "learnMore": "Ver producto",
+    "detail": {
+      "back": "Volver a productos",
+      "aboutTitle": "Sobre el producto",
+      "problemTitle": "¿Qué problema resuelve?",
+      "aiTitle": "Cómo usa la IA",
+      "stackTitle": "Stack tecnológico",
+      "explore": "Explorar más productos",
+      "previous": "Anterior",
+      "next": "Siguiente"
+    },
+    "status": {
+      "concept": "Concepto",
+      "prototype": "Prototipo",
+      "mvp": "MVP",
+      "beta": "Beta",
+      "production": "En producción"
+    },
+    "items": {
+      "kontororu": {
+        "tagline": "CMS headless multi-tenant",
+        "description": "Gestor de contenidos para equipos y clientes que necesitan publicar en varios sitios desde un solo lugar, con su propia marca y permisos.",
+        "problem": "Mantener un CMS por cliente multiplica el trabajo y los riesgos. Kontorōru centraliza el contenido con aislamiento estricto entre espacios.",
+        "note": "Gestiona el blog y los casos de estudio de este sitio."
+      },
+      "tanzo": {
+        "tagline": "Suite de herramientas para UX y planificación",
+        "description": "Un conjunto de herramientas para idear y organizar productos: mapas de sitio y flujos (Kōsei), card sorting (Kādo) y roadmaps visuales (Rebyū).",
+        "problem": "Las tareas de arquitectura de información y planificación suelen quedar repartidas entre herramientas genéricas que no se hablan entre sí."
+      },
+      "bijon": {
+        "tagline": "Auditoría UX/CRO asistida por IA",
+        "description": "Herramienta dentro de Tanzō que analiza una experiencia y señala posibles fricciones de usabilidad y conversión antes de lanzarla.",
+        "problem": "Detectar fricciones suele llegar tarde, cuando la experiencia ya está en producción y corregirla cuesta más.",
+        "ai": "Análisis y chat sobre la experiencia con un modelo Gemini."
+      }
+    }
+  },
+  "Experience": {
+    "label": "Trayectoria",
+    "statement": "Soy Diseñador — Más de 14 años construyendo <hl>experiencias y productos digitales</hl>. He trabajado como <hl>Product Designer, UX Manager y Head of UX</hl> en diferentes proyectos.",
+    "industriesLabel": "Industrias",
+    "industries": ["Banca", "Educación", "Fintech", "Logística", "Retail", "Ecommerce", "Salud", "Seguros", "Tecnología"],
+    "ctaAbout": "Sobre mí",
+    "ctaCv": "Ver CV"
+  },
+  "CaseStudies": {
+    "label": "Casos de estudio",
+    "title": "Cómo entiendo y resuelvo problemas de producto.",
+    "description": "Proyectos de investigación, UX y diseño de producto: el contexto, las decisiones y lo que se validó."
+  },
+  "Contact": {
+    "linkedin": "LinkedIn",
+    "slides": [
+      {
+        "label": "Idea",
+        "title": "¿Tienes una idea?",
+        "description": "Toda gran idea merece una oportunidad. Descubramos juntos cómo transformarla en un producto preparado para crecer.",
+        "cta": "Hagámosla realidad",
+        "form": "message"
+      },
+      {
+        "label": "Consultoría",
+        "title": "Potenciemos tu producto",
+        "description": "A veces un pequeño cambio genera un gran impacto. Revisemos tu producto y descubramos nuevas oportunidades de crecimiento.",
+        "cta": "Quiero una consultoría",
+        "form": "consulting"
+      },
+      {
+        "label": "Café virtual",
+        "title": "Un café y buenas ideas",
+        "description": "Conversemos sobre tu proyecto y descubramos juntos el siguiente paso para hacerlo crecer.",
+        "cta": "Reservemos un horario",
+        "form": "meeting"
+      }
+    ]
+  }
+}

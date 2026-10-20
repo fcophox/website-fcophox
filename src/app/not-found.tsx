@@ -32,7 +32,7 @@ export default function NotFound() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-2xl md:text-3xl font-normal text-foreground mb-4 tracking-tight"
+          className="text-title-section font-normal text-foreground mb-4"
         >
           {t("subtitle")}
         </motion.h2>
@@ -42,7 +42,7 @@ export default function NotFound() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-sm md:text-base text-muted leading-relaxed max-w-md mb-10 font-normal"
+          className="text-body text-muted max-w-md mb-10 font-normal"
         >
           {t("description")}
         </motion.p>
@@ -56,7 +56,7 @@ export default function NotFound() {
         >
           <Link
             href="/"
-            className="px-6 py-3 rounded-full bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-medium text-sm transition-all duration-200 hover:scale-105 shadow-md shadow-[#0ea5e9]/20 flex items-center justify-center gap-2"
+            className="px-6 py-3 rounded-full bg-[#0ea5e9] hover:bg-[#0284c7] text-white font-medium text-body-sm transition-all duration-200 hover:scale-105 shadow-md shadow-[#0ea5e9]/20 flex items-center justify-center gap-2"
           >
             <Home className="w-4 h-4" />
             {t("goHome")}
@@ -64,7 +64,7 @@ export default function NotFound() {
           
           <Link
             href="/case-studies"
-            className="px-6 py-3 rounded-full bg-surface text-foreground font-medium text-sm hover:scale-105 transition-all duration-200 shadow-md shadow-border/50 border border-border flex items-center justify-center gap-2"
+            className="px-6 py-3 rounded-full bg-surface text-foreground font-medium text-body-sm hover:scale-105 transition-all duration-200 shadow-md shadow-border/50 border border-border flex items-center justify-center gap-2"
           >
             {t("viewProjects")}
             <ArrowRight className="w-4 h-4 text-[#0ea5e9]" />

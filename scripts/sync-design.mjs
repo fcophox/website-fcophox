@@ -30,6 +30,38 @@ const CSS_TEMPLATE = `/*
   --color-border: var(--border);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Escala tipográfica — roles semánticos (ver DESIGN.MD) */
+  --text-display: %typography.display.size%;
+  --text-display--line-height: %typography.display.lineHeight%;
+  --text-display--letter-spacing: %typography.display.tracking%;
+  --text-title-page: %typography.titlePage.size%;
+  --text-title-page--line-height: %typography.titlePage.lineHeight%;
+  --text-title-page--letter-spacing: %typography.titlePage.tracking%;
+  --text-title-section: %typography.titleSection.size%;
+  --text-title-section--line-height: %typography.titleSection.lineHeight%;
+  --text-title-section--letter-spacing: %typography.titleSection.tracking%;
+  --text-title-subsection: %typography.titleSubsection.size%;
+  --text-title-subsection--line-height: %typography.titleSubsection.lineHeight%;
+  --text-title-subsection--letter-spacing: %typography.titleSubsection.tracking%;
+  --text-title-card: %typography.titleCard.size%;
+  --text-title-card--line-height: %typography.titleCard.lineHeight%;
+  --text-title-card--letter-spacing: %typography.titleCard.tracking%;
+  --text-subtitle: %typography.subtitle.size%;
+  --text-subtitle--line-height: %typography.subtitle.lineHeight%;
+  --text-body: %typography.body.size%;
+  --text-body--line-height: %typography.body.lineHeight%;
+  --text-body-sm: %typography.bodySm.size%;
+  --text-body-sm--line-height: %typography.bodySm.lineHeight%;
+  --text-label: %typography.label.size%;
+  --text-label--line-height: %typography.label.lineHeight%;
+  --text-label--letter-spacing: %typography.label.tracking%;
+  --text-caption: %typography.caption.size%;
+  --text-caption--line-height: %typography.caption.lineHeight%;
+  --text-copyright: %typography.copyright.size%;
+  --text-copyright--line-height: %typography.copyright.lineHeight%;
+  --text-code: %typography.code.size%;
+  --text-code--line-height: %typography.code.lineHeight%;
 }
 
 :root {
@@ -144,7 +176,7 @@ function resolvePath(obj, path) {
 }
 
 function applyTemplate(template, tokens) {
-  return template.replace(/%([^%]+)%/g, (match, path) => {
+  return template.replace(/%([A-Za-z0-9_.\-]+)%/g, (match, path) => {
     const value = resolvePath(tokens, path);
     if (value === undefined) {
       console.warn(`[design] WARNING: token "${path}" not found in DESIGN.MD`);

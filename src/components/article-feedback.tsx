@@ -79,8 +79,8 @@ export function ArticleFeedback({ slug }: ArticleFeedbackProps) {
             exit={{ opacity: 0, y: -10 }}
             className="flex flex-col items-center gap-5"
           >
-            <h3 className="text-2xl font-medium text-foreground">{t("question")}</h3>
-            <p className="text-muted text-lg max-w-md">{t("invitation")}</p>
+            <h3 className="text-title-subsection font-medium text-foreground">{t("question")}</h3>
+            <p className="text-subtitle text-muted max-w-md">{t("invitation")}</p>
             <button
               onClick={handleLike}
               disabled={isLiking}
@@ -100,8 +100,8 @@ export function ArticleFeedback({ slug }: ArticleFeedbackProps) {
             <div className="w-20 h-20 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-2 shadow-[0_0_30px_rgba(var(--primary),0.3)]">
               <HandMetal className="w-10 h-10 stroke-primary stroke-2" />
             </div>
-            <h3 className="text-3xl font-medium text-foreground">{t("thanksTitle")}</h3>
-            <p className="text-muted text-lg">{t("thanksSubtitle")}</p>
+            <h3 className="text-title-section font-medium text-foreground">{t("thanksTitle")}</h3>
+            <p className="text-subtitle text-muted">{t("thanksSubtitle")}</p>
           </motion.div>
         )}
       </AnimatePresence>

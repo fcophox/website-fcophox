@@ -75,16 +75,16 @@ export function RelatedArticlesCarousel({
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div>
-            <h2 className="text-2xl md:text-3xl font-normal text-foreground leading-tight mb-2">
+            <h2 className="text-title-section font-normal text-foreground mb-2">
               {t("sectionTitle")}
             </h2>
-            <p className="text-base text-muted leading-relaxed max-w-xl">
+            <p className="text-body text-muted max-w-xl">
               {t("sectionSubtitle")}
             </p>
           </div>
           <Link
             href={viewAllHref}
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-foreground border border-border hover:border-foreground/30 rounded-full px-5 py-2.5 transition-all shrink-0"
+            className="inline-flex items-center gap-2 text-body-sm font-medium text-muted hover:text-foreground border border-border hover:border-foreground/30 rounded-full px-5 py-2.5 transition-all shrink-0"
           >
             {t("viewAll")}
           </Link>
@@ -133,10 +133,10 @@ export function RelatedArticlesCarousel({
 
               {/* Body */}
               <div className="flex flex-col flex-1">
-                <h3 className="text-[clamp(1rem,2.4vw,1.3rem)] font-normal text-foreground leading-tight mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                <h3 className="text-title-card font-normal text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="text-base text-muted leading-relaxed line-clamp-2">
+                <p className="text-body-sm text-muted line-clamp-2">
                   {item.content.replace(/<[^>]*>/g, "").slice(0, 120)}
                 </p>
               </div>

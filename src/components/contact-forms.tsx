@@ -16,7 +16,7 @@ function etiquetaTramo(tramo: { start: string; end: string }): string {
 function FormPrivacyNotice() {
   const t = useTranslations('FormPrivacy');
   return (
-    <p className="-mt-4 text-xs text-muted leading-relaxed text-center text-pretty">
+    <p className="-mt-4 text-caption text-muted text-center text-pretty">
       {t.rich('notice', {
         privacy: (chunks) => (
           <Link href="/legal/privacy" className="underline underline-offset-2 hover:text-foreground">{chunks}</Link>
@@ -65,7 +65,7 @@ function TypewriterEffect({ text }: { text: string }) {
   }
 
   return (
-    <span className="text-sm text-foreground font-medium">
+    <span className="text-body-sm text-foreground font-medium">
       {displayedText}
       {phase === 'typing' && <span className="inline-block w-1 h-3.5 ml-[2px] bg-primary animate-pulse align-middle" />}
     </span>
@@ -111,9 +111,9 @@ export function MessageForm() {
         <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2 shadow-[0_0_15px_rgba(139,92,246,0.2)]">
           <CheckCircle2 className="w-8 h-8" />
         </div>
-        <h3 className="text-xl font-bold text-foreground">{t('msgSentTitle')}</h3>
-        <p className="text-muted-foreground text-sm max-w-[300px]">{t('msgSentDesc')}</p>
-        <button onClick={() => setIsSuccess(false)} className="mt-4 text-sm font-medium text-primary hover:underline transition-colors">
+        <h3 className="text-title-card font-bold text-foreground">{t('msgSentTitle')}</h3>
+        <p className="text-body-sm text-muted-foreground max-w-[300px]">{t('msgSentDesc')}</p>
+        <button onClick={() => setIsSuccess(false)} className="mt-4 text-body-sm font-medium text-primary hover:underline transition-colors">
           {t('sendAnotherMsg')}
         </button>
       </div>
@@ -124,7 +124,7 @@ export function MessageForm() {
     <form className="flex flex-col gap-8 w-full" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-muted-foreground">{t('lblName')}</label>
+          <label className="text-body-sm font-medium text-muted-foreground">{t('lblName')}</label>
           <div className="relative">
             <User className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <input
@@ -138,7 +138,7 @@ export function MessageForm() {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-muted-foreground">{t('lblEmail')}</label>
+          <label className="text-body-sm font-medium text-muted-foreground">{t('lblEmail')}</label>
           <div className="relative">
             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <input
@@ -154,7 +154,7 @@ export function MessageForm() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-medium text-muted-foreground">{t('lblMsg')}</label>
+        <label className="text-body-sm font-medium text-muted-foreground">{t('lblMsg')}</label>
         <div className="relative">
           <MessageSquare className="absolute left-4 top-4 text-muted-foreground w-5 h-5" />
           <textarea
@@ -234,9 +234,9 @@ export function ConsultingForm() {
         <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2 shadow-[0_0_15px_rgba(139,92,246,0.2)]">
           <CheckCircle2 className="w-8 h-8" />
         </div>
-        <h3 className="text-xl font-bold text-foreground">{t('consultSentTitle')}</h3>
-        <p className="text-muted-foreground text-sm max-w-[300px]">{t('consultSentDesc')}</p>
-        <button onClick={() => setIsSuccess(false)} className="mt-4 text-sm font-medium text-primary hover:underline transition-colors">
+        <h3 className="text-title-card font-bold text-foreground">{t('consultSentTitle')}</h3>
+        <p className="text-body-sm text-muted-foreground max-w-[300px]">{t('consultSentDesc')}</p>
+        <button onClick={() => setIsSuccess(false)} className="mt-4 text-body-sm font-medium text-primary hover:underline transition-colors">
           {t('sendAnotherConsult')}
         </button>
       </div>
@@ -247,7 +247,7 @@ export function ConsultingForm() {
     <form className="flex flex-col gap-8 w-full" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-muted-foreground">{t('lblName')}</label>
+          <label className="text-body-sm font-medium text-muted-foreground">{t('lblName')}</label>
           <div className="relative">
             <User className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <input
@@ -261,7 +261,7 @@ export function ConsultingForm() {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-muted-foreground">{t('lblEmail')}</label>
+          <label className="text-body-sm font-medium text-muted-foreground">{t('lblEmail')}</label>
           <div className="relative">
             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <input
@@ -277,7 +277,7 @@ export function ConsultingForm() {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label className="text-sm font-medium text-muted-foreground">{t('lblMsg')}</label>
+        <label className="text-body-sm font-medium text-muted-foreground">{t('lblMsg')}</label>
         <div className="relative">
           <MessageSquare className="absolute left-4 top-4 text-muted-foreground w-5 h-5" />
           <textarea
@@ -293,7 +293,7 @@ export function ConsultingForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-muted-foreground">{t('lblDevTime')}</label>
+          <label className="text-body-sm font-medium text-muted-foreground">{t('lblDevTime')}</label>
           <div className="relative">
             <input
               type="text"
@@ -305,7 +305,7 @@ export function ConsultingForm() {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-muted-foreground">{t('lblUrl')} <span className="text-xs text-muted">{t('lblOptional')}</span></label>
+          <label className="text-body-sm font-medium text-muted-foreground">{t('lblUrl')} <span className="text-caption text-muted">{t('lblOptional')}</span></label>
           <div className="relative">
             <input
               type="url"
@@ -322,7 +322,7 @@ export function ConsultingForm() {
         <div className="flex items-center justify-between">
           <div>
             <h4 className="text-foreground font-medium mb-1">{t('budgetTitle')}</h4>
-            <p className="text-sm text-muted-foreground">{t('budgetDesc')}</p>
+            <p className="text-body-sm text-muted-foreground">{t('budgetDesc')}</p>
           </div>
           <button 
             type="button"
@@ -336,10 +336,10 @@ export function ConsultingForm() {
         {hasBudget && (
           <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300 pt-4 border-t border-border/10">
             <div className="flex justify-between items-center">
-              <span className="text-sm font-medium text-foreground">{t('budgetRange')}</span>
-              <span className="text-sm font-bold text-primary">${budgetRange[0]} - ${budgetRange[1]} USD</span>
+              <span className="text-body-sm font-medium text-foreground">{t('budgetRange')}</span>
+              <span className="text-body-sm font-bold text-primary">${budgetRange[0]} - ${budgetRange[1]} USD</span>
             </div>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-caption text-muted-foreground">
               {t('budgetNote')}
             </p>
             
@@ -551,9 +551,9 @@ export function MeetingForm() {
         <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary mb-2 shadow-[0_0_15px_rgba(139,92,246,0.2)]">
           <CheckCircle2 className="w-8 h-8" />
         </div>
-        <h3 className="text-xl font-bold text-foreground">{t('meetSentTitle')}</h3>
-        <p className="text-muted-foreground text-sm max-w-[300px]">{t('meetSentDesc')}</p>
-        <button onClick={() => setIsSuccess(false)} className="mt-4 text-sm font-medium text-primary hover:underline transition-colors">
+        <h3 className="text-title-card font-bold text-foreground">{t('meetSentTitle')}</h3>
+        <p className="text-body-sm text-muted-foreground max-w-[300px]">{t('meetSentDesc')}</p>
+        <button onClick={() => setIsSuccess(false)} className="mt-4 text-body-sm font-medium text-primary hover:underline transition-colors">
           {t('sendAnotherMeet')}
         </button>
       </div>
@@ -568,8 +568,8 @@ export function MeetingForm() {
     return (
       <div className="flex flex-col items-center justify-center py-12 text-center gap-3 w-full bg-surface/30 border border-border/20 rounded-2xl">
         <Clock className="w-8 h-8 text-muted-foreground" />
-        <h3 className="text-lg font-medium text-foreground">La agenda no está disponible</h3>
-        <p className="text-muted-foreground text-sm max-w-[340px]">
+        <h3 className="text-title-card font-medium text-foreground">La agenda no está disponible</h3>
+        <p className="text-body-sm text-muted-foreground max-w-[340px]">
           Escríbeme por el formulario de mensaje y coordinamos una hora.
         </p>
       </div>
@@ -580,7 +580,7 @@ export function MeetingForm() {
     <form className="flex flex-col gap-8 w-full" onSubmit={handleSubmit}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-muted-foreground">{t('lblName')}</label>
+          <label className="text-body-sm font-medium text-muted-foreground">{t('lblName')}</label>
           <div className="relative">
             <User className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <input
@@ -594,7 +594,7 @@ export function MeetingForm() {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium text-muted-foreground">{t('lblEmail')}</label>
+          <label className="text-body-sm font-medium text-muted-foreground">{t('lblEmail')}</label>
           <div className="relative">
             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <input
@@ -610,7 +610,7 @@ export function MeetingForm() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <label className="text-sm font-medium text-muted-foreground">{t('lblSelectDay')}</label>
+        <label className="text-body-sm font-medium text-muted-foreground">{t('lblSelectDay')}</label>
         <div className="bg-surface border border-border/20 rounded-2xl p-6 min-h-[160px] relative">
           {isLoading && (
             <div className="absolute inset-0 z-10 bg-surface/50 rounded-2xl flex items-center justify-center backdrop-blur-sm">
@@ -626,7 +626,7 @@ export function MeetingForm() {
 
               return (
                 <div key={i} className="flex flex-col items-center gap-3">
-                  {d.dayHeader && <span className="text-[10px] font-bold text-muted-foreground">{d.dayHeader}</span>}
+                  {d.dayHeader && <span className="text-label font-bold text-muted-foreground">{d.dayHeader}</span>}
                   <div className="flex flex-col items-center">
                     <button
                       type="button"
@@ -635,7 +635,7 @@ export function MeetingForm() {
                         setSelectedDate(d.jsDate);
                         setSelectedSlot(null);
                       }}
-                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm transition-colors
+                      className={`w-8 h-8 rounded-full flex items-center justify-center text-body-sm transition-colors
                         ${isSelected ? 'bg-primary text-white font-bold shadow-md shadow-primary/20' : ''}
                         ${!isSelected && isToday ? 'border border-primary text-primary hover:bg-primary/10' : ''}
                         ${!isSelected && !isToday && d.isAvailable ? 'text-foreground hover:bg-surface border border-transparent hover:border-border/50' : ''}
@@ -653,7 +653,7 @@ export function MeetingForm() {
       </div>
 
       <div className="flex flex-col gap-4">
-        <label className="text-sm font-medium text-muted-foreground">
+        <label className="text-body-sm font-medium text-muted-foreground">
           {t('lblSelectTime')}
           {/* La duración la fija el complemento; escribirla a mano se desincroniza. */}
           {availability?.slotMinutes ? ` (${availability.slotMinutes} min)` : ""}
@@ -668,7 +668,7 @@ export function MeetingForm() {
                   type="button"
                   onClick={() => setSelectedSlot(slot.time)}
                   disabled={!slot.isAvailable}
-                  className={`py-3 px-2 rounded-xl text-xs font-medium transition-colors border
+                  className={`py-3 px-2 rounded-xl text-caption font-medium transition-colors border
                   ${isSlotSelected ? 'bg-primary/10 border-primary text-primary shadow-[0_0_15px_rgba(139,92,246,0.15)]' : ''}
                   ${!isSlotSelected && slot.isAvailable
                       ? 'bg-surface border-border/10 text-muted-foreground hover:border-primary/50 hover:text-foreground'
@@ -687,14 +687,14 @@ export function MeetingForm() {
                 key={i}
                 type="button"
                 disabled
-                className="py-3 px-2 rounded-xl text-xs font-medium bg-transparent border border-transparent text-muted-foreground opacity-10 cursor-not-allowed"
+                className="py-3 px-2 rounded-xl text-caption font-medium bg-transparent border border-transparent text-muted-foreground opacity-10 cursor-not-allowed"
               >
                 {slot}
               </button>
             ))
           )}
         </div>
-        <p className="text-xs text-muted-foreground mt-2">
+        <p className="text-caption text-muted-foreground mt-2">
           {t('meetNote')}
           {/* La zona la fija el complemento; antes era la del navegador y no se decía. */}
           {availability?.timezone ? ` (horario de ${availability.timezone})` : ""}

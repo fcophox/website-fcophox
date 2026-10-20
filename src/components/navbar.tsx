@@ -60,7 +60,8 @@ export function Navbar() {
     router.refresh();
   };
 
-  const isHome = pathname === '/';
+  // /v3 es la home en construcción: mismo hero a pantalla completa.
+  const isHome = pathname === '/' || pathname === '/v3';
   const positionClass = isHome ? 'fixed' : 'sticky';
   // Force dark mode if on home, not scrolled, AND menu is not open (menu should use normal theme)
   const forceDarkMode = isHome && !scrolled && !isMenuOpen;
@@ -93,8 +94,8 @@ export function Navbar() {
               <Image src="/brand/francisco-avatar.png?v=2" alt="Avatar" width={44} height={44} className="object-cover absolute transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
             </div>
             <div className="flex flex-col justify-center hidden sm:flex">
-              <span className="font-bold text-[15px] text-foreground leading-tight">Francisco Hormazábal</span>
-              <span className="text-[11px] font-semibold text-muted leading-tight mt-0.5">UX Engineer & Product Design Consultant</span>
+              <span className="font-bold text-body text-foreground leading-tight">Francisco Hormazábal</span>
+              <span className="text-caption font-semibold text-muted leading-tight mt-0.5">UX Engineer & Product Design Consultant</span>
             </div>
           </Link>
 
@@ -104,7 +105,7 @@ export function Navbar() {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`text-sm font-base transition-colors ${pathname === link.path || pathname?.startsWith(`${link.path}/`) ? 'text-foreground' : 'text-muted hover:text-foreground'}`}
+                className={`text-body-sm transition-colors ${pathname === link.path || pathname?.startsWith(`${link.path}/`) ? 'text-foreground' : 'text-muted hover:text-foreground'}`}
               >
                 {link.name}
               </Link>
@@ -114,15 +115,15 @@ export function Navbar() {
           <div className="relative z-10 flex items-center gap-4 md:gap-6">
             <button
               onClick={toggleLanguage}
-              className="hidden sm:flex items-center gap-2 text-sm font-bold text-foreground hover:text-foreground/80 transition-colors"
+              className="hidden sm:flex items-center gap-2 text-body-sm font-bold text-foreground hover:text-foreground/80 transition-colors"
             >
-              <span className="text-md leading-none mt-[-2px]">文</span>
+              <span className="text-body-sm leading-none mt-[-2px]">文</span>
               {locale.toUpperCase()}
             </button>
 
             <Link href="/contact" className="hidden sm:flex items-center gap-2.5 px-5 py-2 rounded-full border border-border/60 bg-transparent hover:bg-surface transition-colors">
               <div className="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
-              <span className="text-[15px] font-bold text-foreground">{t('contact')}</span>
+              <span className="text-body font-bold text-foreground">{t('contact')}</span>
             </Link>
 
             {/* Mobile Menu Toggle */}
@@ -157,7 +158,7 @@ export function Navbar() {
                 >
                   <Link
                     href={link.path}
-                    className={`text-3xl font-normal transition-colors ${pathname === link.path || pathname?.startsWith(`${link.path}/`) ? 'text-primary' : 'text-foreground hover:text-primary'}`}
+                    className={`text-title-section font-normal transition-colors ${pathname === link.path || pathname?.startsWith(`${link.path}/`) ? 'text-primary' : 'text-foreground hover:text-primary'}`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {link.name}
@@ -176,7 +177,7 @@ export function Navbar() {
                   onClick={() => setIsMenuOpen(false)}
                   className="flex items-center gap-2.5 px-8 py-4 rounded-full bg-foreground text-background transition-transform hover:scale-105"
                 >
-                  <span className="text-lg font-bold">{t('contact')}</span>
+                  <span className="text-subtitle font-bold">{t('contact')}</span>
                 </Link>
 
                 <button
@@ -184,9 +185,9 @@ export function Navbar() {
                     toggleLanguage();
                     setIsMenuOpen(false);
                   }}
-                  className="flex items-center gap-2 text-lg font-bold text-muted hover:text-foreground transition-colors"
+                  className="flex items-center gap-2 text-subtitle font-bold text-muted hover:text-foreground transition-colors"
                 >
-                  <span className="text-xl leading-none mt-[-2px]">文</span>
+                  <span className="text-subtitle leading-none mt-[-2px]">文</span>
                   {locale.toUpperCase()}
                 </button>
               </motion.div>

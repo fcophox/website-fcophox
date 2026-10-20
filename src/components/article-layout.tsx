@@ -45,7 +45,7 @@ export function ArticleLayout({
         <div className="mb-8">
           <Link
             href={backHref}
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-body-sm font-medium text-muted hover:text-foreground transition-colors"
           >
             <ArrowLeft size={16} />
             {backLabel}
@@ -59,17 +59,17 @@ export function ArticleLayout({
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-6"
           >
-            <span className="text-xs font-medium text-secondary bg-secondary/10 px-3 py-1.5 rounded-full">
+            <span className="text-caption font-medium text-secondary bg-secondary/10 px-3 py-1.5 rounded-full">
               {category}
             </span>
-            <span className="text-sm text-muted">{date}</span>
+            <span className="text-caption text-muted">{date}</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl md:text-3xl lg:text-5xl font-normal text-foreground leading-tight mb-6"
+            className="text-title-page font-normal text-foreground mb-6"
           >
             {title}
           </motion.h1>

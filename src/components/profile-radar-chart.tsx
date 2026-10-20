@@ -68,7 +68,7 @@ export function ProfileRadarChart() {
                 className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: entry.color }}
               />
-              <span className="text-sm font-medium text-foreground select-none">{entry.value}</span>
+              <span className="text-body-sm font-medium text-foreground select-none">{entry.value}</span>
             </li>
           );
         })}

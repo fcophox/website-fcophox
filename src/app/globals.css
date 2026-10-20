@@ -21,6 +21,38 @@
   --color-border: var(--border);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Escala tipográfica — roles semánticos (ver DESIGN.MD) */
+  --text-display: clamp(2.5rem, 6vw, 4.5rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.02em;
+  --text-title-page: clamp(2.25rem, 5vw, 3.5rem);
+  --text-title-page--line-height: 1.1;
+  --text-title-page--letter-spacing: -0.02em;
+  --text-title-section: clamp(1.5rem, 3vw, 2.25rem);
+  --text-title-section--line-height: 1.2;
+  --text-title-section--letter-spacing: -0.01em;
+  --text-title-subsection: clamp(1.25rem, 2.2vw, 1.75rem);
+  --text-title-subsection--line-height: 1.3;
+  --text-title-subsection--letter-spacing: -0.01em;
+  --text-title-card: 1.25rem;
+  --text-title-card--line-height: 1.35;
+  --text-title-card--letter-spacing: -0.01em;
+  --text-subtitle: 1.25rem;
+  --text-subtitle--line-height: 1.6;
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.6;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.08em;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.5;
+  --text-copyright: 0.75rem;
+  --text-copyright--line-height: 1.5;
+  --text-code: 0.875rem;
+  --text-code--line-height: 1.6;
 }
 
 :root {

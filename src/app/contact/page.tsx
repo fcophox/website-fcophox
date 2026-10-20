@@ -58,7 +58,7 @@ export default function ContactPage() {
 
   const getTitleClasses = (formType: string) => {
     const isActive = activeForm === formType;
-    return `text-xl font-medium mb-4 pr-8 transition-colors ${isActive ? "text-primary" : "text-foreground group-hover:text-primary"}`;
+    return `text-title-card font-medium mb-4 pr-8 transition-colors ${isActive ? "text-primary" : "text-foreground group-hover:text-primary"}`;
   };
 
   const getIndicatorClasses = (formType: string) => {
@@ -79,7 +79,7 @@ export default function ContactPage() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <Link href="/" className="inline-flex items-center text-sm font-medium text-muted hover:text-foreground transition-colors">
+          <Link href="/" className="inline-flex items-center text-body-sm font-medium text-muted hover:text-foreground transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('backHome')}
           </Link>
@@ -91,17 +91,17 @@ export default function ContactPage() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-16 max-w-6xl"
         >
-          <h1 className="text-4xl md:text-[3.5rem] font-normal text-foreground mb-8 leading-tight tracking-tight">
+          <h1 className="text-title-page font-normal text-foreground mb-8">
             {t('title1')} <span className="text-primary font-normal">{t('title2')}</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted leading-relaxed font-normal">
+          <p className="text-subtitle text-muted font-normal">
             {t('subtitle')}
           </p>
         </motion.div>
 
         {/* Options Section */}
         <div className="mb-8">
-          <h2 className="text-3xl font-medium text-center text-foreground mb-12">
+          <h2 className="text-title-section font-medium text-center text-foreground mb-12">
             {t('helpTitle')}
           </h2>
 
@@ -118,7 +118,7 @@ export default function ContactPage() {
 
               <h3 className={getTitleClasses("message")} dangerouslySetInnerHTML={{ __html: t.raw('msgCardTitle') }} />
 
-              <p className="text-muted/80 text-sm leading-relaxed mt-auto">
+              <p className="text-body-sm text-muted/80 mt-auto">
                 {t('msgCardDesc')}
               </p>
             </button>
@@ -135,7 +135,7 @@ export default function ContactPage() {
 
               <h3 className={getTitleClasses("consulting")} dangerouslySetInnerHTML={{ __html: t.raw('consultCardTitle') }} />
 
-              <p className="text-muted/80 text-sm leading-relaxed mt-auto">
+              <p className="text-body-sm text-muted/80 mt-auto">
                 {t('consultCardDesc')}
               </p>
             </button>
@@ -152,7 +152,7 @@ export default function ContactPage() {
 
               <h3 className={getTitleClasses("meeting")} dangerouslySetInnerHTML={{ __html: t.raw('meetCardTitle') }} />
 
-              <p className="text-muted/80 text-sm leading-relaxed mt-auto">
+              <p className="text-body-sm text-muted/80 mt-auto">
                 {t('meetCardDesc')}
               </p>
             </button>
@@ -178,14 +178,14 @@ export default function ContactPage() {
                       {activeForm === "consulting" && <Users className="text-[#8B5CF6]" size={24} />}
                       {activeForm === "meeting" && <CalendarCheck className="text-[#8B5CF6]" size={24} />}
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-medium text-foreground">
+                    <h2 className="text-title-section font-medium text-foreground">
                       {activeForm && formHeaders[activeForm].title}
                     </h2>
                   </div>
 
                   <button
                     onClick={() => setActiveForm("none")}
-                    className="inline-flex items-center gap-2 text-muted hover:text-foreground transition-colors font-medium text-sm self-start sm:self-auto bg-surface/50 hover:bg-surface px-4 py-2 rounded-full border border-border/10"
+                    className="inline-flex items-center gap-2 text-muted hover:text-foreground transition-colors font-medium text-body-sm self-start sm:self-auto bg-surface/50 hover:bg-surface px-4 py-2 rounded-full border border-border/10"
                   >
                     {t('hide')}
                   </button>

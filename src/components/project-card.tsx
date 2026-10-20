@@ -18,8 +18,24 @@ export interface Project {
   image_url?: string;
 }
 
-export function ProjectCard({ projects = [] }: { projects?: Project[] }) {
+type Variant = "default" | "v3";
+
+type Props = {
+  projects?: Project[];
+  /** Sobrescriben la cabecera por defecto (los usa la home v3). */
+  label?: string;
+  title?: string;
+  /**
+   * `v3` es la variante de la home nueva: sin `surface` (la tarjeta toma el
+   * fondo más oscuro de la paleta), imagen al 70 % del ancho y la información
+   * en el 30 % restante, con los tipos un escalón más chicos para que quepan.
+   */
+  variant?: Variant;
+};
+
+export function ProjectCard({ projects = [], label, title, variant }: Props) {
   const t = useTranslations("ProjectCard");
+  const isV3 = variant === "v3";
   const sectionRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -67,18 +83,29 @@ export function ProjectCard({ projects = [] }: { projects?: Project[] }) {
   const Header = (
     <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
       <div>
-        <span className="inline-block bg-muted/10 dark:bg-muted/5 border border-border/40 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider text-muted uppercase mb-4">
-          {t("since")}
-        </span>
-        <h2 className="text-[clamp(1.2rem,4vw,2.2rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px]">
-          {t("title")}
+        {/*
+          En v3 la etiqueta va como en el resto de las secciones —mono,
+          mayúsculas, sin píldora—. La home actual conserva la píldora, que es
+          como se lee en todas sus secciones.
+        */}
+        {isV3 ? (
+          <p className="text-label font-mono uppercase text-foreground/80 mb-4">
+            {label ?? t("since")}
+          </p>
+        ) : (
+          <span className="inline-block bg-muted/10 dark:bg-muted/5 border border-border/40 px-3.5 py-1.5 rounded-full text-label font-semibold text-muted uppercase mb-4">
+            {label ?? t("since")}
+          </span>
+        )}
+        <h2 className="text-title-section font-normal text-foreground text-left w-full md:max-w-[750px]">
+          {title ?? t("title")}
         </h2>
       </div>
       <Link
         href="/case-studies"
         className="group flex items-center gap-2 text-muted hover:text-foreground transition-colors whitespace-nowrap mb-1"
       >
-        <span className="text-sm font-medium">{t("viewAll")}</span>
+        <span className="text-body-sm font-medium">{t("viewAll")}</span>
         <ArrowUpRight
           size={20}
           className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -102,7 +129,7 @@ export function ProjectCard({ projects = [] }: { projects?: Project[] }) {
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <ProjectCardItem project={project} />
+                <ProjectCardItem project={project} variant={variant} />
               </motion.div>
             ))}
           </div>
@@ -187,7 +214,7 @@ export function ProjectCard({ projects = [] }: { projects?: Project[] }) {
                     pointerEvents: covered > 0.5 ? "none" : "auto",
                   }}
                 >
-                  <ProjectCardItem project={project} />
+                  <ProjectCardItem project={project} variant={variant} />
                 </div>
               );
             })}
@@ -203,7 +230,8 @@ function clamp(v: number, min: number, max: number) {
   return Math.min(max, Math.max(min, v));
 }
 
-function ProjectCardItem({ project }: { project: Project }) {
+function ProjectCardItem({ project, variant = "default" }: { project: Project; variant?: Variant }) {
+  const isV3 = variant === "v3";
   return (
     <div className="w-full">
       <Link
@@ -211,9 +239,37 @@ function ProjectCardItem({ project }: { project: Project }) {
         className="block no-underline w-full cursor-none"
         data-custom-cursor="true"
       >
-        <div className="w-full rounded-3xl bg-surface border border-border/20 overflow-hidden flex flex-col md:flex-row shadow-2xl">
-          <div className="w-full md:w-[50%] flex items-center justify-center p-6 md:p-10">
-            <div className="relative w-full aspect-[29/20] rounded-xl overflow-hidden group border border-border/50">
+        <div
+          className={`w-full rounded-3xl overflow-hidden flex flex-col md:flex-row ${
+            isV3
+              ? "bg-background border border-border/20"
+              : "bg-surface border border-border/20 shadow-2xl"
+          }`}
+        >
+          {/*
+            v3: la imagen se lleva el 70 % del ancho. El recuadro pasa a 16/9
+            porque con el 70 % un 29/20 (el de la home actual) crecería tanto de
+            alto que la tarjeta no cabría en la pantalla fija del apilado.
+          */}
+          <div
+            className={`w-full flex items-center justify-center ${
+              isV3 ? "p-6 md:w-[70%] md:p-8" : "p-6 md:w-[50%] md:p-10"
+            }`}
+          >
+            {/*
+              El tope de alto es `100vh - 24rem`, no un porcentaje: la tarjeta
+              vive dentro de la pantalla fija del apilado, y ahí lo que sobra
+              para ella es la altura del viewport menos el encabezado de la
+              sección, los paddings y el del propio recuadro. Con un tope plano
+              el recorte se comía la imagen en pantallas altas sin necesidad.
+            */}
+            <div
+              className={`relative w-full rounded-xl overflow-hidden group border border-border/50 ${
+                isV3
+                  ? "aspect-[29/20] md:aspect-[16/9] md:max-h-[calc(100vh-24rem)]"
+                  : "aspect-[29/20]"
+              }`}
+            >
               {project.image_url ? (
                 <div className="w-full h-full relative">
                   <RevealImage
@@ -221,7 +277,14 @@ function ProjectCardItem({ project }: { project: Project }) {
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes={isV3 ? "(max-width: 768px) 100vw, 70vw" : "(max-width: 768px) 100vw, 50vw"}
+                    /*
+                      En v3 la tarjeta no tiene `surface`: la cortina se pinta
+                      con el fondo para que mientras está cerrada se lea como
+                      parte de la tarjeta y no como un parche más claro.
+                    */
+                    revealColor={isV3 ? "var(--background)" : undefined}
+                    variant={isV3 ? "curtain-sides" : "curtain-down"}
                   />
                 </div>
               ) : (
@@ -242,23 +305,31 @@ function ProjectCardItem({ project }: { project: Project }) {
             </div>
           </div>
 
-          <div className="p-8 md:p-10 flex flex-col justify-between w-full md:w-[50%] items-start text-left">
-            <div className="space-y-6">
-              <span className="text-xs font-medium text-secondary bg-secondary/10 px-3 py-1.5 rounded-full inline-block">
+          <div
+            className={`flex flex-col justify-between w-full items-start text-left ${
+              isV3 ? "p-6 md:w-[30%] md:p-8" : "p-8 md:w-[50%] md:p-10"
+            }`}
+          >
+            <div className={isV3 ? "space-y-4 md:space-y-5" : "space-y-6"}>
+              <span className="text-caption font-medium text-secondary bg-secondary/10 px-3 py-1.5 rounded-full inline-block">
                 {project.tag}
               </span>
-              <h3 className="text-[clamp(1.2rem,4vw,2.2rem)] font-normal text-foreground leading-tight text-left w-full md:max-w-[750px]">
+              <h3
+                className={`font-normal text-foreground text-left w-full ${
+                  isV3 ? "text-title-subsection" : "text-title-section md:max-w-[750px]"
+                }`}
+              >
                 {project.title}
               </h3>
-              <p className="text-muted leading-relaxed max-w-md">
+              <p className={`text-muted ${isV3 ? "text-body-sm" : "text-body max-w-md"}`}>
                 {project.description}
               </p>
             </div>
-            <div className="flex flex-wrap gap-2 mt-auto pt-8">
+            <div className={`flex flex-wrap gap-2 mt-auto ${isV3 ? "pt-6 md:pt-8" : "pt-8"}`}>
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 rounded-full text-xs text-muted bg-muted/20 border border-border"
+                  className="px-3 py-1.5 rounded-full text-caption text-muted bg-muted/20 border border-border"
                 >
                   {tag}
                 </span>

@@ -75,7 +75,22 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      className={`${sansation.variable} ${geistMono.variable} h-full antialiased`}
+      /*
+        `dark` también acá, no sólo vía ThemeProvider: el script de next-themes
+        corre después de que el CSS ya aplicó, así que sin la clase el primer
+        frame resolvería `--background` al valor claro de `:root` y el fondo
+        parpadearía en blanco. next-themes sólo agrega y quita `light`/`dark`,
+        los demás clases (las variables de fuentes) quedan intactas.
+      */
+      className={`dark ${sansation.variable} ${geistMono.variable} h-full antialiased`}
+      /*
+        El color de fondo de la web pintado en el propio documento, inline: es
+        el respaldo para el primer frame de cualquier carga —antes de que llegue
+        la hoja de estilos— y para el rebote del scroll, donde no hay ninguna
+        sección que cubra. El literal es el `--background` de `.dark`; una vez
+        el CSS está, el token manda.
+      */
+      style={{ backgroundColor: "var(--background, #101012)" }}
       suppressHydrationWarning
     >
       <body className="min-h-full overflow-x-hidden relative flex flex-col bg-background text-foreground transition-colors duration-300">

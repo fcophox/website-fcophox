@@ -87,10 +87,10 @@ export function CookieConsent() {
               <Cookie className="h-4 w-4" aria-hidden />
             </span>
             <div className="flex-1 min-w-0">
-              <h2 id={titleId} className="text-sm font-semibold">
+              <h2 id={titleId} className="text-body-sm font-semibold">
                 {t("title")}
               </h2>
-              <p id={descId} className="mt-1.5 text-[13px] leading-relaxed text-muted text-pretty">
+              <p id={descId} className="mt-1.5 text-body-sm leading-relaxed text-muted text-pretty">
                 {t.rich("description", {
                   cookies: (chunks) => (
                     <Link href="/legal/cookies" className="underline underline-offset-2 hover:text-foreground">
@@ -129,15 +129,15 @@ export function CookieConsent() {
                 <ul className="mt-4 flex flex-col gap-2">
                   <li className="flex items-start justify-between gap-4 rounded-xl border border-border/40 bg-surface/40 p-3">
                     <div>
-                      <p className="text-[13px] font-medium">{t("necessaryTitle")}</p>
-                      <p className="mt-0.5 text-xs text-muted leading-relaxed">{t("necessaryDesc")}</p>
+                      <p className="text-body-sm font-medium">{t("necessaryTitle")}</p>
+                      <p className="mt-0.5 text-caption text-muted leading-relaxed">{t("necessaryDesc")}</p>
                     </div>
-                    <span className="shrink-0 text-xs font-medium text-muted">{t("alwaysOn")}</span>
+                    <span className="shrink-0 text-caption font-medium text-muted">{t("alwaysOn")}</span>
                   </li>
                   <li className="flex items-start justify-between gap-4 rounded-xl border border-border/40 bg-surface/40 p-3">
                     <label htmlFor={`${titleId}-analytics`} className="cursor-pointer">
-                      <span className="block text-[13px] font-medium">{t("analyticsTitle")}</span>
-                      <span className="mt-0.5 block text-xs text-muted leading-relaxed">{t("analyticsDesc")}</span>
+                      <span className="block text-body-sm font-medium">{t("analyticsTitle")}</span>
+                      <span className="mt-0.5 block text-caption text-muted leading-relaxed">{t("analyticsDesc")}</span>
                     </label>
                     <button
                       id={`${titleId}-analytics`}
@@ -162,7 +162,7 @@ export function CookieConsent() {
               <button
                 type="button"
                 onClick={() => decide(analytics)}
-                className="flex-1 rounded-full bg-primary px-4 py-2 text-[13px] font-medium text-white hover:bg-primary/90 transition-colors"
+                className="flex-1 rounded-full bg-primary px-4 py-2 text-body-sm font-medium text-white hover:bg-primary/90 transition-colors"
               >
                 {t("save")}
               </button>
@@ -172,14 +172,14 @@ export function CookieConsent() {
                 <button
                   type="button"
                   onClick={() => decide(false)}
-                  className="flex-1 rounded-full border border-border/80 px-4 py-2 text-[13px] font-medium hover:bg-surface transition-colors"
+                  className="flex-1 rounded-full border border-border/80 px-4 py-2 text-body-sm font-medium hover:bg-surface transition-colors"
                 >
                   {t("reject")}
                 </button>
                 <button
                   type="button"
                   onClick={() => decide(true)}
-                  className="flex-1 rounded-full border border-primary bg-primary px-4 py-2 text-[13px] font-medium text-white hover:bg-primary/90 transition-colors"
+                  className="flex-1 rounded-full border border-primary bg-primary px-4 py-2 text-body-sm font-medium text-white hover:bg-primary/90 transition-colors"
                 >
                   {t("accept")}
                 </button>
@@ -189,7 +189,7 @@ export function CookieConsent() {
                     setAnalytics(consent?.analytics ?? false);
                     setShowSettings(true);
                   }}
-                  className="w-full pt-1 text-xs text-muted underline underline-offset-2 hover:text-foreground transition-colors"
+                  className="w-full pt-1 text-caption text-muted underline underline-offset-2 hover:text-foreground transition-colors"
                 >
                   {t("customize")}
                 </button>

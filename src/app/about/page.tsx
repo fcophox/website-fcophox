@@ -30,7 +30,7 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <Link href="/" className="inline-flex items-center text-sm font-medium text-muted hover:text-foreground transition-colors">
+          <Link href="/" className="inline-flex items-center text-body-sm font-medium text-muted hover:text-foreground transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" />
             {t('backHome')}
           </Link>
@@ -42,10 +42,10 @@ export default function AboutPage() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-16 max-w-6xl"
         >
-          <h1 className="text-4xl md:text-[3.5rem] font-normal text-foreground mb-8 leading-tight tracking-tight">
+          <h1 className="text-title-page font-normal text-foreground mb-8">
             {t('title')}
           </h1>
-          <p className="text-lg md:text-xl text-muted leading-relaxed font-normal">
+          <p className="text-subtitle text-muted font-normal">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -72,7 +72,7 @@ export default function AboutPage() {
                 sizes="(max-width: 1024px) 100vw, 400px"
               />
               <div className="absolute inset-x-0 bottom-0 p-6 pt-12 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center text-center">
-                <p className="text-white font-medium text-sm drop-shadow-md">
+                <p className="text-body-sm font-medium text-white drop-shadow-md">
                   {t('imageHoverText')}
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="flex-1 flex flex-col justify-center"
           >
-            <h2 className="text-md md:text-lg font-light text-foreground mb-8">
+            <h2 className="text-subtitle font-light text-foreground mb-8">
               {t('bioGreeting1')}
               <a href="https://www.linkedin.com/in/fcophox/" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold italic underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors">Francisco Hormazábal</a>
               {t('bioGreeting2')}
@@ -97,12 +97,12 @@ export default function AboutPage() {
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                 <Image src="/about/uxpm.svg" alt="UX-PM Badge" width={80} height={80} className="w-full h-full object-contain p-1" />
               </div>
-              <p className="text-md md:text-lg text-primary font-medium leading-snug">
+              <p className="text-subtitle text-primary font-medium leading-snug">
                 {t('bioBadge')}
               </p>
             </div>
 
-            <div className="space-y-6 text-lg text-muted">
+            <div className="space-y-6 text-body text-muted">
               <p className="text-foreground font-medium">
                 {t('bioP1')}
               </p>
