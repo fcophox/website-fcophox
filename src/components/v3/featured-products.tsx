@@ -40,7 +40,7 @@ export async function FeaturedProductsV3() {
 
                 <div className="p-6 lg:p-8 flex flex-col gap-4 flex-1">
                   <h3 className="text-title-subsection font-normal text-foreground">
-                    <Link href={`/v3/products/${product.id}`} className="hover:text-primary transition-colors">
+                    <Link href={`/products/${product.id}`} className="hover:text-primary transition-colors">
                       {product.name}
                     </Link>
                   </h3>
@@ -49,7 +49,7 @@ export async function FeaturedProductsV3() {
 
                   <div className="mt-auto pt-2 flex flex-wrap items-center justify-between gap-4">
                     <Link
-                      href={`/v3/products/${product.id}`}
+                      href={`/products/${product.id}`}
                       className="group inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors"
                     >
                       {t("learnMore")}

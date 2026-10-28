@@ -60,8 +60,8 @@ export function Navbar() {
     router.refresh();
   };
 
-  // /v3 es la home en construcción: mismo hero a pantalla completa.
-  const isHome = pathname === '/' || pathname === '/v3';
+  // /org es el respaldo de la home anterior: mismo hero a pantalla completa.
+  const isHome = pathname === '/' || pathname === '/org';
   const positionClass = isHome ? 'fixed' : 'sticky';
   // Force dark mode if on home, not scrolled, AND menu is not open (menu should use normal theme)
   const forceDarkMode = isHome && !scrolled && !isMenuOpen;

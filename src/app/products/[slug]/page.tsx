@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-/** `data-reveal`: sin JS, el <noscript> del layout de v3 deja visibles estos bloques. */
+/** `data-reveal`: sin JS, el <noscript> del layout de /products deja visibles estos bloques. */
 const reveal = (delay = 0) => ({
   "data-reveal": true,
   initial: { opacity: 0, y: 20 },
@@ -79,7 +79,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
           {/* Header */}
           <div className="mb-12">
             <Link
-              href="/v3#productos"
+              href="/#productos"
               className="inline-flex items-center gap-2 text-muted hover:text-foreground text-body-sm font-medium transition-colors mb-8 group"
             >
               <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
@@ -186,7 +186,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 { item: prev, label: t("detail.previous") },
                 { item: next, label: t("detail.next") },
               ].map(({ item, label }) => (
-                <Link key={label} href={`/v3/products/${item.id}`} className="group block no-underline">
+                <Link key={label} href={`/products/${item.id}`} className="group block no-underline">
                   <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden mb-4 border border-border/30 bg-surface">
                     <Image
                       src={item.image ?? PRODUCT_IMAGE_PLACEHOLDER}

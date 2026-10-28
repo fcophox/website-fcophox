@@ -21,8 +21,8 @@ export function HeroV3() {
   /*
     `data-reveal` sólo importa sin JavaScript: framer-motion escribe la opacidad
     0 del estado inicial inline en el HTML del servidor y, sin scripts, nadie la
-    revierte —el hero salía en blanco—. El layout de /v3 lleva una hoja dentro
-    de <noscript> que anula esos estilos para ese caso; con JS no hace nada.
+    revierte —el hero salía en blanco—. La home lleva una hoja dentro de
+    <noscript> (NoscriptReveal) que anula esos estilos para ese caso; con JS no hace nada.
   */
   const rise = (delay: number) => ({
     "data-reveal": true,

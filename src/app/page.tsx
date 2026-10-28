@@ -1,86 +1,83 @@
-import { Hero } from "@/components/hero";
-import { ProjectCard } from "@/components/project-card";
-import { ConversationCta } from "@/components/conversation-cta";
+import type { Metadata } from "next";
+import { getLocale, getTranslations } from "next-intl/server";
+
 import { Blog } from "@/components/blog";
-// import { BentoSection } from "@/components/bento-section";
-import { UxBento } from "@/components/ux-bento";
-import { ServicesSection } from "@/components/services-section";
-import { ExperienceLogos } from "@/components/experience-logos";
-import { ToolsSection } from "@/components/tools-section";
-import { Metadata } from "next";
-import { getTranslations, getLocale } from 'next-intl/server';
+import { ProjectCard } from "@/components/project-card";
+import { ContactCtaV3 } from "@/components/v3/contact-cta";
+import { ExperienceV3 } from "@/components/v3/experience";
+import { FeaturedProductsV3 } from "@/components/v3/featured-products";
+import { HeroV3 } from "@/components/v3/hero";
+import { NoscriptReveal } from "@/components/v3/noscript-reveal";
+import { PillarsV3 } from "@/components/v3/pillars";
 import { CATEGORIA } from "@/utils/kontororu";
-import { listarLocalizado } from "@/utils/kontororu-i18n";
 import { aListadoArray } from "@/utils/kontororu-adapter";
+import { listarLocalizado } from "@/utils/kontororu-i18n";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
-  const t = await getTranslations({ locale, namespace: 'Metadata' });
+  const t = await getTranslations({ locale, namespace: "V3.Meta" });
 
   return {
-    title: {
-      absolute: t('homeTitle'),
-    },
-    description: "Explora el portafolio de Fcophox, descubre mis proyectos recientes, metodologías y artículos sobre diseño y desarrollo web.",
+    title: { absolute: t("title") },
+    description: t("description"),
   };
 }
 
-/*
- * Era 0 —sin caché— porque el contenido salía de Supabase y no había forma de
- * saber cuándo cambiaba. Ahora avisa el webhook, así que se puede cachear.
- */
 export const revalidate = 3600;
 
-export default async function Home() {
-  const casos = await listarLocalizado({
-    categoria: CATEGORIA.casosDeEstudio,
-    limit: 6,
-  });
+const COLOR_PALETTES = [
+  ["#3b82f6", "#06b6d4"],
+  ["#8b5cf6", "#ec4899"],
+  ["#22c55e", "#14b8a6"],
+  ["#f97316", "#ef4444"],
+  ["#eab308", "#f97316"],
+  ["#ec4899", "#8b5cf6"],
+];
 
-  const mappedProjects = aListadoArray(casos).map((c, i) => {
-    const colorPalettes = [
-      ["#3b82f6", "#06b6d4"],
-      ["#8b5cf6", "#ec4899"],
-      ["#22c55e", "#14b8a6"],
-      ["#f97316", "#ef4444"],
-      ["#eab308", "#f97316"],
-      ["#ec4899", "#8b5cf6"]
-    ];
-    return {
-      id: c.id,
-      slug: c.slug,
-      tag: c.category || "Case Study",
-      title: c.title,
-      // `content` ya es el excerpt del editor, no HTML que haya que limpiar.
-      description: c.content || "Explora este caso de estudio.",
-      tags: c.tags ?? [],
-      colors: colorPalettes[i % colorPalettes.length],
-      image_url: c.image_url ?? undefined,
-    };
-  });
+/**
+ * Home (v3): Product Builder & UX Engineer. La home anterior queda
+ * respaldada en /org.
+ *
+ * Orden: posicionamiento → cómo trabajo → productos construidos → trayectoria
+ * → casos de estudio → blog → contacto. Los productos van antes que la
+ * trayectoria: la experiencia respalda, no encabeza.
+ */
+export default async function Home() {
+  const t = await getTranslations("V3.CaseStudies");
+
+  const casos = await listarLocalizado({ categoria: CATEGORIA.casosDeEstudio, limit: 6 });
+  const projects = aListadoArray(casos).map((c, i) => ({
+    id: c.id,
+    slug: c.slug,
+    tag: c.category || "Case Study",
+    title: c.title,
+    description: c.content || "",
+    tags: c.tags ?? [],
+    colors: COLOR_PALETTES[i % COLOR_PALETTES.length],
+    image_url: c.image_url ?? undefined,
+  }));
 
   return (
-    <main className="min-h-screen flex flex-col relative bg-background transition-colors duration-300">
-      {/* Abstract Background Shapes */}
-      <div className="absolute top-0 left-1/2 w-full -translate-x-1/2 h-[600px] overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[-10%] left-[20%] w-[500px] h-[500px] rounded-full bg-primary/20 blur-3xl" />
-        <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] rounded-full bg-secondary/20 blur-3xl" />
-      </div>
-      <Hero />
-      <ProjectCard projects={mappedProjects} />
-      <UxBento />
-      <ServicesSection />
-      {/* <BentoSection /> */}
-      <ExperienceLogos />
-      <ToolsSection />
+    <main className="min-h-screen flex flex-col relative bg-background">
+      <NoscriptReveal />
+      <HeroV3 />
+      <PillarsV3 />
+      <FeaturedProductsV3 />
+      <ExperienceV3 />
+      <ProjectCard
+        projects={projects}
+        label={t("label")}
+        title={t.rich("title", {
+          hl: (chunks) => (
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+              {chunks}
+            </span>
+          ),
+        })}
+        variant="v3"
+      />
       <Blog />
-      <ConversationCta />
-      {/*
-        Decorative grain. Starts below the hero: it spans the whole <main> with
-        mix-blend-overlay, so over the hero it tinted the shader field and made
-        the home read differently from /hero-lab, which has no such layer.
-      */}
-      <div className="absolute inset-x-0 top-[100vh] bottom-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 dark:opacity-5 mix-blend-overlay pointer-events-none" />
+      <ContactCtaV3 />
     </main>
   );
 }

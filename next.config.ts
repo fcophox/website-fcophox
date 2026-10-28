@@ -33,11 +33,16 @@ const nextConfig: NextConfig = {
    * de sesión de Supabase.
    */
   async redirects() {
-    return SLUG_REDIRECTS.map(({ base, from, to }) => ({
-      source: `${base}/${from}`,
-      destination: `${base}/${to}`,
-      permanent: true,
-    }));
+    return [
+      ...SLUG_REDIRECTS.map(({ base, from, to }) => ({
+        source: `${base}/${from}`,
+        destination: `${base}/${to}`,
+        permanent: true,
+      })),
+      // La v3 pasó a ser la home; los enlaces viejos a /v3 siguen funcionando.
+      { source: "/v3", destination: "/", permanent: true },
+      { source: "/v3/products/:slug", destination: "/products/:slug", permanent: true },
+    ];
   },
 };
 

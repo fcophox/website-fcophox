@@ -99,7 +99,14 @@ export function ProjectCard({ projects = [], label, title, variant }: Props) {
           </span>
         )}
         <h2 className="text-title-section font-normal text-foreground text-left w-full md:max-w-[750px]">
-          {title ?? t("title")}
+          {title ??
+            t.rich("title", {
+              hl: (chunks) => (
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                  {chunks}
+                </span>
+              ),
+            })}
         </h2>
       </div>
       <Link
