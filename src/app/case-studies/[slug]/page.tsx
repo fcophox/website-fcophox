@@ -104,6 +104,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       backHref="/case-studies"
       backLabel={t("backToCaseStudies")}
       slug={post.slug}
+      wide
       relatedArticlesSection={
         <RelatedArticlesCarousel
           items={items.map((a) => ({
