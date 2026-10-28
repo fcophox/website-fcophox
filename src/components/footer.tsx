@@ -40,7 +40,7 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-title-card font-bold text-foreground">Francisco</span>
-                <span className="text-body-sm text-muted">{t('role')}</span>
+                <span className="text-body-sm w-fit text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">{t('role')}</span>
               </div>
             </div>
 

@@ -95,7 +95,7 @@ export function Navbar() {
             </div>
             <div className="flex flex-col justify-center hidden sm:flex">
               <span className="font-bold text-body text-foreground leading-tight">Francisco Hormazábal</span>
-              <span className="text-caption font-semibold text-foreground leading-tight mt-0.5">UX Engineer & Product Design Consultant</span>
+              <span className="text-caption font-semibold leading-tight mt-0.5 w-fit text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">UX Engineer & Product Design Consultant</span>
             </div>
           </Link>
 
