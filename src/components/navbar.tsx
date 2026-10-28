@@ -95,7 +95,7 @@ export function Navbar() {
             </div>
             <div className="flex flex-col justify-center hidden sm:flex">
               <span className="font-bold text-body text-foreground leading-tight">Francisco Hormazábal</span>
-              <span className="text-caption font-semibold text-muted leading-tight mt-0.5">UX Engineer & Product Design Consultant</span>
+              <span className="text-caption font-semibold text-foreground leading-tight mt-0.5">UX Engineer & Product Design Consultant</span>
             </div>
           </Link>
 
@@ -105,7 +105,7 @@ export function Navbar() {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`text-body-sm transition-colors ${pathname === link.path || pathname?.startsWith(`${link.path}/`) ? 'text-foreground' : 'text-muted hover:text-foreground'}`}
+                className={`text-body-sm transition-colors ${pathname === link.path || pathname?.startsWith(`${link.path}/`) ? 'text-foreground' : 'text-foreground hover:text-foreground/70'}`}
               >
                 {link.name}
               </Link>
@@ -185,7 +185,7 @@ export function Navbar() {
                     toggleLanguage();
                     setIsMenuOpen(false);
                   }}
-                  className="flex items-center gap-2 text-subtitle font-bold text-muted hover:text-foreground transition-colors"
+                  className="flex items-center gap-2 text-subtitle font-bold text-foreground hover:text-foreground/70 transition-colors"
                 >
                   <span className="text-subtitle leading-none mt-[-2px]">文</span>
                   {locale.toUpperCase()}
