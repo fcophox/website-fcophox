@@ -54,6 +54,8 @@ export const PRODUCTS: Product[] = [
     status: "production",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase", "Tiptap"],
     hasNote: true,
+    image: "/products/kontororu.png",
+    logo: "/products/kontororu.svg",
   },
   {
     id: "tanzo",
