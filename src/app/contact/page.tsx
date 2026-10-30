@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, MessageCircle, Users, CalendarCheck } from "lucide-react";
 import { MessageForm, ConsultingForm, MeetingForm } from "@/components/contact-forms";
+import { HoverField } from "@/components/hover-field";
 import { useTranslations } from "next-intl";
 
 export default function ContactPage() {
@@ -45,7 +46,7 @@ export default function ContactPage() {
 
   const getIconContainerClasses = (formType: string) => {
     const isActive = activeForm === formType;
-    return `w-12 h-12 rounded-xl flex items-center justify-center mb-12 transition-all duration-300 ${isActive
+    return `relative w-12 h-12 rounded-xl flex items-center justify-center mb-12 transition-all duration-300 ${isActive
       ? "bg-primary/20 border border-primary/30 scale-110"
       : "bg-surface/50 border border-border/10 group-hover:scale-110"
       }`;
@@ -58,7 +59,7 @@ export default function ContactPage() {
 
   const getTitleClasses = (formType: string) => {
     const isActive = activeForm === formType;
-    return `text-title-card font-medium mb-4 pr-8 transition-colors ${isActive ? "text-primary" : "text-foreground group-hover:text-primary"}`;
+    return `relative text-title-card font-medium mb-4 pr-8 transition-colors ${isActive ? "text-primary" : "text-foreground group-hover:text-primary"}`;
   };
 
   const getIndicatorClasses = (formType: string) => {
@@ -107,7 +108,7 @@ export default function ContactPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <button onClick={() => setActiveForm("message")} className={getCardClasses("message")}>
+            <HoverField as="button" onClick={() => setActiveForm("message")} className={getCardClasses("message")}>
               <div className={getIndicatorClasses("message")}>
                 {activeForm === "message" && <div className="w-2 h-2 bg-white rounded-full" />}
               </div>
@@ -118,13 +119,13 @@ export default function ContactPage() {
 
               <h3 className={getTitleClasses("message")} dangerouslySetInnerHTML={{ __html: t.raw('msgCardTitle') }} />
 
-              <p className="text-body-sm text-muted/80 mt-auto">
+              <p className="relative text-body-sm text-muted/80 mt-auto">
                 {t('msgCardDesc')}
               </p>
-            </button>
+            </HoverField>
 
             {/* Card 2 */}
-            <button onClick={() => setActiveForm("consulting")} className={getCardClasses("consulting")}>
+            <HoverField as="button" onClick={() => setActiveForm("consulting")} className={getCardClasses("consulting")}>
               <div className={getIndicatorClasses("consulting")}>
                 {activeForm === "consulting" && <div className="w-2 h-2 bg-white rounded-full" />}
               </div>
@@ -135,13 +136,13 @@ export default function ContactPage() {
 
               <h3 className={getTitleClasses("consulting")} dangerouslySetInnerHTML={{ __html: t.raw('consultCardTitle') }} />
 
-              <p className="text-body-sm text-muted/80 mt-auto">
+              <p className="relative text-body-sm text-muted/80 mt-auto">
                 {t('consultCardDesc')}
               </p>
-            </button>
+            </HoverField>
 
             {/* Card 3 */}
-            <button onClick={() => setActiveForm("meeting")} className={getCardClasses("meeting")}>
+            <HoverField as="button" onClick={() => setActiveForm("meeting")} className={getCardClasses("meeting")}>
               <div className={getIndicatorClasses("meeting")}>
                 {activeForm === "meeting" && <div className="w-2 h-2 bg-white rounded-full" />}
               </div>
@@ -152,10 +153,10 @@ export default function ContactPage() {
 
               <h3 className={getTitleClasses("meeting")} dangerouslySetInnerHTML={{ __html: t.raw('meetCardTitle') }} />
 
-              <p className="text-body-sm text-muted/80 mt-auto">
+              <p className="relative text-body-sm text-muted/80 mt-auto">
                 {t('meetCardDesc')}
               </p>
-            </button>
+            </HoverField>
           </div>
         </div>
 
