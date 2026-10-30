@@ -73,6 +73,7 @@ export const PRODUCTS: Product[] = [
     status: "beta",
     stack: ["Next.js", "TypeScript", "Gemini API"],
     usesAi: true,
+    logo: "/products/bijon.svg",
   },
 ];
 
