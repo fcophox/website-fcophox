@@ -40,7 +40,7 @@ export default function ContactPage() {
     const isActive = activeForm === formType;
     return `text-left group flex flex-col p-8 rounded-3xl bg-surface transition-all duration-300 relative overflow-hidden min-h-[320px] border ${isActive
       ? "border-primary shadow-[0_0_30px_rgba(139,92,246,0.15)] ring-1 ring-primary/50"
-      : "border-border/10 hover:border-primary/50"
+      : "border-border/10 hover:border-transparent"
       }`;
   };
 
