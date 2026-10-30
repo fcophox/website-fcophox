@@ -125,7 +125,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         `post.content.json` y renderizar componentes propios.
       */}
       <div
-        className="tiptap-content max-w-none"
+        className="tiptap-content tiptap-sections max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content.html }}
       />
     </ArticleLayout>

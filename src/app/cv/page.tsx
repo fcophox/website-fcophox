@@ -122,7 +122,7 @@ export default function CvPage() {
         }
       `}</style>
 
-      <div className="max-w-5xl mx-auto px-6 w-full print:px-0">
+      <div className="dm-container print:px-0">
         
         {/* Navigation & Controls */}
         <div className="flex justify-between items-center mb-12 no-print">

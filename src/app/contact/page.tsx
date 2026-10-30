@@ -89,12 +89,12 @@ export default function ContactPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16 max-w-6xl"
+          className="mb-16"
         >
           <h1 className="text-title-page font-normal text-foreground mb-8">
             {t('title1')} <span className="text-primary font-normal">{t('title2')}</span>
           </h1>
-          <p className="text-subtitle text-muted font-normal">
+          <p className="text-subtitle text-muted font-normal md:max-w-[60%]">
             {t('subtitle')}
           </p>
         </motion.div>

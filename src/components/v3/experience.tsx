@@ -63,9 +63,10 @@ export async function ExperienceV3() {
               </Link>
               <Link
                 href="/cv"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-muted hover:text-foreground transition-colors"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-surface border border-border text-foreground hover:border-primary/40 transition-colors"
               >
                 {t("ctaCv")}
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden />
               </Link>
             </div>
           </div>

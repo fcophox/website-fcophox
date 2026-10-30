@@ -24,6 +24,11 @@ export type Product = {
    * public/products/). Sin ella, la tarjeta usa PRODUCT_IMAGE_PLACEHOLDER.
    */
   image?: string;
+  /**
+   * Logotipo rectangular en SVG (proporción 4:1, 160×40), p. ej.
+   * "/products/logos/tanzo.svg". Sin él, la tarjeta usa PRODUCT_LOGO_PLACEHOLDER.
+   */
+  logo?: string;
 };
 
 /** Color de la etiqueta de estado en la página del producto. */
@@ -37,6 +42,9 @@ export const PRODUCT_STATUS_STYLE: Record<ProductStatus, string> = {
 
 /** Imagen genérica para las tarjetas sin captura propia. */
 export const PRODUCT_IMAGE_PLACEHOLDER = "/products/placeholder.svg";
+
+/** Rectángulo de reserva para las tarjetas sin logotipo propio. */
+export const PRODUCT_LOGO_PLACEHOLDER = "/products/logo-placeholder.svg";
 
 export const PRODUCTS: Product[] = [
   {
@@ -53,6 +61,7 @@ export const PRODUCTS: Product[] = [
     status: "production",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "React Flow", "Convex"],
     url: "https://tanzo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
+    logo: "/tanzo/tanzo-logotipo.svg",
     // verificar: falta captura real. /tanzo/bg-tanzo.png es un fondo, no el producto.
   },
   {

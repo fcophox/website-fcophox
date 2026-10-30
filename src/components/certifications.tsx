@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
+import { HoverField } from "@/components/hover-field";
+
 type Category = "Todos" | "Certificaciones" | "Diplomados" | "Cursos & Bootcamps";
 
 const certifications = [
@@ -130,7 +132,7 @@ const getCategoryLabel = (category: string) => {
 };
 
 const getCardClassName = (item: typeof certifications[0], index: number) => {
-  const base = "flex flex-col p-6 rounded-3xl bg-surface border-none hover:bg-surface/80 transition-colors mb-4 break-inside-avoid w-full";
+  const base = "relative overflow-hidden flex flex-col p-6 rounded-3xl bg-surface border-none hover:bg-surface/80 transition-colors mb-4 break-inside-avoid w-full";
 
   if (item.logo) {
     const heights = [
@@ -175,7 +177,7 @@ export function CertificationsSection() {
 
   return (
     <section className="dark bg-background w-full py-24">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="dm-container">
         <div className="flex flex-col mb-10">
           <h2 className="text-title-section font-normal text-foreground mb-8">
             {t('title')}
@@ -219,7 +221,8 @@ export function CertificationsSection() {
         <motion.div layout className="columns-1 md:columns-2 lg:columns-3 xl:columns-3 gap-4">
           <AnimatePresence mode="popLayout">
             {filteredItems.map((item, index) => (
-              <motion.div
+              <HoverField
+                as={motion.div}
                 key={item.title}
                 layout
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -229,7 +232,7 @@ export function CertificationsSection() {
                 className={getCardClassName(item, index)}
               >
                 {/* Top Row: Logo or Category Tag */}
-                <div className="flex items-center justify-between mb-6 w-full gap-2">
+                <div className="relative flex items-center justify-between mb-6 w-full gap-2">
                   {item.logo ? (
                     <div className="w-28 h-10 flex items-center relative">
                       <Image
@@ -255,7 +258,7 @@ export function CertificationsSection() {
                 </div>
 
                 {/* Content */}
-                <div className="mt-auto flex flex-col gap-4">
+                <div className="relative mt-auto flex flex-col gap-4">
                   <h3 className="text-title-card font-medium text-foreground">
                     {item.title}
                   </h3>
@@ -263,7 +266,7 @@ export function CertificationsSection() {
                     {item.year} — {item.institution}
                   </p>
                 </div>
-              </motion.div>
+              </HoverField>
             ))}
           </AnimatePresence>
         </motion.div>

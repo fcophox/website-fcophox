@@ -163,6 +163,16 @@ body {
     padding-inline: var(--dm-padding);
   }
 
+  /* Zoom suave de imágenes al pasar el cursor por su contenedor \`.group\`. */
+  .hover-zoom {
+    transition: scale 700ms cubic-bezier(0.33, 1, 0.68, 1);
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .group:hover .hover-zoom {
+      scale: 1.05;
+    }
+  }
+
   .dm-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));

@@ -92,7 +92,7 @@ export function PromptLibrary() {
   const totalFilteredCount = filteredStages.reduce((acc, stage) => acc + stage.prompts.length, 0);
 
   return (
-    <section className="w-full max-w-6xl mx-auto px-6 relative z-10 pt-0 pb-16">
+    <section className="dm-container relative z-10 pt-0 pb-16">
       {/* Top Link */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}

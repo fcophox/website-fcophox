@@ -72,7 +72,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <ReadingProgressBar />
         <main className="min-h-screen relative py-8 md:py-20">
 
-        <div className="max-w-6xl mx-auto px-4 md:px-6">
+        <div className="dm-container">
           {/* Header */}
           <div className="mb-12">
             <Link
@@ -103,7 +103,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-subtitle text-muted font-normal max-w-3xl mt-2"
+                className="text-subtitle text-muted font-normal md:max-w-[60%] mt-2"
               >
                 {data.shortDesc}
               </MotionP>
@@ -341,7 +341,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                         src={prevData.imageUrl}
                         alt={prevData.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover hover-zoom"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
@@ -363,7 +363,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                         src={nextData.imageUrl}
                         alt={nextData.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-cover hover-zoom"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>

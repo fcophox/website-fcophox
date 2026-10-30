@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { MotionDiv, MotionH1, MotionP, MotionSpan } from "@/components/motion-wrapper";
@@ -75,7 +75,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         {/* Fondo: la malla de una esfera vista desde dentro, fundida hacia abajo. */}
         <SphereMesh className="pointer-events-none absolute inset-x-0 top-0 h-[100svh] w-full [mask-image:linear-gradient(to_bottom,black_55%,transparent)]" />
 
-        <div className="relative max-w-6xl mx-auto px-4 md:px-6">
+        <div className="relative dm-container">
           {/* Header */}
           <div className="mb-12">
             <Link
@@ -96,7 +96,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               <MotionH1 {...reveal(0.1)} className="text-title-page font-normal text-foreground">
                 {product.name}
               </MotionH1>
-              <MotionP {...reveal(0.2)} className="text-subtitle text-muted font-normal max-w-3xl mt-2">
+              <MotionP {...reveal(0.2)} className="text-subtitle text-muted font-normal md:max-w-[60%] mt-2">
                 {t(`${key}.tagline`)}
               </MotionP>
 
@@ -109,7 +109,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-background font-medium hover:scale-105 transition-transform duration-200 shadow-lg shadow-primary/25"
                   >
                     {t("visit")} {product.name}
-                    <ArrowUpRight size={16} aria-hidden />
+                    <ArrowRight size={16} aria-hidden />
                   </a>
                 </MotionDiv>
               )}
@@ -192,7 +192,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
                       src={item.image ?? PRODUCT_IMAGE_PLACEHOLDER}
                       alt=""
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover hover-zoom"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>

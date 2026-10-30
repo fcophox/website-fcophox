@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Search, PenTool, Terminal, Rocket, Lightbulb, Zap, LineChart, Send } from "lucide-react";
+import { ArrowRight, Search, PenTool, Terminal, Rocket, Lightbulb, Zap, LineChart, Send } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -29,7 +29,7 @@ export function BentoSection() {
 
   return (
     <section className="w-full relative z-10 bg-background overflow-visible py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="dm-container">
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
@@ -100,7 +100,7 @@ export function BentoSection() {
 
             <div className="mt-auto z-10 flex flex-col items-start gap-12">
               <Link href="#" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium">
-                {t('viewArticle')} <ArrowUpRight size={16} />
+                {t('viewArticle')} <ArrowRight size={16} />
               </Link>
             </div>
           </motion.div>
@@ -217,7 +217,7 @@ export function BentoSection() {
 
               <div className="flex items-center justify-between">
                 <Link href="#" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-medium text-body-sm">
-                  {t('viewMore')} <ArrowUpRight size={16} />
+                  {t('viewMore')} <ArrowRight size={16} />
                 </Link>
 
                 <div className="flex items-center gap-1.5">

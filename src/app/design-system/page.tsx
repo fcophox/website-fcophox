@@ -57,7 +57,7 @@ export default function DesignSystemPage() {
 
   return (
     <main className="w-full flex-1 flex flex-col items-center justify-start pt-8 pb-32">
-      <div className="max-w-6xl mx-auto px-6 w-full">
+      <div className="dm-container">
         {/* Top Link */}
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
           <Link href="/" className="inline-flex items-center text-sm font-medium text-muted hover:text-foreground transition-colors">
@@ -69,7 +69,7 @@ export default function DesignSystemPage() {
         {/* Page Header */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-16">
           <h1 className="text-title-page font-normal text-foreground mb-8">{t('title')}</h1>
-          <p className="text-subtitle text-muted font-normal max-w-3xl">{t('subtitle')}</p>
+          <p className="text-subtitle text-muted font-normal md:max-w-[60%]">{t('subtitle')}</p>
         </motion.div>
 
         {/* Colors - Light Mode */}

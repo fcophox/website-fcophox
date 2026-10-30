@@ -69,12 +69,12 @@ export async function Blog() {
                     src={article.image_url}
                     alt={article.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover hover-zoom"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
               ) : (
-                <div className="w-full aspect-[16/9] bg-gradient-to-br from-primary/40 to-secondary/40 rounded-2xl mb-4 transition-transform duration-500 group-hover:scale-105" />
+                <div className="w-full aspect-[16/9] bg-gradient-to-br from-primary/40 to-secondary/40 rounded-2xl mb-4 hover-zoom" />
               )}
 
               <div className="flex flex-col">

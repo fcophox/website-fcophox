@@ -6,7 +6,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Search, PenTool, BarChart3, ChevronDown, ChevronUp, Briefcase, Code2, Sparkles, TrendingUp, Layers, BookOpen, CheckCircle2 } from "lucide-react";
 import { RevealImage } from "@/components/reveal-image";
-import { ConversationCta } from "@/components/conversation-cta";
+import { ContactCtaV3 } from "@/components/v3/contact-cta";
+import { HoverField } from "@/components/hover-field";
 
 const disciplines = [
   "Negocio",
@@ -370,8 +371,8 @@ function FlowDiagram({ steps, highlightLast }: { steps: string[]; highlightLast?
 export default function MethodologyPage() {
   const [showComparison, setShowComparison] = useState(false);
   return (
-    <main className="w-full overflow-x-hidden flex-1 flex flex-col items-center justify-start pt-8 pb-32">
-      <div className="max-w-6xl mx-auto px-6 w-full">
+    <main className="w-full overflow-x-hidden flex-1 flex flex-col items-center justify-start pt-8">
+      <div className="dm-container">
         {/* Top Link */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -391,18 +392,14 @@ export default function MethodologyPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16 max-w-6xl"
+          className="mb-16"
         >
           <h1 className="text-title-page font-normal text-foreground mb-8">
             Metodología: Full Stack Experience Builder <span className="text-subtitle text-muted/70">(FSEB)</span>
           </h1>
-          <div className="flex flex-col gap-4 text-subtitle text-muted font-normal">
+          <div className="flex flex-col gap-4 text-subtitle text-muted font-normal md:max-w-[60%]">
             <p>
-              Conecto <strong className="text-foreground font-medium">estrategia</strong>,{" "}
-              <strong className="text-foreground font-medium">investigación</strong>,{" "}
-              <strong className="text-foreground font-medium">diseño</strong>,{" "}
-              <strong className="text-foreground font-medium">tecnología</strong> e{" "}
-              <strong className="text-foreground font-medium">inteligencia artificial</strong> para
+              Conecto estrategia, investigación, diseño, tecnología e inteligencia artificial para
               transformar problemas de negocio en productos digitales que generan impacto medible.
             </p>
           </div>
@@ -555,7 +552,7 @@ export default function MethodologyPage() {
 
       {/* Los tres pilares */}
       <section className="dark bg-background w-full py-24">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="dm-container">
           <div className="text-center mb-16">
             <h2 className="text-title-section font-normal text-foreground">
               Los tres pilares del Framework
@@ -568,7 +565,8 @@ export default function MethodologyPage() {
           {/* Pillars Intro - Methodology Schema Cards Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
             {pillars.map((pillar, index) => (
-              <motion.div
+              <HoverField
+                as={motion.div}
                 key={pillar.number}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -576,12 +574,6 @@ export default function MethodologyPage() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex-1 flex flex-col justify-between bg-surface rounded-3xl p-8 border-none relative z-10 overflow-hidden group shadow-sm"
               >
-                {/* Background SVG Header */}
-                <div
-                  className="absolute top-0 left-0 w-full h-full bg-[url('/brand/headercard.png')] bg-top bg-repeat-x opacity-60 pointer-events-none"
-                  style={{ backgroundSize: 'auto' }}
-                />
-
                 <div className="relative z-10 flex flex-col">
                   {/* Header Icon */}
                   <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 bg-foreground/5">
@@ -622,7 +614,7 @@ export default function MethodologyPage() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </HoverField>
             ))}
           </div>
 
@@ -702,7 +694,7 @@ export default function MethodologyPage() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 w-full">
+      <div className="dm-container">
 
         {/* Comparativa de perfiles */}
         <section className="pb-24">
@@ -773,22 +765,23 @@ export default function MethodologyPage() {
           <SectionHeading title="¿Qué hace diferente a FSEB?" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {differentiators.map((item, index) => (
-              <motion.article
+              <HoverField
+                as={motion.article}
                 key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (index % 3) * 0.1 }}
-                className="flex flex-col gap-3 rounded-3xl border border-border/50 bg-surface/50 p-8"
+                className="relative overflow-hidden flex flex-col gap-3 rounded-3xl border border-border/50 bg-surface/50 p-8"
               >
                 {item.icon && (
-                  <div className="mb-2">
+                  <div className="relative mb-2">
                     <item.icon className="w-6 h-6 text-primary" aria-hidden="true" />
                   </div>
                 )}
-                <h3 className="text-title-card font-normal text-foreground">{item.title}</h3>
-                <p className="text-body-sm text-muted">{item.description}</p>
-              </motion.article>
+                <h3 className="relative text-title-card font-normal text-foreground">{item.title}</h3>
+                <p className="relative text-body-sm text-muted">{item.description}</p>
+              </HoverField>
             ))}
           </div>
         </section>
@@ -861,17 +854,21 @@ export default function MethodologyPage() {
 
       {/* Cierre */}
       <section className="dark bg-background w-full py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <motion.div
+        <div className="dm-container">
+          <HoverField
+            as={motion.div}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col gap-8 max-w-4xl"
+            className="relative overflow-hidden rounded-3xl bg-surface p-8 md:p-16 flex flex-col items-center text-center gap-8 transition-colors duration-300 hover:bg-border/60"
           >
-            <h2 className="text-title-section font-normal text-foreground">
+            <span className="relative text-caption font-medium text-primary bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full">
+              Full Stack Experience Builder
+            </span>
+            <h2 className="relative text-title-section font-normal text-foreground">
               Más que UX. Más que desarrollo.
             </h2>
-            <div className="flex flex-col gap-6 text-body text-muted">
+            <div className="relative max-w-3xl flex flex-col gap-6 text-muted">
               <p>
                 <strong className="text-foreground font-medium">
                   Full Stack Experience Builder
@@ -882,22 +879,16 @@ export default function MethodologyPage() {
                 Una metodología donde la investigación, la estrategia, el diseño, la tecnología, los
                 datos y la inteligencia artificial trabajan como un único sistema.
               </p>
-              <p className="text-subtitle text-foreground font-normal">
+              <p className="text-title-subsection font-normal text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
                 Son productos digitales que generan valor para las personas y resultados para el
                 negocio.
               </p>
             </div>
-          </motion.div>
+          </HoverField>
         </div>
       </section>
 
-      {/*
-        Was <Banner />, removed with its card. ConversationCta serves the same
-        three messages from the same `Banner` namespace and the same CTAs, so
-        the closing section keeps its content — it is now full-bleed over the
-        mesh instead of a boxed card, and does not need the width wrapper.
-      */}
-      <ConversationCta />
+      <ContactCtaV3 />
     </main>
   );
 }

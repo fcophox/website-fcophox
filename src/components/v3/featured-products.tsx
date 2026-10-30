@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import { PRODUCTS, PRODUCT_IMAGE_PLACEHOLDER } from "@/data/v3-products";
+import { HoverField } from "@/components/hover-field";
+import { PRODUCTS, PRODUCT_IMAGE_PLACEHOLDER, PRODUCT_LOGO_PLACEHOLDER } from "@/data/v3-products";
+
+const FIELD_PARAMS = { bottomFade: 0.15 };
 
 /**
  * Productos construidos. Es el ancla `#productos` del CTA principal del hero.
@@ -27,7 +30,13 @@ export async function FeaturedProductsV3() {
           {PRODUCTS.map((product) => {
             const key = `items.${product.id}` as const;
             return (
-              <li key={product.id} className="rounded-3xl bg-surface overflow-hidden flex flex-col">
+              <HoverField
+                key={product.id}
+                as="li"
+                // La imagen tapa la parte alta, donde el efecto es más intenso.
+                fieldParams={FIELD_PARAMS}
+                className="group/card relative rounded-3xl bg-surface overflow-hidden flex flex-col"
+              >
                 <div className="relative aspect-[16/9] bg-background/40">
                   <Image
                     src={product.image ?? PRODUCT_IMAGE_PLACEHOLDER}
@@ -38,14 +47,28 @@ export async function FeaturedProductsV3() {
                   />
                 </div>
 
-                <div className="p-6 lg:p-8 flex flex-col gap-4 flex-1">
+                <div className="relative p-6 lg:p-8 flex flex-col gap-4 flex-1">
+                  {/* Decorativo: el nombre del producto va justo debajo. */}
+                  <div className="relative h-10 w-40">
+                    <Image
+                      src={product.logo ?? PRODUCT_LOGO_PLACEHOLDER}
+                      alt=""
+                      fill
+                      sizes="160px"
+                      className="object-contain object-left"
+                    />
+                  </div>
+
                   <h3 className="text-title-subsection font-normal text-foreground">
-                    <Link href={`/products/${product.id}`} className="hover:text-primary transition-colors">
+                    <Link
+                      href={`/products/${product.id}`}
+                      className="group-hover/card:text-primary transition-colors"
+                    >
                       {product.name}
                     </Link>
                   </h3>
 
-                  <p className="text-foreground/90">{t(`${key}.description`)}</p>
+                  <p className="text-muted">{t(`${key}.description`)}</p>
 
                   <div className="mt-auto pt-2 flex flex-wrap items-center justify-between gap-4">
                     <Link
@@ -63,16 +86,16 @@ export async function FeaturedProductsV3() {
                         className="group inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors"
                       >
                         {t("visit")} {product.name}
-                        <ArrowUpRight
+                        <ArrowRight
                           size={16}
-                          className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          className="transition-transform group-hover:translate-x-0.5"
                           aria-hidden
                         />
                       </a>
                     )}
                   </div>
                 </div>
-              </li>
+              </HoverField>
             );
           })}
         </ul>

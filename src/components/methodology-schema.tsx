@@ -46,7 +46,7 @@ export function MethodologySchema() {
 
   return (
     <section className="dark bg-background relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] py-24 mt-16">
-      <div className="max-w-6xl mx-auto px-6 relative">
+      <div className="dm-container relative">
         <div className="text-center mb-16">
           <h2 className="text-title-section font-normal text-foreground">
             {t('mainSubtitle')}

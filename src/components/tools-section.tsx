@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { RevealImage } from "./reveal-image";
 import { useTranslations } from "next-intl";
 
@@ -25,7 +25,7 @@ export function ToolsSection() {
       <div className="absolute inset-x-0 top-0 h-32 md:h-48 z-0 bg-gradient-to-b from-background to-transparent pointer-events-none"></div>
       <div className="absolute inset-x-0 bottom-0 h-32 md:h-48 z-0 bg-gradient-to-t from-background to-transparent pointer-events-none"></div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
+      <div className="dm-container relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
           {/* Left Column: Copy & Call-to-action */}
@@ -53,7 +53,7 @@ export function ToolsSection() {
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/95 transition-all shadow-lg shadow-primary/20 hover:shadow-primary/30 group"
             >
               {t('button')}
-              <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
             </a>
           </motion.div>
 

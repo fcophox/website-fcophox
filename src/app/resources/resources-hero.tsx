@@ -132,7 +132,7 @@ export function ResourcesHero({ onUnlock }: { onUnlock?: () => void }) {
 
   return (
     <section className="w-full min-h-[70vh] flex flex-col justify-center relative z-10 py-12">
-      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
+      <div className="relative z-10 dm-container">
         {/* Top Link */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}

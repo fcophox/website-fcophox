@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { CHROMATIC_EDGE_HEIGHT } from "@/components/chromatic-edge";
 import { CookiePreferencesButton } from "@/components/cookie-preferences-button";
@@ -73,22 +73,22 @@ export function Footer() {
             <ul className="flex flex-col gap-4">
               <li>
                 <a href="https://behance.net/fcophox" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-body-sm text-muted hover:text-foreground transition-colors">
-                  {t('behance')} <ExternalLink className="w-3.5 h-3.5" />
+                  {t('behance')} <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </li>
               <li>
                 <a href="https://www.linkedin.com/in/fcophox/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-body-sm text-muted hover:text-foreground transition-colors">
-                  {t('linkedin')} <ExternalLink className="w-3.5 h-3.5" />
+                  {t('linkedin')} <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </li>
               <li>
                 <a href="https://github.com/fcophox" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-body-sm text-muted hover:text-foreground transition-colors">
-                  {t('github')} <ExternalLink className="w-3.5 h-3.5" />
+                  {t('github')} <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </li>
               <li>
                 <a href="https://medium.com/@fcophox" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-body-sm text-muted hover:text-foreground transition-colors">
-                  {t('medium')} <ExternalLink className="w-3.5 h-3.5" />
+                  {t('medium')} <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </li>
             </ul>

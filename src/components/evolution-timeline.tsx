@@ -98,7 +98,7 @@ export function EvolutionTimeline() {
 
   return (
     <section className="w-full py-24 bg-background border-t border-border/20">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="dm-container">
         {/* Header Section */}
         <div className="mb-20">
           <h2 className="text-title-section font-normal text-foreground mb-6">
@@ -163,13 +163,13 @@ export function EvolutionTimeline() {
                   {exp.title}
                 </h3>
                 
-                <p className="text-body text-muted mb-10">
+                <p className="text-muted mb-10">
                   {exp.description}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {exp.skills.map((skill, idx) => (
-                    <div key={idx} className="flex items-center gap-3 text-body-sm font-medium text-foreground">
+                    <div key={idx} className="flex items-center gap-3 font-medium text-foreground">
                       <CheckCircle2 className="text-primary w-5 h-5 shrink-0" />
                       <span>{skill}</span>
                     </div>

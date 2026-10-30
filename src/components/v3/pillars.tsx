@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import { Code2, PenTool, Search } from "lucide-react";
 
-const ICONS = [Search, PenTool, Code2];
+import { HoverField } from "@/components/hover-field";
 
 type Pillar = { title: string; description: string };
 
@@ -18,29 +17,22 @@ export async function PillarsV3() {
           {t("title")}
         </h2>
 
-        <ol className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {items.map((item, i) => {
-            const Icon = ICONS[i] ?? Code2;
-            return (
-              <li
-                key={item.title}
-                className="relative overflow-hidden rounded-3xl bg-surface p-8 flex flex-col gap-6 min-h-[260px]"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-                    <Icon size={20} aria-hidden />
-                  </span>
-                  <span className="text-label font-mono text-muted" aria-hidden>
-                    0{i + 1}
-                  </span>
-                </div>
-                <div className="mt-auto">
-                  <h3 className="text-title-subsection font-normal text-foreground mb-3">{item.title}</h3>
-                  <p className="text-body-sm text-muted">{item.description}</p>
-                </div>
-              </li>
-            );
-          })}
+        <ol className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {items.map((item, i) => (
+            <HoverField
+              key={item.title}
+              as="li"
+              className="relative overflow-hidden rounded-3xl bg-surface text-foreground p-6 md:p-8 flex flex-col gap-16 min-h-[300px] md:min-h-[400px] transition-colors duration-300 hover:bg-border/60"
+            >
+              <div className="relative">
+                <span className="block text-title-subsection font-normal opacity-70 mb-2" aria-hidden>
+                  0{i + 1}
+                </span>
+                <h3 className="text-title-subsection font-normal">{item.title}</h3>
+              </div>
+              <p className="relative mt-auto text-muted">{item.description}</p>
+            </HoverField>
+          ))}
         </ol>
       </div>
     </section>

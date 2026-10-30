@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -123,7 +123,7 @@ export function UxBento() {
             {/* Content overlay */}
             <div className="relative z-10 p-8 flex flex-col h-full">
               {/* <Link href="#" className="w-10 h-10 rounded-full bg-foreground/10 dark:bg-[#1A1A1E] border-none flex items-center justify-center text-foreground hover:bg-foreground hover:text-background transition-colors self-start mb-auto">
-                <ArrowUpRight size={18} />
+                <ArrowRight size={18} />
               </Link> */}
 
               <div className="mt-auto">

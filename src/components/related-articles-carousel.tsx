@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect, useCallback, type MouseEvent, type PointerEvent } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -20,6 +20,11 @@ interface RelatedArticlesCarouselProps {
   viewAllHref: string;
 }
 
+/** Píxeles que debe moverse el mouse para contar como arrastre y no como clic. */
+const DRAG_THRESHOLD = 5;
+/** Lo que tarda el scroll suave en asentarse antes de devolver el snap. */
+const SETTLE_MS = 400;
+
 const gradients = [
   "from-primary/40 to-secondary/40",
   "from-secondary/40 to-accent/40",
@@ -37,6 +42,10 @@ export function RelatedArticlesCarousel({
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragRef = useRef<{ startX: number; startScroll: number } | null>(null);
+  const hasDraggedRef = useRef(false);
+  const settleTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const checkScroll = useCallback(() => {
     const el = scrollRef.current;
@@ -58,6 +67,8 @@ export function RelatedArticlesCarousel({
     };
   }, [checkScroll]);
 
+  useEffect(() => () => clearTimeout(settleTimerRef.current), []);
+
   const scroll = (dir: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
@@ -65,6 +76,55 @@ export function RelatedArticlesCarousel({
     const card = el.querySelector<HTMLElement>("[data-carousel-card]");
     const amount = card ? card.offsetWidth + 24 : el.clientWidth * 0.8;
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+  };
+
+  const handlePointerDown = (e: PointerEvent<HTMLDivElement>) => {
+    // Sólo mouse: el táctil ya desliza de forma nativa.
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    clearTimeout(settleTimerRef.current);
+    hasDraggedRef.current = false;
+    dragRef.current = { startX: e.clientX, startScroll: e.currentTarget.scrollLeft };
+  };
+
+  const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+    const el = e.currentTarget;
+    const distance = e.clientX - drag.startX;
+    if (!hasDraggedRef.current) {
+      if (Math.abs(distance) < DRAG_THRESHOLD) return;
+      hasDraggedRef.current = true;
+      setIsDragging(true);
+      el.setPointerCapture(e.pointerId);
+      // Con snap activo el navegador devolvería cada píxel a la tarjeta anterior.
+      el.style.scrollSnapType = "none";
+    }
+    el.scrollLeft = drag.startScroll - distance;
+  };
+
+  const handlePointerEnd = (e: PointerEvent<HTMLDivElement>) => {
+    dragRef.current = null;
+    if (!hasDraggedRef.current) return;
+    setIsDragging(false);
+    const el = e.currentTarget;
+    // Termina en la tarjeta más cercana: reactivar el snap de golpe daría un salto.
+    const cards = Array.from(el.querySelectorAll<HTMLElement>("[data-carousel-card]"));
+    const offsets = cards.map((card) => card.offsetLeft - cards[0].offsetLeft);
+    const nearest = offsets.reduce((best, offset) =>
+      Math.abs(offset - el.scrollLeft) < Math.abs(best - el.scrollLeft) ? offset : best,
+    );
+    el.scrollTo({ left: nearest, behavior: "smooth" });
+    settleTimerRef.current = setTimeout(() => {
+      el.style.scrollSnapType = "x mandatory";
+    }, SETTLE_MS);
+  };
+
+  // Soltar tras arrastrar no debe abrir la tarjeta que quedó bajo el cursor.
+  const handleClickCapture = (e: MouseEvent<HTMLDivElement>) => {
+    if (!hasDraggedRef.current) return;
+    e.preventDefault();
+    e.stopPropagation();
+    hasDraggedRef.current = false;
   };
 
   if (items.length === 0) return null;
@@ -95,7 +155,15 @@ export function RelatedArticlesCarousel({
       <div className="relative">
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scrollbar-hide pb-4"
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerEnd}
+          onPointerCancel={handlePointerEnd}
+          onClickCapture={handleClickCapture}
+          onDragStart={(e) => e.preventDefault()}
+          className={`flex overflow-x-auto scrollbar-hide pb-4 ${
+            isDragging ? "cursor-grabbing select-none [&_*]:cursor-grabbing" : "cursor-grab"
+          }`}
           style={{
             scrollSnapType: "x mandatory",
             WebkitOverflowScrolling: "touch",
@@ -121,12 +189,12 @@ export function RelatedArticlesCarousel({
                   <img
                     src={item.image_url}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover hover-zoom"
                     loading="lazy"
                   />
                 ) : (
                   <div
-                    className={`w-full h-full bg-gradient-to-br ${gradients[i % gradients.length]} group-hover:scale-105 transition-transform duration-500`}
+                    className={`w-full h-full bg-gradient-to-br ${gradients[i % gradients.length]} hover-zoom`}
                   />
                 )}
               </div>

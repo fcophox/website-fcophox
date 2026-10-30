@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { EvolutionTimeline } from "@/components/evolution-timeline";
 import { AreasColaboracion } from "@/components/areas-colaboracion";
 import { CertificationsSection } from "@/components/certifications";
+import { ContactCtaV3 } from "@/components/v3/contact-cta";
 import Link from "next/link";
 import Image from "next/image";
 import { RevealImage } from "@/components/reveal-image";
@@ -22,8 +23,8 @@ export default function AboutPage() {
   const t = useTranslations('AboutPage');
 
   return (
-    <main className="w-full flex-1 flex flex-col items-center justify-start pt-8 pb-32">
-      <div className="max-w-6xl mx-auto px-6 w-full">
+    <main className="w-full flex-1 flex flex-col items-center justify-start pt-8">
+      <div className="dm-container">
         {/* Top Link */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -40,12 +41,12 @@ export default function AboutPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16 max-w-6xl"
+          className="mb-16"
         >
           <h1 className="text-title-page font-normal text-foreground mb-8">
             {t('title')}
           </h1>
-          <p className="text-subtitle text-muted font-normal">
+          <p className="text-subtitle text-muted font-normal md:max-w-[60%]">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -54,8 +55,8 @@ export default function AboutPage() {
       </div>
 
       {/* Biography Section */}
-      <div className="dark w-full py-2 mb-4 md:mb-8">
-        <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row gap-8 lg:gap-16 w-full">
+      <div className="dark dm-container py-2 mb-4 md:mb-8">
+        <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-16 w-full">
           {/* Portrait Image */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -86,23 +87,23 @@ export default function AboutPage() {
             viewport={{ once: true }}
             className="flex-1 flex flex-col justify-center"
           >
-            <h2 className="text-subtitle font-light text-foreground mb-8">
+            <h2 className="text-title-card font-bold text-foreground mb-8">
               {t('bioGreeting1')}
-              <a href="https://www.linkedin.com/in/fcophox/" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold italic underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors">Francisco Hormazábal</a>
+              <a href="https://www.linkedin.com/in/fcophox/" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors">Francisco Hormazábal</a>
               {t('bioGreeting2')}
-              <a href="https://github.com/fcophox" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold italic underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors">@fcophox</a>
+              <a href="https://github.com/fcophox" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors">@fcophox</a>
               {t('bioGreeting3')}
             </h2>
             <div className="flex flex-col md:flex-row items-center gap-6 mb-12">
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                 <Image src="/about/uxpm.svg" alt="UX-PM Badge" width={80} height={80} className="w-full h-full object-contain p-1" />
               </div>
-              <p className="text-subtitle text-primary font-medium leading-snug">
+              <p className="text-title-card font-bold text-primary">
                 {t('bioBadge')}
               </p>
             </div>
 
-            <div className="space-y-6 text-body text-muted">
+            <div className="space-y-6 text-muted">
               <p className="text-foreground font-medium">
                 {t('bioP1')}
               </p>
@@ -141,6 +142,8 @@ export default function AboutPage() {
 
       {/* Certifications Section */}
       <CertificationsSection />
+
+      <ContactCtaV3 />
     </main>
   );
 }

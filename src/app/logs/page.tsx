@@ -53,7 +53,7 @@ export default async function LogsPage() {
 
   return (
     <main className="w-full overflow-x-hidden flex-1 flex flex-col items-center justify-start pt-8 pb-32">
-      <div className="max-w-3xl mx-auto px-6 w-full">
+      <div className="dm-container [&>*]:max-w-3xl">
         <div className="mb-8">
           <Link
             href="/"

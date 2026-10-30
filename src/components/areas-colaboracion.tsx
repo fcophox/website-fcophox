@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+import { HoverField } from "@/components/hover-field";
+
 const areas = [
   {
     num: "01",
@@ -38,7 +40,7 @@ const areas = [
 export function AreasColaboracion() {
   return (
     <section className="w-full py-24 bg-background">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="dm-container">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,24 +52,25 @@ export function AreasColaboracion() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {areas.map((area, index) => (
-            <motion.div
+            <HoverField
+              as={motion.div}
               key={area.num}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="flex flex-col p-8 rounded-3xl border-none bg-surface hover:bg-[#1A1A1E] transition-colors min-h-[280px]"
+              className="relative overflow-hidden flex flex-col p-8 rounded-3xl border-none bg-surface hover:bg-[#1A1A1E] transition-colors min-h-[280px]"
             >
-              <div className="text-caption font-medium text-muted/60 mb-6">
+              <div className="relative text-title-subsection font-normal text-muted/60 mb-6">
                 {area.num}
               </div>
-              <h3 className="text-title-card font-normal text-foreground mb-12">
+              <h3 className="relative text-title-subsection font-normal text-foreground mb-12">
                 {area.title}
               </h3>
-              <p className="text-body-sm text-muted mt-auto">
+              <p className="relative text-muted mt-auto">
                 {area.description}
               </p>
-            </motion.div>
+            </HoverField>
           ))}
         </div>
       </div>

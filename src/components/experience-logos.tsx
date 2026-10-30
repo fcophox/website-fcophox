@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -22,7 +22,7 @@ export function ExperienceLogos() {
 
   return (
     <section className="dark text-foreground w-full relative z-10 bg-background overflow-hidden py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="dm-container">
 
         {/* Header */}
         <motion.div
@@ -70,7 +70,7 @@ export function ExperienceLogos() {
             href="/methodology"
             className="inline-flex items-center gap-2 text-foreground font-medium hover:text-primary transition-colors border-b border-transparent hover:border-primary pb-1"
           >
-            {t('viewStudies')} <ArrowUpRight size={16} />
+            {t('viewStudies')} <ArrowRight size={16} />
           </Link>
         </motion.div>
 

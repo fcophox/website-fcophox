@@ -90,12 +90,12 @@ export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-16 max-w-6xl"
+          className="mb-16"
         >
           <h1 className="text-title-page font-normal text-foreground mb-8">
             {t('title')}
           </h1>
-          <p className="text-subtitle text-muted font-normal">
+          <p className="text-subtitle text-muted font-normal md:max-w-[60%]">
             {t('subtitle')}
           </p>
         </motion.div>
@@ -138,11 +138,11 @@ export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
                     src={featuredCase.image_url}
                     alt={featuredCase.title}
                     useImgTag={true}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="absolute inset-0 w-full h-full object-cover hover-zoom"
                     wrapperClassName="absolute inset-0 w-full h-full"
                   />
                 ) : (
-                  <div className={`w-full h-full absolute inset-0 bg-gradient-to-br ${getGradient(0)} group-hover:scale-105 transition-transform duration-500`} />
+                  <div className={`w-full h-full absolute inset-0 bg-gradient-to-br ${getGradient(0)} hover-zoom`} />
                 )}
               </div>
 
@@ -182,11 +182,11 @@ export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
                         src={c.image_url}
                         alt={c.title}
                         useImgTag={true}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-cover hover-zoom"
                         wrapperClassName="w-full h-full"
                       />
                     ) : (
-                      <div className={`w-full h-full bg-gradient-to-br ${getGradient(index + 1)} group-hover:scale-105 transition-transform duration-500`} />
+                      <div className={`w-full h-full bg-gradient-to-br ${getGradient(index + 1)} hover-zoom`} />
                     )}
                   </div>
 
@@ -198,7 +198,7 @@ export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
                       </span> */}
                     </div>
 
-                    <h3 className="text-title-card font-normal text-foreground text-left w-full mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                    <h3 className="text-title-subsection font-normal text-foreground text-left w-full mb-3 group-hover:text-primary transition-colors line-clamp-2">
                       {c.title}
                     </h3>
                     <div className="text-body-sm text-muted mt-auto line-clamp-2">

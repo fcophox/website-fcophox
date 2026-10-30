@@ -43,6 +43,7 @@ export function RevealImage({
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [isRevealFinished, setIsRevealFinished] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -109,6 +110,14 @@ export function RevealImage({
 
   const showReveal = (isLoaded && isInView) || hasError;
 
+  // Al terminar la entrada se suelta la transición en línea: si no, le ganaría
+  // a la de la clase de la imagen y el hover heredaría su retraso.
+  useEffect(() => {
+    if (!showReveal) return;
+    const timer = setTimeout(() => setIsRevealFinished(true), delayMs + durationMs + 200);
+    return () => clearTimeout(timer);
+  }, [showReveal, delayMs, durationMs]);
+
   const curtainColor = revealColor || "var(--surface)";
 
   /*
@@ -156,12 +165,14 @@ export function RevealImage({
   };
 
   // Premium parallax-like scale-down animation on the image itself
-  const imageStyle: React.CSSProperties = {
-    ...style,
-    transition: `transform ${durationMs + 200}ms cubic-bezier(0.25, 1, 0.5, 1)`,
-    transitionDelay: `${delayMs}ms`,
-    transform: showReveal ? undefined : "scale(1.08)",
-  };
+  const imageStyle: React.CSSProperties = isRevealFinished
+    ? { ...style }
+    : {
+        ...style,
+        transition: `transform ${durationMs + 200}ms cubic-bezier(0.25, 1, 0.5, 1)`,
+        transitionDelay: `${delayMs}ms`,
+        transform: showReveal ? undefined : "scale(1.08)",
+      };
 
   return (
     <div 

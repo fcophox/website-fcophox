@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { RevealImage } from "./reveal-image";
-import { ArrowUpRight } from "lucide-react";
 
 export function ServicesSection() {
   const t = useTranslations("ServicesSection");
@@ -89,7 +88,7 @@ export function ServicesSection() {
                       src={service.image}
                       alt={service.title}
                       fill
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      className="object-cover hover-zoom"
                       sizes="(max-width: 768px) 100vw, 55vw"
                       priority={index === 0}
                       delayMs={150 + index * 100}

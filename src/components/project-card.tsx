@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { HoverField } from "./hover-field";
 import { RevealImage } from "./reveal-image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, Monitor, Smartphone, type LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useRef, useEffect, useState, type ReactNode } from "react";
@@ -19,6 +20,15 @@ export interface Project {
 }
 
 type Variant = "default" | "v3";
+
+// Scroll distance that each extra card adds to the stack, in viewport heights.
+const STACK_STEP_VH = 85;
+
+// v3: icono del dispositivo según la etiqueta. Otra etiqueta conserva la píldora.
+const TAG_ICONS: Record<string, LucideIcon | undefined> = {
+  app: Smartphone,
+  desktop: Monitor,
+};
 
 type Props = {
   projects?: Project[];
@@ -38,6 +48,7 @@ export function ProjectCard({ projects = [], label, title, variant }: Props) {
   const t = useTranslations("ProjectCard");
   const isV3 = variant === "v3";
   const sectionRef = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -50,6 +61,26 @@ export function ProjectCard({ projects = [], label, title, variant }: Props) {
     return () => mq.removeEventListener("change", update);
   }, []);
 
+  // v3: el bloque fijado mide lo que su contenido, así que se centra calculando
+  // el `top` del sticky. Si no cupiera, se alinea arriba.
+  useEffect(() => {
+    const sticky = stickyRef.current;
+    if (!isDesktop || !isV3 || !sticky) return;
+    function center() {
+      if (!sticky) return;
+      const free = window.innerHeight - sticky.offsetHeight;
+      sticky.style.top = `${Math.max(0, free / 2)}px`;
+    }
+    center();
+    const observer = new ResizeObserver(center);
+    observer.observe(sticky);
+    window.addEventListener("resize", center);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", center);
+    };
+  }, [isDesktop, isV3]);
+
   // Track scroll progress (0 → 1) across the tall section.
   useEffect(() => {
     if (!isDesktop) return;
@@ -58,15 +89,16 @@ export function ProjectCard({ projects = [], label, title, variant }: Props) {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const el = sectionRef.current;
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const scrollable = el.offsetHeight - window.innerHeight;
+        const sticky = stickyRef.current;
+        if (!el || !sticky) return;
+        const scrollable = el.offsetHeight - sticky.offsetHeight;
         if (scrollable <= 0) {
           setProgress(0);
           return;
         }
-        const p = Math.min(1, Math.max(0, -rect.top / scrollable));
-        setProgress(p);
+        // Lo que el bloque fijado ya recorrió dentro de la sección.
+        const travelled = sticky.getBoundingClientRect().top - el.getBoundingClientRect().top;
+        setProgress(Math.min(1, Math.max(0, travelled / scrollable)));
       });
     }
     onScroll();
@@ -114,9 +146,9 @@ export function ProjectCard({ projects = [], label, title, variant }: Props) {
         className="group flex items-center gap-2 text-muted hover:text-foreground transition-colors whitespace-nowrap mb-1"
       >
         <span className="text-body-sm font-medium">{t("viewAll")}</span>
-        <ArrowUpRight
+        <ArrowRight
           size={20}
-          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          className="transition-transform duration-300 group-hover:translate-x-0.5"
         />
       </Link>
     </div>
@@ -149,18 +181,20 @@ export function ProjectCard({ projects = [], label, title, variant }: Props) {
   // ---- Desktop: pinned stacking stage ----
   const N = projects.length;
   // Scroll distance allotted to the whole sequence, expressed in viewport heights.
-  const sectionHeightVh = 100 + (N - 1) * 85;
+  const sectionHeightVh = 100 + (N - 1) * STACK_STEP_VH;
   // Position along the timeline: 0 → N-1 (which card is at the front).
   const timeline = progress * (N - 1);
   const activeIndex = Math.min(N - 1, Math.max(0, Math.round(timeline)));
 
   const handleDotClick = (index: number) => {
     const el = sectionRef.current;
-    if (!el) return;
+    const sticky = stickyRef.current;
+    if (!el || !sticky) return;
     const rect = el.getBoundingClientRect();
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const absoluteOffsetTop = rect.top + scrollTop;
-    const scrollable = el.offsetHeight - window.innerHeight;
+    const pinTop = parseFloat(getComputedStyle(sticky).top) || 0;
+    const absoluteOffsetTop = rect.top + scrollTop - pinTop;
+    const scrollable = el.offsetHeight - sticky.offsetHeight;
     const targetScrollY = absoluteOffsetTop + scrollable * (index / (N - 1));
     window.scrollTo({
       top: targetScrollY,
@@ -172,10 +206,21 @@ export function ProjectCard({ projects = [], label, title, variant }: Props) {
     <section
       ref={sectionRef}
       className="w-full relative z-10 bg-background"
-      style={{ height: `${sectionHeightVh}vh` }}
+      style={isV3 ? undefined : { height: `${sectionHeightVh}vh` }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="dm-container h-full flex flex-col pt-16 pb-10">
+      {/*
+        v3: el bloque fijado mide lo que su contenido (no toda la pantalla) y se
+        centra en el viewport. Sin el alto de pantalla, al soltarse la siguiente
+        sección queda justo debajo de la última tarjeta. El `pt-16` sin `pb` lo
+        baja 2rem del centro exacto para compensar el navbar fijo.
+      */}
+      <div
+        ref={stickyRef}
+        className={isV3 ? "sticky" : "sticky top-0 h-screen overflow-hidden"}
+      >
+        <div
+          className={`dm-container flex flex-col pt-16 ${isV3 ? "" : "h-full pb-10"}`}
+        >
           <div className="mb-20 shrink-0">{Header}</div>
 
           <div className="relative flex-1 flex gap-8">
@@ -199,21 +244,24 @@ export function ProjectCard({ projects = [], label, title, variant }: Props) {
             </div>
 
             {/* Card stage */}
-            <div className="relative flex-1">
+            {/* v3: tarjetas en la misma celda, para que la más alta dé el alto. */}
+            <div className={`relative flex-1 ${isV3 ? "grid min-w-0" : ""}`}>
             {projects.map((project, index) => {
               // How much this card has slid into place (0 → 1).
               const entered = index === 0 ? 1 : clamp(timeline - (index - 1), 0, 1);
               // How much the NEXT card has covered this one (0 → 1).
               const covered = clamp(timeline - index, 0, 1);
 
-              const enterVH = (1 - entered) * 80; // comes up from below the viewport
+              // Comes up from below the viewport. v3 sin `overflow-hidden`: sube al
+              // ritmo exacto del scroll, así nunca rebasa el final de la sección.
+              const enterVH = (1 - entered) * (isV3 ? STACK_STEP_VH : 80);
               const coverPx = -covered * 30; // recedes upward when covered
               const scale = 1 - covered * 0.05;
 
               return (
                 <div
                   key={index}
-                  className="absolute inset-x-0 top-0"
+                  className={isV3 ? "relative col-start-1 row-start-1 min-w-0" : "absolute inset-x-0 top-0"}
                   style={{
                     zIndex: index,
                     transform: `translateY(calc(${enterVH}vh + ${coverPx}px)) scale(${scale})`,
@@ -230,6 +278,8 @@ export function ProjectCard({ projects = [], label, title, variant }: Props) {
         </div>
       </div>
      </div>
+     {/* v3: recorrido del apilado; es lo que mantiene fijado el bloque. */}
+     {isV3 && <div aria-hidden style={{ height: `${(N - 1) * STACK_STEP_VH}vh` }} />}
     </section>
   );
 }
@@ -240,6 +290,8 @@ function clamp(v: number, min: number, max: number) {
 
 function ProjectCardItem({ project, variant = "default" }: { project: Project; variant?: Variant }) {
   const isV3 = variant === "v3";
+  const Card = isV3 ? HoverField : "div";
+  const TagIcon = isV3 ? TAG_ICONS[project.tag.toLowerCase()] : undefined;
   return (
     <div className="w-full">
       <Link
@@ -247,8 +299,8 @@ function ProjectCardItem({ project, variant = "default" }: { project: Project; v
         className="block no-underline w-full cursor-none"
         data-custom-cursor="true"
       >
-        <div
-          className={`w-full rounded-3xl overflow-hidden flex flex-col md:flex-row ${
+        <Card
+          className={`relative w-full rounded-3xl overflow-hidden flex flex-col md:flex-row ${
             isV3
               ? "bg-background border border-border/20"
               : "bg-surface border border-border/20 shadow-2xl"
@@ -260,7 +312,7 @@ function ProjectCardItem({ project, variant = "default" }: { project: Project; v
             alto que la tarjeta no cabría en la pantalla fija del apilado.
           */}
           <div
-            className={`w-full flex items-center justify-center ${
+            className={`relative w-full flex items-center justify-center ${
               isV3 ? "p-6 md:w-[70%] md:p-8" : "p-6 md:w-[50%] md:p-10"
             }`}
           >
@@ -284,7 +336,7 @@ function ProjectCardItem({ project, variant = "default" }: { project: Project; v
                     src={project.image_url}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover hover-zoom"
                     sizes={isV3 ? "(max-width: 768px) 100vw, 70vw" : "(max-width: 768px) 100vw, 50vw"}
                     /*
                       En v3 la tarjeta no tiene `surface`: la cortina se pinta
@@ -314,14 +366,25 @@ function ProjectCardItem({ project, variant = "default" }: { project: Project; v
           </div>
 
           <div
-            className={`flex flex-col justify-between w-full items-start text-left ${
+            className={`relative flex flex-col justify-between w-full items-start text-left ${
               isV3 ? "p-6 md:w-[30%] md:p-8" : "p-8 md:w-[50%] md:p-10"
             }`}
           >
             <div className={isV3 ? "space-y-4 md:space-y-5" : "space-y-6"}>
-              <span className="text-caption font-medium text-secondary bg-secondary/10 px-3 py-1.5 rounded-full inline-block">
-                {project.tag}
-              </span>
+              {TagIcon ? (
+                <span
+                  role="img"
+                  aria-label={project.tag}
+                  title={project.tag}
+                  className="w-11 h-11 rounded-full border border-secondary/50 text-secondary inline-flex items-center justify-center"
+                >
+                  <TagIcon size={20} strokeWidth={1.5} aria-hidden />
+                </span>
+              ) : (
+                <span className="text-caption font-medium text-secondary bg-secondary/10 px-3 py-1.5 rounded-full inline-block">
+                  {project.tag}
+                </span>
+              )}
               <h3
                 className={`font-normal text-foreground text-left w-full ${
                   isV3 ? "text-title-subsection" : "text-title-section md:max-w-[750px]"
@@ -329,7 +392,7 @@ function ProjectCardItem({ project, variant = "default" }: { project: Project; v
               >
                 {project.title}
               </h3>
-              <p className={`text-muted ${isV3 ? "text-body-sm" : "text-body max-w-md"}`}>
+              <p className={`text-muted ${isV3 ? "" : "text-body max-w-md"}`}>
                 {project.description}
               </p>
             </div>
@@ -344,7 +407,7 @@ function ProjectCardItem({ project, variant = "default" }: { project: Project; v
               ))}
             </div>
           </div>
-        </div>
+        </Card>
       </Link>
     </div>
   );

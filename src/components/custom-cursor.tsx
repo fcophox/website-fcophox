@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -63,7 +63,7 @@ export function CustomCursor() {
           }}
         >
           <div className="w-16 h-16 rounded-full bg-primary/90 text-primary-foreground flex items-center justify-center shadow-[0_0_20px_rgba(var(--primary),0.5)] backdrop-blur-sm">
-            <ArrowUpRight size={24} strokeWidth={2.5} />
+            <ArrowRight size={24} strokeWidth={2.5} />
           </div>
         </motion.div>
       )}
