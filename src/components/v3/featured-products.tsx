@@ -83,7 +83,7 @@ export async function FeaturedProductsV3() {
                         href={product.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors"
+                        className="group inline-flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors"
                       >
                         {t("visit")} {product.name}
                         <ArrowRight

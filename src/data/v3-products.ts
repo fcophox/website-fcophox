@@ -56,6 +56,7 @@ const ALL_PRODUCTS: Product[] = [
     status: "production",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase", "Tiptap"],
     hasNote: true,
+    url: "https://kontororu.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
     image: "/products/kontororu.png",
     logo: "/products/kontororu.svg",
   },
@@ -65,8 +66,8 @@ const ALL_PRODUCTS: Product[] = [
     status: "production",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "React Flow", "Convex"],
     url: "https://tanzo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
+    image: "/products/tanzo.png",
     logo: "/tanzo/tanzo-logotipo.svg",
-    // verificar: falta captura real. /tanzo/bg-tanzo.png es un fondo, no el producto.
   },
   {
     id: "bijon",
