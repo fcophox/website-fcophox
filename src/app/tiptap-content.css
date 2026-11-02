@@ -12,9 +12,11 @@
  * pierde en el siguiente `npm run dev`. No mover estos estilos a globals.css.
  */
 .tiptap-content {
-  color: color-mix(in srgb, var(--foreground) 80%, transparent);
+  /* Mismo estilo que el párrafo destacado de la bio en /about */
+  color: var(--foreground);
   font-size: 1rem;
-  line-height: 1.75;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .tiptap-content > :first-child {
