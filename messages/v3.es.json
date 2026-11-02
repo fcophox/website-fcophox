@@ -34,41 +34,15 @@
     "title": "De las ideas al código.",
     "description": "Una selección de productos, herramientas y experimentos donde participo directamente en la definición, diseño y construcción de soluciones digitales.",
     "visit": "Visitar",
-    "learnMore": "Ver producto",
-    "detail": {
-      "back": "Volver a productos",
-      "aboutTitle": "Sobre el producto",
-      "problemTitle": "¿Qué problema resuelve?",
-      "aiTitle": "Cómo usa la IA",
-      "stackTitle": "Stack tecnológico",
-      "explore": "Explorar más productos",
-      "previous": "Anterior",
-      "next": "Siguiente"
-    },
-    "status": {
-      "concept": "Concepto",
-      "prototype": "Prototipo",
-      "mvp": "MVP",
-      "beta": "Beta",
-      "production": "En producción"
-    },
     "items": {
       "kontororu": {
-        "tagline": "CMS headless multi-tenant",
-        "description": "Gestor de contenidos para equipos y clientes que necesitan publicar en varios sitios desde un solo lugar, con su propia marca y permisos.",
-        "problem": "Mantener un CMS por cliente multiplica el trabajo y los riesgos. Kontorōru centraliza el contenido con aislamiento estricto entre espacios.",
-        "note": "Gestiona el blog y los casos de estudio de este sitio."
+        "description": "Gestor de contenidos para equipos y clientes que necesitan publicar en varios sitios desde un solo lugar, con su propia marca y permisos."
       },
       "tanzo": {
-        "tagline": "Suite de herramientas para UX y planificación",
-        "description": "Un conjunto de herramientas para idear y organizar productos: mapas de sitio y flujos (Kōsei), card sorting (Kādo) y roadmaps visuales (Rebyū).",
-        "problem": "Las tareas de arquitectura de información y planificación suelen quedar repartidas entre herramientas genéricas que no se hablan entre sí."
+        "description": "Un conjunto de herramientas para idear y organizar productos: mapas de sitio y flujos (Kōsei), card sorting (Kādo) y roadmaps visuales (Rebyū)."
       },
       "bijon": {
-        "tagline": "Auditoría UX/CRO asistida por IA",
-        "description": "Herramienta dentro de Tanzō que analiza una experiencia y señala posibles fricciones de usabilidad y conversión antes de lanzarla.",
-        "problem": "Detectar fricciones suele llegar tarde, cuando la experiencia ya está en producción y corregirla cuesta más.",
-        "ai": "Análisis y chat sobre la experiencia con un modelo Gemini."
+        "description": "Herramienta dentro de Tanzō que analiza una experiencia y señala posibles fricciones de usabilidad y conversión antes de lanzarla."
       }
     }
   },

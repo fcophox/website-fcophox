@@ -1,23 +1,14 @@
 /**
  * Productos destacados de la home v3.
  *
- * Aquí sólo va lo que no se traduce (stack, estado, enlaces, imagen); los
- * textos están en messages/v3.{es,en}.json bajo `V3.Products.items.<id>`.
- *
- * Cada dato salió del repositorio del producto (package.json, README, docs).
- * Lo marcado `verificar` está pendiente de confirmar antes de publicar.
+ * Aquí sólo va lo que no se traduce (enlace, imagen, logo); los textos están
+ * en messages/v3.{es,en}.json bajo `V3.Products.items.<id>`.
  */
-export type ProductStatus = "concept" | "prototype" | "mvp" | "beta" | "production";
 
 export type Product = {
   id: "kontororu" | "tanzo" | "bijon";
   name: string;
-  status: ProductStatus;
-  stack: string[];
-  /** Hay texto `ai` en los mensajes para este producto. */
-  usesAi?: boolean;
-  /** Tiene texto `note` en los mensajes. */
-  hasNote?: boolean;
+  /** Sitio del producto; la tarjeta enlaza aquí con el botón «Visitar». */
   url?: string;
   /**
    * Captura real del producto, p. ej. "/products/tanzo.png" (16:9, guardada en
@@ -29,17 +20,8 @@ export type Product = {
    * "/products/logos/tanzo.svg". Sin él, la tarjeta usa PRODUCT_LOGO_PLACEHOLDER.
    */
   logo?: string;
-  /** Oculto en la home, el sitemap y /products/<id>; sus datos se conservan. */
+  /** Oculto en la home; sus datos se conservan. */
   hidden?: boolean;
-};
-
-/** Color de la etiqueta de estado en la página del producto. */
-export const PRODUCT_STATUS_STYLE: Record<ProductStatus, string> = {
-  production: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
-  beta: "bg-primary/10 text-primary border-primary/20",
-  mvp: "bg-secondary/10 text-secondary border-secondary/20",
-  prototype: "bg-muted/10 text-muted border-border",
-  concept: "bg-muted/10 text-muted border-border",
 };
 
 /** Imagen genérica para las tarjetas sin captura propia. */
@@ -52,10 +34,6 @@ const ALL_PRODUCTS: Product[] = [
   {
     id: "kontororu",
     name: "Kontorōru",
-    // En producción: sirve el contenido de fcophox.com.
-    status: "production",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "Supabase", "Tiptap"],
-    hasNote: true,
     url: "https://kontororu.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
     image: "/products/kontororu.png",
     logo: "/products/kontororu.svg",
@@ -63,8 +41,6 @@ const ALL_PRODUCTS: Product[] = [
   {
     id: "tanzo",
     name: "Tanzō",
-    status: "production",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "React Flow", "Convex"],
     url: "https://tanzo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
     image: "/products/tanzo.png",
     logo: "/tanzo/tanzo-logotipo.svg",
@@ -72,10 +48,6 @@ const ALL_PRODUCTS: Product[] = [
   {
     id: "bijon",
     name: "Bijon",
-    // verificar: estado real dentro de Tanzō.
-    status: "beta",
-    stack: ["Next.js", "TypeScript", "Gemini API"],
-    usesAi: true,
     logo: "/products/bijon.svg",
     hidden: true,
   },
@@ -83,7 +55,3 @@ const ALL_PRODUCTS: Product[] = [
 
 /** Productos visibles en el sitio. */
 export const PRODUCTS = ALL_PRODUCTS.filter((p) => !p.hidden);
-
-export function getProduct(id: string): Product | undefined {
-  return PRODUCTS.find((p) => p.id === id);
-}

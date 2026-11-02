@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next';
 import { kontororu, CATEGORIA } from '@/utils/kontororu';
 import { SITE_URL } from '@/utils/site';
-import { PRODUCTS } from '@/data/v3-products';
 
 /*
  * El sitemap incluye el contenido de Kontorōru, así que se revalida como las
@@ -26,12 +25,6 @@ const estaticas: Entrada[] = [
   { url: `${SITE_URL}/legal/privacy`, changeFrequency: 'yearly', priority: 0.3, lastModified: ahora },
   { url: `${SITE_URL}/legal/cookies`, changeFrequency: 'yearly', priority: 0.3, lastModified: ahora },
   { url: `${SITE_URL}/legal/terms`, changeFrequency: 'yearly', priority: 0.3, lastModified: ahora },
-  ...PRODUCTS.map((p): Entrada => ({
-    url: `${SITE_URL}/products/${p.id}`,
-    changeFrequency: 'monthly',
-    priority: 0.7,
-    lastModified: ahora,
-  })),
 ];
 
 type Posts = Awaited<ReturnType<typeof kontororu.posts.list>>['data'];

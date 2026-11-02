@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 
@@ -10,8 +9,8 @@ const FIELD_PARAMS = { bottomFade: 0.15 };
 
 /**
  * Productos construidos. Es el ancla `#productos` del CTA principal del hero.
- * La tarjeta sólo resume (imagen, nombre, descripción y enlaces); el estado,
- * el problema, la IA y el stack están en la página de cada producto.
+ * Cada tarjeta muestra imagen, nombre y descripción, y enlaza al sitio del
+ * producto cuando lo tiene; no hay páginas internas de producto.
  * Sin captura real se muestra una imagen genérica hasta subir la del producto.
  */
 export async function FeaturedProductsV3() {
@@ -60,24 +59,12 @@ export async function FeaturedProductsV3() {
                   </div>
 
                   <h3 className="text-title-subsection font-normal text-foreground">
-                    <Link
-                      href={`/products/${product.id}`}
-                      className="group-hover/card:text-primary transition-colors"
-                    >
-                      {product.name}
-                    </Link>
+                    {product.name}
                   </h3>
 
                   <p className="text-muted">{t(`${key}.description`)}</p>
 
                   <div className="mt-auto pt-2 flex flex-wrap items-center justify-between gap-4">
-                    <Link
-                      href={`/products/${product.id}`}
-                      className="group inline-flex items-center gap-1.5 text-foreground hover:text-primary transition-colors"
-                    >
-                      {t("learnMore")}
-                      <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden />
-                    </Link>
                     {product.url && (
                       <a
                         href={product.url}
