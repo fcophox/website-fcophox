@@ -14,9 +14,9 @@ interface RevealImageProps extends Omit<ImageProps, "src" | "alt"> {
   /**
    * Cómo aparece la imagen.
    *
-   * - `curtain-down` (por defecto): una cortina que baja y la descubre de
-   *   arriba hacia abajo.
-   * - `curtain-sides`: dos paneles que se abren hacia los lados, como una
+   * - `curtain-down`: una cortina que baja y la descubre de arriba hacia
+   *   abajo.
+   * - `curtain-sides` (por defecto): dos paneles que se abren hacia los lados, como una
    *   cortina que se corre. Los paneles se solapan un 1 % para que no se vea la
    *   juntura del medio mientras están cerrados.
    */
@@ -37,7 +37,7 @@ export function RevealImage({
   width,
   height,
   style,
-  variant = "curtain-down",
+  variant = "curtain-sides",
   ...props
 }: RevealImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -118,7 +118,9 @@ export function RevealImage({
     return () => clearTimeout(timer);
   }, [showReveal, delayMs, durationMs]);
 
-  const curtainColor = revealColor || "var(--surface)";
+  // Por defecto la cortina es del color del fondo: así, mientras está cerrada,
+  // se lee como parte de la página y no como un parche más claro.
+  const curtainColor = revealColor || "var(--background)";
 
   /*
     Lo común a las dos cortinas. La de abajo sólo cambia el eje: donde aquélla

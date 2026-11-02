@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft, Check, AlertCircle, Calendar } from "lucide-react";
 import { getLocale } from "next-intl/server";
 import { ArticleLayout } from "@/components/article-layout";
+import { RevealImage } from "@/components/reveal-image";
 import { servicesData } from "@/data/services-data";
 import { ScrollProgressLine } from "@/components/scroll-progress-line";
 import { AudienceCarousel } from "@/components/audience-carousel";
@@ -118,7 +118,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               transition={{ delay: 0.3 }}
               className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl md:rounded-[2rem] overflow-hidden border border-border/40 bg-surface shadow-lg mb-10 md:mb-16"
             >
-              <Image
+              <RevealImage
                 src={data.imageUrl}
                 alt={data.title}
                 fill
@@ -337,7 +337,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   {/* Previous */}
                   <Link href={`/capabilities/${prevSlug}`} className="group block no-underline">
                     <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden mb-4 border border-border/30 bg-surface">
-                      <Image
+                      <RevealImage
                         src={prevData.imageUrl}
                         alt={prevData.title}
                         fill
@@ -359,7 +359,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   {/* Next */}
                   <Link href={`/capabilities/${nextSlug}`} className="group block no-underline">
                     <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden mb-4 border border-border/30 bg-surface">
-                      <Image
+                      <RevealImage
                         src={nextData.imageUrl}
                         alt={nextData.title}
                         fill

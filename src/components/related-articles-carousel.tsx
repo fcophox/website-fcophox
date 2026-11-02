@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
+import { RevealImage } from "./reveal-image";
+
 export interface RelatedItem {
   id: string | number;
   title: string;
@@ -186,10 +188,12 @@ export function RelatedArticlesCarousel({
               {/* Image */}
               <div className="w-full aspect-[16/9] overflow-hidden relative rounded-2xl mb-4">
                 {item.image_url ? (
-                  <img
+                  <RevealImage
                     src={item.image_url}
                     alt={item.title}
+                    useImgTag
                     className="w-full h-full object-cover hover-zoom"
+                    wrapperClassName="w-full h-full"
                     loading="lazy"
                   />
                 ) : (

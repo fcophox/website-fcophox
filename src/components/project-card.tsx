@@ -343,8 +343,8 @@ function ProjectCardItem({ project, variant = "default" }: { project: Project; v
                       con el fondo para que mientras está cerrada se lea como
                       parte de la tarjeta y no como un parche más claro.
                     */
-                    revealColor={isV3 ? "var(--background)" : undefined}
-                    variant={isV3 ? "curtain-sides" : "curtain-down"}
+                    revealColor={isV3 ? undefined : "var(--surface)"}
+                    variant={isV3 ? undefined : "curtain-down"}
                   />
                 </div>
               ) : (

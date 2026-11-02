@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { RevealImage } from "./reveal-image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { ReactNode } from "react";
@@ -92,10 +93,12 @@ export function ArticleLayout({
             className={`w-full ${wide ? "" : "md:w-[110%] md:-ml-[5%]"} aspect-[21/9] rounded-3xl md:rounded-[2rem] overflow-hidden mb-16 shadow-2xl relative`}
           >
           {imageUrl ? (
-            <img
+            <RevealImage
               src={imageUrl}
               alt={title}
+              useImgTag
               className="w-full h-full object-cover"
+              wrapperClassName="w-full h-full"
             />
           ) : (
             <div className={`w-full h-full bg-gradient-to-br ${gradient}`} />

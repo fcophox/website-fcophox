@@ -65,7 +65,7 @@ export default function AboutPage() {
             className="w-full lg:w-[400px] shrink-0"
           >
             <div className="group relative aspect-[9/16] rounded-2xl overflow-hidden">
-              <Image
+              <RevealImage
                 src="/about/fcophox-about.png"
                 alt="Francisco Hormazábal"
                 fill

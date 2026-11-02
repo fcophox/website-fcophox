@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 
 import { HoverField } from "@/components/hover-field";
+import { RevealImage } from "@/components/reveal-image";
 import { PRODUCTS, PRODUCT_IMAGE_PLACEHOLDER, PRODUCT_LOGO_PLACEHOLDER } from "@/data/v3-products";
 
 const FIELD_PARAMS = { bottomFade: 0.15 };
@@ -37,12 +38,13 @@ export async function FeaturedProductsV3() {
                 className="group/card relative rounded-3xl bg-surface overflow-hidden flex flex-col"
               >
                 <div className="relative aspect-[16/9] bg-background/40">
-                  <Image
+                  <RevealImage
                     src={product.image ?? PRODUCT_IMAGE_PLACEHOLDER}
                     alt={product.image ? product.name : ""}
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
                     className="object-cover"
+                    revealColor="var(--surface)"
                   />
                 </div>
 
