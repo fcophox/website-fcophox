@@ -6,7 +6,7 @@
  */
 
 export type Product = {
-  id: "kontororu" | "tanzo" | "bijon";
+  id: "kanri" | "tanzo" | "bijon";
   name: string;
   /** Sitio del producto; la tarjeta enlaza aquí con el botón «Visitar». */
   url?: string;
@@ -32,11 +32,11 @@ export const PRODUCT_LOGO_PLACEHOLDER = "/products/logo-placeholder.svg";
 
 const ALL_PRODUCTS: Product[] = [
   {
-    id: "kontororu",
-    name: "Kontorōru",
+    id: "kanri",
+    name: "Kanri",
     url: "https://kontororu.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
-    image: "/products/kontororu.png",
-    logo: "/products/kontororu.svg",
+    image: "/products/kanri.png",
+    logo: "/products/kanri.svg",
   },
   {
     id: "tanzo",

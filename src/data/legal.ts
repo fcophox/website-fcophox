@@ -87,7 +87,7 @@ const es: Record<LegalSlug, LegalDoc> = {
             list: [
               "Vercel Inc. (EE. UU.): alojamiento del sitio y registros técnicos.",
               "Resend (EE. UU.): envío del aviso por correo cuando completas un formulario.",
-              "Kontorōru: gestor de contenido y bandeja donde se guardan los mensajes de los formularios.",
+              "Kanri: gestor de contenido y bandeja donde se guardan los mensajes de los formularios.",
               "Google (Gmail y, si lo aceptas, Google Analytics — Google LLC/Google Ireland Ltd.): recepción de los avisos de contacto y medición de audiencia.",
             ],
           },
@@ -281,7 +281,7 @@ const en: Record<LegalSlug, LegalDoc> = {
             list: [
               "Vercel Inc. (USA): site hosting and server logs.",
               "Resend (USA): sending the email notification when you submit a form.",
-              "Kontorōru: content manager and inbox where form messages are stored.",
+              "Kanri: content manager and inbox where form messages are stored.",
               "Google (Gmail and, if you accept, Google Analytics — Google LLC/Google Ireland Ltd.): receiving contact notifications and audience measurement.",
             ],
           },
