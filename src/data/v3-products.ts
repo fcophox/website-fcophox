@@ -29,6 +29,8 @@ export type Product = {
    * "/products/logos/tanzo.svg". Sin él, la tarjeta usa PRODUCT_LOGO_PLACEHOLDER.
    */
   logo?: string;
+  /** Oculto en la home, el sitemap y /products/<id>; sus datos se conservan. */
+  hidden?: boolean;
 };
 
 /** Color de la etiqueta de estado en la página del producto. */
@@ -46,7 +48,7 @@ export const PRODUCT_IMAGE_PLACEHOLDER = "/products/placeholder.svg";
 /** Rectángulo de reserva para las tarjetas sin logotipo propio. */
 export const PRODUCT_LOGO_PLACEHOLDER = "/products/logo-placeholder.svg";
 
-export const PRODUCTS: Product[] = [
+const ALL_PRODUCTS: Product[] = [
   {
     id: "kontororu",
     name: "Kontorōru",
@@ -74,8 +76,12 @@ export const PRODUCTS: Product[] = [
     stack: ["Next.js", "TypeScript", "Gemini API"],
     usesAi: true,
     logo: "/products/bijon.svg",
+    hidden: true,
   },
 ];
+
+/** Productos visibles en el sitio. */
+export const PRODUCTS = ALL_PRODUCTS.filter((p) => !p.hidden);
 
 export function getProduct(id: string): Product | undefined {
   return PRODUCTS.find((p) => p.id === id);

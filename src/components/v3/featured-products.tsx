@@ -26,7 +26,7 @@ export async function FeaturedProductsV3() {
         </h2>
         <p className="text-subtitle text-muted md:max-w-[750px] mb-12 text-pretty">{t("description")}</p>
 
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {PRODUCTS.map((product) => {
             const key = `items.${product.id}` as const;
             return (
@@ -42,7 +42,7 @@ export async function FeaturedProductsV3() {
                     src={product.image ?? PRODUCT_IMAGE_PLACEHOLDER}
                     alt={product.image ? product.name : ""}
                     fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
+                    sizes="(min-width: 768px) 50vw, 100vw"
                     className="object-cover"
                   />
                 </div>
