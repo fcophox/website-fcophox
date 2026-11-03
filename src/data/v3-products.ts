@@ -34,7 +34,7 @@ const ALL_PRODUCTS: Product[] = [
   {
     id: "kanri",
     name: "Kanri",
-    url: "https://kontororu.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
+    url: "https://www.kanri.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
     image: "/products/kanri.png",
     logo: "/products/kanri.svg",
   },

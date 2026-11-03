@@ -149,6 +149,35 @@
   }
 }
 
+/*
+ * Imágenes del CMS: llegan como <figure class="kntr-figure"> con <img> y un
+ * <figcaption class="kntr-caption"> opcional. El margen vertical lo pone la
+ * figure para que el pie quede pegado a la imagen.
+ */
+.tiptap-content figure {
+  margin: 2.5em 0;
+}
+
+.tiptap-content figure img {
+  margin-block: 0;
+}
+
+.tiptap-content figcaption {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: var(--text-caption);
+  line-height: var(--text-caption--line-height);
+  font-weight: 400;
+  color: var(--muted);
+  text-wrap: balance;
+}
+
+@media (max-width: 850px) {
+  .tiptap-content figure {
+    margin: 1.75em 0;
+  }
+}
+
 /* Treat the paragraph immediately following an image as a caption */
 .tiptap-content img + p {
   margin-top: -1.5em;

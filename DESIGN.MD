@@ -48,8 +48,8 @@ colors.secondary.light: "#8b5cf6"
 colors.secondary.dark: "#a78bfa"
 colors.accent.light: "#f59e0b"
 colors.accent.dark: "#fbbf24"
-colors.muted.light: "#9997a9"
-colors.muted.dark: "#c9ddfc"
+colors.muted.light: "#6a717a"
+colors.muted.dark: "#6a717a"
 colors.surface.light: "#ffffff"
 colors.surface.dark: "#181A1E"
 colors.border.light: "#e2e8f0"
@@ -131,7 +131,7 @@ typography.code.tracking: "0"
 | primary    | `#3b82f6`  | `#60a5fa`  | Acción principal |
 | secondary  | `#8b5cf6`  | `#a78bfa`  | Acción secundaria|
 | accent     | `#f59e0b`  | `#fbbf24`  | Énfasis          |
-| muted      | `#94a3b8`  | `#b0b0b0`  | Texto secundario |
+| muted      | `#6a717a`  | `#6a717a`  | Texto secundario |
 
 ## Tipografía
 

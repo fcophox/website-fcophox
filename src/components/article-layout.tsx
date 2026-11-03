@@ -20,11 +20,6 @@ interface ArticleLayoutProps {
   /** Slug del contenido en Kontorōru. Es la clave de las reacciones. */
   slug?: string;
   relatedArticlesSection?: ReactNode;
-  /**
-   * Título y portada al ancho completo del contenedor, alineados con «Volver».
-   * El cuerpo sigue a 760 px. Lo usan los casos de estudio.
-   */
-  wide?: boolean;
   children?: ReactNode;
 }
 
@@ -39,10 +34,9 @@ export function ArticleLayout({
   backLabel,
   slug,
   relatedArticlesSection,
-  wide = false,
   children,
 }: ArticleLayoutProps) {
-  const headerWidth = wide ? "w-full" : "max-w-[760px] mx-auto w-full";
+  const headerWidth = "max-w-[760px] mx-auto w-full";
 
   return (
     <>
@@ -90,7 +84,7 @@ export function ArticleLayout({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
-            className={`w-full ${wide ? "" : "md:w-[110%] md:-ml-[5%]"} aspect-[21/9] rounded-3xl md:rounded-[2rem] overflow-hidden mb-16 shadow-2xl relative`}
+            className="w-full md:w-[110%] md:-ml-[5%] aspect-[21/9] rounded-3xl md:rounded-[2rem] overflow-hidden mb-16 shadow-2xl relative"
           >
           {imageUrl ? (
             <RevealImage
