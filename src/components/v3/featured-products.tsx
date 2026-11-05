@@ -29,6 +29,50 @@ export async function FeaturedProductsV3() {
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {PRODUCTS.map((product) => {
             const key = `items.${product.id}` as const;
+            const visitLink = product.url && (
+              <a
+                href={product.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors"
+              >
+                {t("visit")} {product.name}
+                <ArrowRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-0.5"
+                  aria-hidden
+                />
+              </a>
+            );
+
+            // Producto con icono de app: tarjeta horizontal a todo el ancho.
+            if (product.icon) {
+              return (
+                <HoverField
+                  key={product.id}
+                  as="li"
+                  className="group/card relative rounded-3xl bg-surface overflow-hidden md:col-span-2"
+                >
+                  <div className="relative p-6 lg:p-8 flex flex-col md:flex-row md:items-center gap-6 lg:gap-8">
+                    <Image
+                      src={product.icon}
+                      alt=""
+                      width={96}
+                      height={96}
+                      className="shrink-0 size-20 lg:size-24 rounded-full"
+                    />
+                    <div className="flex flex-col gap-2 flex-1 min-w-0">
+                      <h3 className="text-title-subsection font-normal text-foreground">
+                        {product.name}
+                      </h3>
+                      <p className="text-muted md:max-w-[640px]">{t(`${key}.description`)}</p>
+                      {visitLink && <div className="pt-2">{visitLink}</div>}
+                    </div>
+                  </div>
+                </HoverField>
+              );
+            }
+
             return (
               <HoverField
                 key={product.id}
@@ -67,21 +111,7 @@ export async function FeaturedProductsV3() {
                   <p className="text-muted">{t(`${key}.description`)}</p>
 
                   <div className="mt-auto pt-2 flex flex-wrap items-center justify-between gap-4">
-                    {product.url && (
-                      <a
-                        href={product.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-1.5 text-primary hover:text-primary/80 transition-colors"
-                      >
-                        {t("visit")} {product.name}
-                        <ArrowRight
-                          size={16}
-                          className="transition-transform group-hover:translate-x-0.5"
-                          aria-hidden
-                        />
-                      </a>
-                    )}
+                    {visitLink}
                   </div>
                 </div>
               </HoverField>

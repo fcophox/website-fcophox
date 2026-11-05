@@ -6,7 +6,7 @@
  */
 
 export type Product = {
-  id: "kanri" | "tanzo" | "bijon";
+  id: "kanri" | "tanzo" | "bijon" | "mozo";
   name: string;
   /** Sitio del producto; la tarjeta enlaza aquí con el botón «Visitar». */
   url?: string;
@@ -20,6 +20,11 @@ export type Product = {
    * "/products/logos/tanzo.svg". Sin él, la tarjeta usa PRODUCT_LOGO_PLACEHOLDER.
    */
   logo?: string;
+  /**
+   * Icono cuadrado de app (p. ej. "/products/mozo.png"). Si lo tiene, la
+   * tarjeta ocupa todo el ancho de la grilla en formato horizontal.
+   */
+  icon?: string;
   /** Oculto en la home; sus datos se conservan. */
   hidden?: boolean;
 };
@@ -44,6 +49,12 @@ const ALL_PRODUCTS: Product[] = [
     url: "https://tanzo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
     image: "/products/tanzo.png",
     logo: "/tanzo/tanzo-logotipo.svg",
+  },
+  {
+    id: "mozo",
+    name: "Mozo",
+    url: "https://mozo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
+    icon: "/products/mozo.png",
   },
   {
     id: "bijon",

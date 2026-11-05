@@ -41,6 +41,9 @@
       "tanzo": {
         "description": "A set of tools to shape and organise products: sitemaps and flows (Kōsei), card sorting (Kādo) and visual roadmaps (Rebyū)."
       },
+      "mozo": {
+        "description": "A Figma plugin that clones any website into editable layers, so you can iterate on it directly in Figma."
+      },
       "bijon": {
         "description": "A Tanzō tool that analyses an experience and flags likely usability and conversion friction before launch."
       }
@@ -48,7 +51,7 @@
   },
   "Experience": {
     "label": "Background",
-    "statement": "I'm a Designer — 14+ years building <hl>digital experiences and products</hl>. I've worked as <hl>Product Designer, UX Manager and Head of UX</hl> across different projects.",
+    "statement": "I'm a Designer — 14+ years building <hl>digital experiences and products</hl>. I've worked as <hl>Product Designer, UX Manager and Head of UX</hl> for different clients and projects.",
     "industriesLabel": "Industries",
     "industries": ["Banking", "Education", "Fintech", "Logistics", "Retail", "Ecommerce", "Healthcare", "Insurance", "Technology"],
     "ctaAbout": "About me",
