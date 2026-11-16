@@ -409,28 +409,38 @@
   "CvPage": {
     "backHome": "Back to Home",
     "printPdf": "Print / Save PDF",
-    "role": "UX Engineer & Product Design Consultant",
-    "tag1": "UX Strategy",
+    "role": "Senior Product Designer – AI · Remote",
+    "tag1": "Product Design",
     "tag2": "AI",
-    "tag3": "Product Design",
-    "tag4": "CRO",
-    "tag5": "Data",
+    "tag3": "Supabase",
+    "tag4": "CI/CD",
+    "tag5": "Remote",
     "profileTitle": "Professional Profile",
-    "profileP1": "Product Designer & UX Leader with over 14 years of experience designing and scaling digital products.",
+    "profileP1": "Senior Product Designer specialized in AI, with over 14 years of experience designing and scaling digital products, working remotely with distributed teams.",
     "profileP2": "I specialize in combining UX, Product Strategy, and Artificial Intelligence to create high-impact solutions. My focus is on improving conversion, reducing friction, and aligning user experience with business goals.",
-    "profileP3": "I operate as a Full Stack Experience Builder, connecting design, technology, and artificial intelligence.",
+    "profileP3": "I operate as a Full Stack Experience Builder: I design, build, and ship AI products end to end, from discovery and Figma to React / Next.js front-ends, Supabase databases (PostgreSQL, Auth, RLS), and continuous deployment with CI/CD.",
     "impactTitle": "Impact & Achievements",
     "impactItems": [
-      "UX Strategy across multiple industries",
-      "AI integration in UX processes",
-      "Conversion Rate Optimization (CRO)",
-      "UX Leadership (11+ designers)",
-      "End-to-end digital product development",
-      "User Experience Research",
-      "Information Architecture and Usability"
+      "End-to-end creation of AI-powered digital products (Kanri, Tanzō, Mozo)",
+      "Databases and backend with Supabase: PostgreSQL modeling, authentication, and Row Level Security",
+      "CI/CD and continuous deployment with GitHub and Vercel",
+      "AI integration in UX processes and product development",
+      "UX leadership (11+ designers) in remote, distributed teams",
+      "UX strategy and Conversion Rate Optimization (CRO) across multiple industries",
+      "User experience research, information architecture, and usability"
     ],
     "experienceTitle": "Work Experience",
     "jobs": [
+      {
+        "title": "Senior Product Designer – AI",
+        "company": "Own products · Remote — 2024 – Present",
+        "tasks": [
+          "End-to-end design and development of AI products: Kanri (multi-site CMS), Tanzō (product tooling suite), and Mozo (Figma plugin)",
+          "React / Next.js front-ends and Supabase backends (PostgreSQL, Auth, Storage, Row Level Security)",
+          "CI/CD pipelines with GitHub and Vercel for continuous delivery to production",
+          "Using AI (Claude, ChatGPT, Gemini) to speed up discovery, prototyping, and development"
+        ]
+      },
       {
         "title": "UX Manager / Head of UX",
         "company": "CleverIT Group — 2023 – Present",
@@ -478,14 +488,17 @@
     "contactTitle": "Contact",
     "skillsTitle": "Skills",
     "skills": [
-      "UX Strategy",
       "Product Design",
-      "AI applied to UX",
-      "CRO",
+      "UX Strategy",
+      "AI applied to product",
+      "AI prototyping",
       "UX Research",
       "Design Systems",
       "React / Next.js",
-      "Leadership"
+      "Databases (PostgreSQL)",
+      "CI/CD",
+      "CRO",
+      "Remote leadership"
     ],
     "toolsTitle": "Tools",
     "tools": [
@@ -493,10 +506,13 @@
       "React",
       "Next.js",
       "Tailwind",
+      "Supabase",
+      "PostgreSQL",
+      "GitHub Actions",
+      "Vercel",
+      "Claude Code",
       "ChatGPT",
-      "Claude",
       "Gemini",
-      "Kimi",
       "Google Analytics"
     ],
     "educationTitle": "Education",

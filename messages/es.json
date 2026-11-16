@@ -409,28 +409,38 @@
   "CvPage": {
     "backHome": "Volver al inicio",
     "printPdf": "Imprimir / Guardar PDF",
-    "role": "UX Engineer & Product Design Consultant",
-    "tag1": "Estrategia UX",
+    "role": "Senior Product Designer – IA · Remoto",
+    "tag1": "Diseño de Producto",
     "tag2": "IA",
-    "tag3": "Diseño de Producto",
-    "tag4": "CRO",
-    "tag5": "Data",
+    "tag3": "Supabase",
+    "tag4": "CI/CD",
+    "tag5": "Remoto",
     "profileTitle": "Perfil Profesional",
-    "profileP1": "Product Designer & UX Leader con más de 14 años de experiencia diseñando y escalando productos digitales.",
+    "profileP1": "Senior Product Designer especializado en IA, con más de 14 años de experiencia diseñando y escalando productos digitales, y trabajando en remoto con equipos distribuidos.",
     "profileP2": "Me especializo en combinar UX, Estrategia de Producto e Inteligencia Artificial para crear soluciones de alto impacto. Mi enfoque se centra en mejorar la conversión, reducir fricción y alinear la experiencia de usuario con los objetivos de negocio.",
-    "profileP3": "Opero como un Full Stack Experience Builder, conector entre diseño, tecnología e inteligencia artificial.",
+    "profileP3": "Opero como un Full Stack Experience Builder: diseño, construyo y lanzo productos con IA de punta a punta, desde el discovery y Figma hasta el front-end en React / Next.js, la base de datos en Supabase (PostgreSQL, Auth, RLS) y el despliegue continuo con CI/CD.",
     "impactTitle": "Impacto & Logros",
     "impactItems": [
-      "Estrategia UX en múltiples industrias",
-      "Integración de IA en procesos UX",
-      "Optimización de conversión (CRO)",
-      "Liderazgo UX (11+ diseñadores)",
-      "Desarrollo end-to-end de productos digitales",
-      "Investigación en Experiencia de usuario",
-      "Arquitectura de Información y Usabilidad"
+      "Creación de productos digitales con IA de punta a punta (Kanri, Tanzō, Mozo)",
+      "Bases de datos y backend con Supabase: modelado en PostgreSQL, autenticación y Row Level Security",
+      "CI/CD y despliegue continuo con GitHub y Vercel",
+      "Integración de IA en procesos UX y en el desarrollo de producto",
+      "Liderazgo UX (11+ diseñadores) en equipos remotos y distribuidos",
+      "Estrategia UX y optimización de conversión (CRO) en múltiples industrias",
+      "Investigación en experiencia de usuario, arquitectura de información y usabilidad"
     ],
     "experienceTitle": "Experiencia Laboral",
     "jobs": [
+      {
+        "title": "Senior Product Designer – IA",
+        "company": "Productos propios · Remoto — 2024 – Presente",
+        "tasks": [
+          "Diseño y desarrollo end-to-end de productos con IA: Kanri (CMS multisitio), Tanzō (suite de herramientas de producto) y Mozo (plugin de Figma)",
+          "Front-end en React / Next.js y backend con Supabase (PostgreSQL, Auth, Storage, Row Level Security)",
+          "Pipelines de CI/CD con GitHub y Vercel para entregas continuas a producción",
+          "Uso de IA (Claude, ChatGPT, Gemini) para acelerar discovery, prototipado y desarrollo"
+        ]
+      },
       {
         "title": "UX Manager / Head of UX",
         "company": "CleverIT Group — 2023 – Presente",
@@ -478,14 +488,17 @@
     "contactTitle": "Contacto",
     "skillsTitle": "Skills",
     "skills": [
-      "Estrategia UX",
       "Diseño de Producto",
-      "IA aplicada a UX",
-      "CRO",
+      "Estrategia UX",
+      "IA aplicada a producto",
+      "Prototipado con IA",
       "UX Research",
       "Design Systems",
       "React / Next.js",
-      "Liderazgo"
+      "Bases de datos (PostgreSQL)",
+      "CI/CD",
+      "CRO",
+      "Liderazgo remoto"
     ],
     "toolsTitle": "Herramientas",
     "tools": [
@@ -493,10 +506,13 @@
       "React",
       "Next.js",
       "Tailwind",
+      "Supabase",
+      "PostgreSQL",
+      "GitHub Actions",
+      "Vercel",
+      "Claude Code",
       "ChatGPT",
-      "Claude",
       "Gemini",
-      "Kimi",
       "Google Analytics"
     ],
     "educationTitle": "Educación",

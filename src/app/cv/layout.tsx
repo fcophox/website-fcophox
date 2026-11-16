@@ -2,9 +2,9 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "CV _ Francisco Hormazábal - UX Engineer & Product Design Consultant",
+    absolute: "CV _ Francisco Hormazábal - Senior Product Designer – AI",
   },
-  description: "CV de Francisco Hormazábal - Product Designer & UX Leader con más de 14 años de experiencia diseñando y escalando productos digitales.",
+  description: "CV de Francisco Hormazábal - Senior Product Designer especializado en IA, con más de 14 años diseñando, construyendo y escalando productos digitales en remoto.",
 };
 
 export default function CvLayout({
