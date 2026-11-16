@@ -25,7 +25,7 @@ export async function PillarsV3() {
               className="relative overflow-hidden rounded-3xl bg-surface text-foreground p-6 md:p-8 flex flex-col gap-16 min-h-[300px] md:min-h-[400px] transition-colors duration-300 hover:bg-border/60"
             >
               <div className="relative">
-                <span className="block text-title-subsection font-normal opacity-70 mb-2" aria-hidden>
+                <span className="block w-fit text-title-subsection font-normal mb-2 text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary" aria-hidden>
                   0{i + 1}
                 </span>
                 <h3 className="text-title-subsection font-normal">{item.title}</h3>
