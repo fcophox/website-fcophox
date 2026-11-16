@@ -256,7 +256,13 @@
     "backHome": "Volver al Inicio",
     "title": "Casos de Estudio",
     "subtitle": "Selección de proyectos donde he aplicado estrategia, diseño y código para resolver problemas reales.",
-    "catAll": "Todos"
+    "catAll": "Todos",
+    "ownProducts": {
+      "label": "Productos propios",
+      "title": "Productos que diseño y construyo como Senior Product Designer – IA.",
+      "description": "Productos digitales creados de punta a punta, desde la idea y el diseño hasta el código y el lanzamiento, usando inteligencia artificial en cada etapa.",
+      "viewCase": "Ver caso"
+    }
   },
   "ContactPage": {
     "backHome": "Volver al Inicio",
@@ -563,5 +569,14 @@
   },
   "FormPrivacy": {
     "notice": "Al enviar, tus datos se usarán sólo para responderte, según la <privacy>política de privacidad</privacy>."
+  },
+  "ProductCasePage": {
+    "back": "Volver a Casos de Estudio",
+    "category": "Producto propio",
+    "comingSoonLabel": "En preparación",
+    "comingSoonTitle": "El caso de estudio de este producto está en camino.",
+    "comingSoonText": "Pronto vas a poder leer cómo lo diseñé y construí: el problema, las decisiones de producto y el rol de la IA en el proceso.",
+    "visit": "Visitar",
+    "notFoundTitle": "Producto no encontrado"
   }
 }

@@ -256,7 +256,13 @@
     "backHome": "Back to Home",
     "title": "Case Studies",
     "subtitle": "A selection of projects where I've applied strategy, design, and code to solve real problems.",
-    "catAll": "All"
+    "catAll": "All",
+    "ownProducts": {
+      "label": "Own products",
+      "title": "Products I design and build as a Senior Product Designer – AI.",
+      "description": "Digital products created end to end, from the idea and design to code and launch, using artificial intelligence at every stage.",
+      "viewCase": "View case"
+    }
   },
   "ContactPage": {
     "backHome": "Back to Home",
@@ -563,5 +569,14 @@
   },
   "FormPrivacy": {
     "notice": "By submitting, your data will only be used to reply to you, as described in the <privacy>privacy policy</privacy>."
+  },
+  "ProductCasePage": {
+    "back": "Back to Case Studies",
+    "category": "Own product",
+    "comingSoonLabel": "Coming soon",
+    "comingSoonTitle": "The case study for this product is on its way.",
+    "comingSoonText": "Soon you'll be able to read how I designed and built it: the problem, the product decisions and the role AI played in the process.",
+    "visit": "Visit",
+    "notFoundTitle": "Product not found"
   }
 }
