@@ -50,6 +50,8 @@ function apiKey(): string {
 export const CATEGORIA = {
   blog: "blog",
   casosDeEstudio: "casos-de-estudio",
+  /** Productos propios (Kanri, Tanzō…): slug = id en src/data/v3-products.ts. */
+  productos: "productos",
 } as const;
 
 /* ─────────────────────────────── Tipos ─────────────────────────────── */

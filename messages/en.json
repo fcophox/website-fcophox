@@ -259,7 +259,7 @@
     "catAll": "All",
     "ownProducts": {
       "label": "Own products",
-      "title": "Products I design and build as a Senior Product Designer – AI.",
+      "title": "Products I <accent>design and build</accent> as a Senior Product Designer – AI.",
       "description": "Digital products created end to end, from the idea and design to code and launch, using artificial intelligence at every stage.",
       "viewCase": "View case"
     }
@@ -577,6 +577,23 @@
     "comingSoonTitle": "The case study for this product is on its way.",
     "comingSoonText": "Soon you'll be able to read how I designed and built it: the problem, the product decisions and the role AI played in the process.",
     "visit": "Visit",
-    "notFoundTitle": "Product not found"
+    "notFoundTitle": "Product not found",
+    "cta": {
+      "viewProduct": "View product",
+      "viewDemo": "View demo",
+      "demoSoon": "The demo will be available soon",
+      "kanri": {
+        "title": "Thinking about switching your CMS?",
+        "text": "If publishing on your website still depends on developers, I can help you move your content to Kanri and connect your site, with your brand and permissions from day one."
+      },
+      "tanzo": {
+        "title": "Is your team juggling too many tools?",
+        "text": "I can help you bring research, roadmaps, quotes and presentations together in one space with Tanzō, shaped around how your studio works."
+      },
+      "mozo": {
+        "title": "Want to iterate on a website without starting from scratch?",
+        "text": "With Mozo you bring any site into Figma as editable layers. I can help you make the most of it on your next project."
+      }
+    }
   }
 }

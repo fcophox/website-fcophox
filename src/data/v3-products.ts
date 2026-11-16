@@ -25,6 +25,12 @@ export type Product = {
    * tarjeta ocupa todo el ancho de la grilla en formato horizontal.
    */
   icon?: string;
+  /**
+   * Isotipo circular (SVG) que se superpone en la esquina de la imagen en
+   * /case-studies. A diferencia de `icon`, no cambia el formato de la tarjeta
+   * de la home.
+   */
+  mark?: string;
   /** Oculto en la home; sus datos se conservan. */
   hidden?: boolean;
 };
@@ -42,6 +48,7 @@ const ALL_PRODUCTS: Product[] = [
     url: "https://www.kanri.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
     image: "/products/kanri.png",
     logo: "/products/kanri.svg",
+    mark: "/products/kanri.svg",
   },
   {
     id: "tanzo",
@@ -49,6 +56,7 @@ const ALL_PRODUCTS: Product[] = [
     url: "https://tanzo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
     image: "/products/tanzo.png",
     logo: "/tanzo/tanzo-logotipo.svg",
+    mark: "/tanzo/tanzo-logotipo.svg",
   },
   {
     id: "mozo",
