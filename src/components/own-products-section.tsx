@@ -15,17 +15,18 @@ export const productCaseHref = (id: string) => `/case-studies/productos/${id}`;
  * carga desde Kontorōru (ver case-studies/productos/[slug]/page.tsx).
  *
  * Sólo se muestran los productos que ya tienen su entrada publicada en el CMS
- * (`published`, id → título y portada de su entrada): un producto aparece solo
+ * (`published`, id → título, extracto y portada de su entrada): un producto aparece solo
  * en cuanto se publica. Si la lectura del CMS falló llega `null` y se muestran todos, cada
  * uno con su página de «en preparación».
  *
- * El título de la tarjeta es el de la entrada del CMS. La imagen es la captura
+ * El título y el texto de la tarjeta son el título y el extracto de la entrada
+ * del CMS; sin ellos, se usan el nombre y la descripción corta del producto. La imagen es la captura
  * propia del producto (`image`) y, si no la tiene, la portada del CMS.
  */
 export async function OwnProductsSection({
   published,
 }: {
-  published: Record<string, { title: string; cover: string | null }> | null;
+  published: Record<string, { title: string; excerpt: string | null; cover: string | null }> | null;
 }) {
   const t = await getTranslations("CaseStudiesPage.ownProducts");
   const tp = await getTranslations("V3.Products.items");
@@ -101,7 +102,7 @@ export async function OwnProductsSection({
               <h3 className="text-title-subsection font-normal text-foreground mb-3 group-hover:text-primary transition-colors">
                 {entry?.title ?? product.name}
               </h3>
-              <p className="text-body-sm text-muted line-clamp-3 mb-4">{tp(`${product.id}.description`)}</p>
+              <p className="text-body-sm text-muted line-clamp-3 mb-4">{entry?.excerpt || tp(`${product.id}.description`)}</p>
               <span className="mt-auto inline-flex items-center gap-1.5 text-body-sm text-primary">
                 {t("viewCase")}
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden />

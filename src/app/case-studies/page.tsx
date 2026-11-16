@@ -34,7 +34,7 @@ export default async function CasosDeEstudioPage() {
   return (
     <CaseStudiesClient cases={aListadoArray(casos)}>
       <OwnProductsSection
-        published={productos ? Object.fromEntries(productos.map((p) => [p.slug, { title: p.title, cover: p.cover?.url ?? null }])) : null}
+        published={productos ? Object.fromEntries(productos.map((p) => [p.slug, { title: p.title, excerpt: p.excerpt?.trim() || null, cover: p.cover?.url ?? null }])) : null}
       />
     </CaseStudiesClient>
   );
