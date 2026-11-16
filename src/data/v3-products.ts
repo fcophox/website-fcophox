@@ -31,6 +31,12 @@ export type Product = {
    * de la home.
    */
   mark?: string;
+  /**
+   * Repositorio en GitHub para el botón «Ver GitHub» de su página en
+   * /case-studies. `null` muestra el botón desactivado («próximamente»); sin
+   * definir, no hay botón.
+   */
+  github?: string | null;
   /** Oculto en todo el sitio; sus datos se conservan. */
   hidden?: boolean;
   /**
@@ -68,11 +74,13 @@ const ALL_PRODUCTS: Product[] = [
     name: "Mozo",
     url: "https://mozo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
     icon: "/products/mozo.png",
+    github: null,
   },
   {
     id: "mawaru",
     name: "Mawaru",
     caseStudyOnly: true,
+    github: null,
   },
   {
     id: "bijon",

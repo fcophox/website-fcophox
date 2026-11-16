@@ -44,6 +44,17 @@ async function cargar(slug: string) {
   return { product, post };
 }
 
+/**
+ * El diseño a dos columnas de `.tiptap-sections` (título a la izquierda, texto
+ * a la derecha) se arma con los `h2`. Los artículos de producto se escribieron
+ * con los títulos de sección en `h3`: si un artículo no tiene ningún `h2`, sus
+ * `h3` pasan a ser los títulos de sección. Si tiene `h2`, se respeta tal cual.
+ */
+function conSecciones(html: string): string {
+  if (/<h2[\s>]/i.test(html)) return html;
+  return html.replace(/<h3(?=[\s>])/gi, "<h2").replace(/<\/h3>/gi, "</h2>");
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const data = await cargar(slug);
@@ -99,7 +110,7 @@ export default async function ProductCasePage({ params }: PageProps) {
         {/* HTML saneado por Kontorōru al guardar; ver case-studies/[slug]/page.tsx. */}
         <div
           className="tiptap-content tiptap-sections max-w-none"
-          dangerouslySetInnerHTML={{ __html: post.content.html }}
+          dangerouslySetInnerHTML={{ __html: conSecciones(post.content.html) }}
         />
       </ArticleLayout>
     );
