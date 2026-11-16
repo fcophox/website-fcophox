@@ -593,6 +593,10 @@
       "mozo": {
         "title": "¿Quieres iterar sobre una web sin empezar de cero?",
         "text": "Con Mozo llevas cualquier sitio a Figma como capas editables. Puedo ayudarte a aprovecharlo en tu próximo proyecto."
+      },
+      "mawaru": {
+        "title": "¿Quieres mostrar tu producto en movimiento?",
+        "text": "Puedo ayudarte a convertir tus pantallas en mockups animados de dispositivos, listos para tu próxima presentación, lanzamiento o campaña en redes."
       }
     }
   }

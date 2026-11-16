@@ -46,6 +46,9 @@
       },
       "bijon": {
         "description": "A Tanzō tool that analyses an experience and flags likely usability and conversion friction before launch."
+      },
+      "mawaru": {
+        "description": "A 3D device mockup editor that animates your screens and exports them as video or images, ready for presentations and social media."
       }
     }
   },

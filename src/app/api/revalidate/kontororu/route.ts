@@ -114,6 +114,7 @@ export async function POST(req: Request) {
       // Ambos listados: el webhook no dice de qué categoría era la entrada.
       marcar(`posts:${CATEGORIA.blog}`);
       marcar(`posts:${CATEGORIA.casosDeEstudio}`);
+      marcar(`posts:${CATEGORIA.productos}`);
 
       if (data?.slug) marcar(`post:${data.slug}`);
 
