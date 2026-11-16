@@ -418,12 +418,12 @@
     "profileTitle": "Perfil Profesional",
     "profileP1": "Senior Product Designer especializado en IA, con más de 14 años de experiencia diseñando y escalando productos digitales, y trabajando en remoto con equipos distribuidos.",
     "profileP2": "Me especializo en combinar UX, Estrategia de Producto e Inteligencia Artificial para crear soluciones de alto impacto. Mi enfoque se centra en mejorar la conversión, reducir fricción y alinear la experiencia de usuario con los objetivos de negocio.",
-    "profileP3": "Opero como un Full Stack Experience Builder: diseño, construyo y lanzo productos con IA de punta a punta, desde el discovery y Figma hasta el front-end en React / Next.js, la base de datos en Supabase (PostgreSQL, Auth, RLS) y el despliegue continuo con CI/CD.",
+    "profileP3": "Opero como un Full Stack Experience Builder: diseño, construyo y lanzo productos con IA de punta a punta, desde el discovery y Figma hasta productos funcionales en React / Next.js conectados a Supabase, con despliegue continuo.",
     "impactTitle": "Impacto & Logros",
     "impactItems": [
       "Creación de productos digitales con IA de punta a punta (Kanri, Tanzō, Mozo)",
-      "Bases de datos y backend con Supabase: modelado en PostgreSQL, autenticación y Row Level Security",
-      "CI/CD y despliegue continuo con GitHub y Vercel",
+      "Uso de Supabase para base de datos y login de usuarios en mis productos",
+      "Despliegue continuo (CI/CD) con GitHub y Vercel",
       "Integración de IA en procesos UX y en el desarrollo de producto",
       "Liderazgo UX (11+ diseñadores) en equipos remotos y distribuidos",
       "Estrategia UX y optimización de conversión (CRO) en múltiples industrias",
@@ -436,8 +436,8 @@
         "company": "Productos propios · Remoto — 2024 – Presente",
         "tasks": [
           "Diseño y desarrollo end-to-end de productos con IA: Kanri (CMS multisitio), Tanzō (suite de herramientas de producto) y Mozo (plugin de Figma)",
-          "Front-end en React / Next.js y backend con Supabase (PostgreSQL, Auth, Storage, Row Level Security)",
-          "Pipelines de CI/CD con GitHub y Vercel para entregas continuas a producción",
+          "Prototipos y productos funcionales en Next.js, conectados a Supabase (base de datos y autenticación)",
+          "Despliegue continuo (CI/CD) con GitHub y Vercel para publicar cambios en producción",
           "Uso de IA (Claude, ChatGPT, Gemini) para acelerar discovery, prototipado y desarrollo"
         ]
       },
@@ -495,7 +495,7 @@
       "UX Research",
       "Design Systems",
       "React / Next.js",
-      "Bases de datos (PostgreSQL)",
+      "Supabase",
       "CI/CD",
       "CRO",
       "Liderazgo remoto"
@@ -507,8 +507,7 @@
       "Next.js",
       "Tailwind",
       "Supabase",
-      "PostgreSQL",
-      "GitHub Actions",
+      "GitHub",
       "Vercel",
       "Claude Code",
       "ChatGPT",

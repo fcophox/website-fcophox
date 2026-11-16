@@ -352,7 +352,7 @@ export default function CvPage() {
                   {t('keywordsTitle')}
                 </h2>
                 <p className="text-caption font-mono text-muted/80 print:text-[8pt] print:text-slate-600">
-                  Senior Product Designer · Product Design · AI · IA · Supabase · PostgreSQL · CI/CD · Next.js · UX Research · CRO · Remote
+                  Senior Product Designer · Product Design · AI · IA · Supabase · CI/CD · Next.js · UX Research · CRO · Remote
                 </p>
               </section>
 
