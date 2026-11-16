@@ -259,7 +259,7 @@
     "catAll": "Todos",
     "ownProducts": {
       "label": "Productos propios",
-      "title": "Productos que diseño y construyo como Senior Product Designer – IA.",
+      "title": "Productos que <accent>diseño y construyo</accent> como Senior Product Designer – IA.",
       "description": "Productos digitales creados de punta a punta, desde la idea y el diseño hasta el código y el lanzamiento, usando inteligencia artificial en cada etapa.",
       "viewCase": "Ver caso"
     }
@@ -577,6 +577,23 @@
     "comingSoonTitle": "El caso de estudio de este producto está en camino.",
     "comingSoonText": "Pronto vas a poder leer cómo lo diseñé y construí: el problema, las decisiones de producto y el rol de la IA en el proceso.",
     "visit": "Visitar",
-    "notFoundTitle": "Producto no encontrado"
+    "notFoundTitle": "Producto no encontrado",
+    "cta": {
+      "viewProduct": "Ver el producto",
+      "viewDemo": "Ver demo",
+      "demoSoon": "La demo estará disponible pronto",
+      "kanri": {
+        "title": "¿Estás pensando en cambiar tu CMS?",
+        "text": "Si publicar en tu web todavía depende de desarrollo, puedo ayudarte a pasar tu contenido a Kanri y conectar tu sitio, con tu marca y tus permisos desde el primer día."
+      },
+      "tanzo": {
+        "title": "¿Tu equipo trabaja entre demasiadas herramientas?",
+        "text": "Puedo ayudarte a reunir research, roadmaps, cotizaciones y presentaciones en un solo espacio con Tanzō, adaptado a la forma de trabajar de tu estudio."
+      },
+      "mozo": {
+        "title": "¿Quieres iterar sobre una web sin empezar de cero?",
+        "text": "Con Mozo llevas cualquier sitio a Figma como capas editables. Puedo ayudarte a aprovecharlo en tu próximo proyecto."
+      }
+    }
   }
 }

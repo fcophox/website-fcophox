@@ -20,6 +20,8 @@ interface ArticleLayoutProps {
   /** Slug del contenido en Kontorōru. Es la clave de las reacciones. */
   slug?: string;
   relatedArticlesSection?: ReactNode;
+  /** Sustituye al bloque de «me gusta» al final del artículo (p. ej. la llamada a la acción de un producto). */
+  footerSection?: ReactNode;
   children?: ReactNode;
 }
 
@@ -34,6 +36,7 @@ export function ArticleLayout({
   backLabel,
   slug,
   relatedArticlesSection,
+  footerSection,
   children,
 }: ArticleLayoutProps) {
   const headerWidth = "max-w-[760px] mx-auto w-full";
@@ -132,8 +135,10 @@ export function ArticleLayout({
           )}
         </motion.div>
 
+        {footerSection && <div className="max-w-[760px] mx-auto w-full">{footerSection}</div>}
+
         {/* Feedback Banner */}
-        {slug && (
+        {!footerSection && slug && (
           <div className="max-w-[760px] mx-auto w-full">
             <ArticleFeedback slug={slug} />
           </div>

@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { ArrowRight } from "lucide-react";
 
 import { ArticleLayout } from "@/components/article-layout";
+import { ProductCta } from "@/components/product-cta";
 import { PRODUCTS, PRODUCT_IMAGE_PLACEHOLDER } from "@/data/v3-products";
 import { porSlugLocalizado } from "@/utils/kontororu-i18n";
 import { resumenDe } from "@/utils/kontororu-adapter";
@@ -93,6 +94,7 @@ export default async function ProductCasePage({ params }: PageProps) {
         date={new Date(post.publishedAt).getFullYear().toString()}
         imageUrl={post.cover?.url}
         slug={post.slug}
+        footerSection={<ProductCta product={product} />}
       >
         {/* HTML saneado por Kontorōru al guardar; ver case-studies/[slug]/page.tsx. */}
         <div

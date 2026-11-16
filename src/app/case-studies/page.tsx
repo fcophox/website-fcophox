@@ -18,14 +18,22 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function CasosDeEstudioPage() {
-  const posts = await listarLocalizado({
-    categoria: CATEGORIA.casosDeEstudio,
-    limit: 100,
-  });
+  /*
+   * Los productos propios NO se mezclan con los casos de estudio: van en su
+   * propia sección al final de la página. Su lectura se hace aparte para saber
+   * cuáles están publicados; si falla, la grilla sigue igual.
+   */
+  const [casos, productos] = await Promise.all([
+    listarLocalizado({ categoria: CATEGORIA.casosDeEstudio, limit: 100 }),
+    listarLocalizado({ categoria: CATEGORIA.productos, limit: 100 }).catch((error) => {
+      console.error("[case-studies] No se pudieron leer los productos de Kontorōru:", error);
+      return null;
+    }),
+  ]);
 
   return (
-    <CaseStudiesClient cases={aListadoArray(posts)}>
-      <OwnProductsSection />
+    <CaseStudiesClient cases={aListadoArray(casos)}>
+      <OwnProductsSection publishedIds={productos?.map((p) => p.slug) ?? null} />
     </CaseStudiesClient>
   );
 }
