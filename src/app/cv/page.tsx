@@ -168,8 +168,6 @@ export default function CvPage() {
               <span>{t('tag3')}</span>
               <span className="text-muted/30">•</span>
               <span>{t('tag4')}</span>
-              <span className="text-muted/30">•</span>
-              <span>{t('tag5')}</span>
             </div>
 
             {/* Print-only contact bar for ATS / Clean PDF layout */}
