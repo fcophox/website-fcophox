@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -23,6 +23,8 @@ export interface CaseStudy {
 
 interface CaseStudiesClientProps {
   cases: CaseStudy[];
+  /** Contenido extra al final de la página (p. ej. la sección de productos propios). */
+  children?: ReactNode;
 }
 
 const gradients = [
@@ -36,7 +38,7 @@ const gradients = [
 
 const getGradient = (index: number) => gradients[index % gradients.length];
 
-export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
+export function CaseStudiesClient({ cases, children }: CaseStudiesClientProps) {
   const t = useTranslations('CaseStudiesPage');
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -210,6 +212,8 @@ export function CaseStudiesClient({ cases }: CaseStudiesClientProps) {
             ))}
           </div>
         )}
+
+        {children}
       </div>
     </main>
   );

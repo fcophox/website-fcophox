@@ -1,4 +1,5 @@
 import { CaseStudiesClient } from "@/components/case-studies-client";
+import { OwnProductsSection } from "@/components/own-products-section";
 import { getLocale, getTranslations } from "next-intl/server";
 import { CATEGORIA } from "@/utils/kontororu";
 import { listarLocalizado } from "@/utils/kontororu-i18n";
@@ -22,5 +23,9 @@ export default async function CasosDeEstudioPage() {
     limit: 100,
   });
 
-  return <CaseStudiesClient cases={aListadoArray(posts)} />;
+  return (
+    <CaseStudiesClient cases={aListadoArray(posts)}>
+      <OwnProductsSection />
+    </CaseStudiesClient>
+  );
 }
