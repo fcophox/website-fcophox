@@ -6,7 +6,7 @@
  */
 
 export type Product = {
-  id: "kanri" | "tanzo" | "bijon" | "mozo";
+  id: "kanri" | "tanzo" | "bijon" | "mozo" | "mawaru";
   name: string;
   /** Sitio del producto; la tarjeta enlaza aquí con el botón «Visitar». */
   url?: string;
@@ -31,8 +31,13 @@ export type Product = {
    * de la home.
    */
   mark?: string;
-  /** Oculto en la home; sus datos se conservan. */
+  /** Oculto en todo el sitio; sus datos se conservan. */
   hidden?: boolean;
+  /**
+   * Sólo en /case-studies (Productos propios), no en la home. Para productos
+   * sin sitio público ni tarjeta de home, como Mawaru.
+   */
+  caseStudyOnly?: boolean;
 };
 
 /** Imagen genérica para las tarjetas sin captura propia. */
@@ -65,6 +70,11 @@ const ALL_PRODUCTS: Product[] = [
     icon: "/products/mozo.png",
   },
   {
+    id: "mawaru",
+    name: "Mawaru",
+    caseStudyOnly: true,
+  },
+  {
     id: "bijon",
     name: "Bijon",
     logo: "/products/bijon.svg",
@@ -72,5 +82,8 @@ const ALL_PRODUCTS: Product[] = [
   },
 ];
 
-/** Productos visibles en el sitio. */
+/** Productos visibles en el sitio (Productos propios de /case-studies). */
 export const PRODUCTS = ALL_PRODUCTS.filter((p) => !p.hidden);
+
+/** Productos de la home: los visibles menos los que son sólo de casos de estudio. */
+export const HOME_PRODUCTS = PRODUCTS.filter((p) => !p.caseStudyOnly);

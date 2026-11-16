@@ -33,7 +33,9 @@ export default async function CasosDeEstudioPage() {
 
   return (
     <CaseStudiesClient cases={aListadoArray(casos)}>
-      <OwnProductsSection publishedIds={productos?.map((p) => p.slug) ?? null} />
+      <OwnProductsSection
+        published={productos ? Object.fromEntries(productos.map((p) => [p.slug, p.cover?.url ?? null])) : null}
+      />
     </CaseStudiesClient>
   );
 }

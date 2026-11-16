@@ -15,14 +15,21 @@ export const productCaseHref = (id: string) => `/case-studies/productos/${id}`;
  * carga desde Kontorōru (ver case-studies/productos/[slug]/page.tsx).
  *
  * Sólo se muestran los productos que ya tienen su entrada publicada en el CMS
- * (`publishedIds`): un producto aparece solo en cuanto se publica. Si la
- * lectura del CMS falló llega `null` y se muestran todos, cada uno con su
- * página de «en preparación».
+ * (`published`, id → URL de su portada): un producto aparece solo en cuanto se
+ * publica. Si la lectura del CMS falló llega `null` y se muestran todos, cada
+ * uno con su página de «en preparación».
+ *
+ * La imagen de la tarjeta es la captura propia del producto (`image`) y, si no
+ * la tiene, la portada que se subió al CMS.
  */
-export async function OwnProductsSection({ publishedIds }: { publishedIds: string[] | null }) {
+export async function OwnProductsSection({
+  published,
+}: {
+  published: Record<string, string | null> | null;
+}) {
   const t = await getTranslations("CaseStudiesPage.ownProducts");
   const tp = await getTranslations("V3.Products.items");
-  const visibles = publishedIds ? PRODUCTS.filter((p) => publishedIds.includes(p.id)) : PRODUCTS;
+  const visibles = published ? PRODUCTS.filter((p) => p.id in published) : PRODUCTS;
   if (visibles.length === 0) return null;
 
   return (
@@ -50,7 +57,11 @@ export async function OwnProductsSection({ publishedIds }: { publishedIds: strin
       <p className="text-subtitle text-muted md:max-w-[750px] mb-12 text-pretty">{t("description")}</p>
 
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
-        {visibles.map((product) => (
+        {visibles.map((product) => {
+          const cover = published?.[product.id] ?? null;
+          const image = product.image ?? cover;
+          const mark = product.mark ?? product.icon;
+          return (
           <li key={product.id}>
             <Link
               href={productCaseHref(product.id)}
@@ -58,24 +69,26 @@ export async function OwnProductsSection({ publishedIds }: { publishedIds: strin
               data-custom-cursor="true"
             >
               <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-4 bg-surface">
-                {product.icon && !product.image ? (
+                {!image && product.icon ? (
                   <div className="absolute inset-0 flex items-center justify-center hover-zoom">
                     <Image src={product.icon} alt="" width={96} height={96} className="size-20 rounded-full" />
                   </div>
                 ) : (
                   <Image
-                    src={product.image ?? PRODUCT_IMAGE_PLACEHOLDER}
+                    src={image ?? PRODUCT_IMAGE_PLACEHOLDER}
                     alt=""
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
+                    // La portada del CMS es una URL firmada que caduca a las 24 h: se sirve tal cual.
+                    unoptimized={!product.image && !!cover}
                     className="object-cover hover-zoom"
                   />
                 )}
 
                 {/* Decorativo: el nombre del producto va justo debajo. */}
-                {product.image && (product.mark ?? product.icon) && (
+                {image && mark && (
                   <Image
-                    src={(product.mark ?? product.icon)!}
+                    src={mark}
                     alt=""
                     width={48}
                     height={48}
@@ -94,7 +107,8 @@ export async function OwnProductsSection({ publishedIds }: { publishedIds: strin
               </span>
             </Link>
           </li>
-        ))}
+          );
+        })}
       </ul>
       </div>
     </section>

@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 import { HoverField } from "@/components/hover-field";
 import { RevealImage } from "@/components/reveal-image";
-import { PRODUCTS, PRODUCT_IMAGE_PLACEHOLDER, PRODUCT_LOGO_PLACEHOLDER } from "@/data/v3-products";
+import { HOME_PRODUCTS, PRODUCT_IMAGE_PLACEHOLDER, PRODUCT_LOGO_PLACEHOLDER } from "@/data/v3-products";
 
 const FIELD_PARAMS = { bottomFade: 0.15 };
 
@@ -27,7 +27,7 @@ export async function FeaturedProductsV3() {
         <p className="text-subtitle text-muted md:max-w-[750px] mb-12 text-pretty">{t("description")}</p>
 
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {PRODUCTS.map((product) => {
+          {HOME_PRODUCTS.map((product) => {
             const key = `items.${product.id}` as const;
             const visitLink = product.url && (
               <a
