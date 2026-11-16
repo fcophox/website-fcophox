@@ -597,7 +597,9 @@
       "mawaru": {
         "title": "¿Quieres mostrar tu producto en movimiento?",
         "text": "Puedo ayudarte a convertir tus pantallas en mockups animados de dispositivos, listos para tu próxima presentación, lanzamiento o campaña en redes."
-      }
+      },
+      "viewGithub": "Ver GitHub",
+      "githubSoon": "El repositorio estará disponible pronto"
     }
   }
 }

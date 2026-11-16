@@ -15,17 +15,17 @@ export const productCaseHref = (id: string) => `/case-studies/productos/${id}`;
  * carga desde Kontorōru (ver case-studies/productos/[slug]/page.tsx).
  *
  * Sólo se muestran los productos que ya tienen su entrada publicada en el CMS
- * (`published`, id → URL de su portada): un producto aparece solo en cuanto se
- * publica. Si la lectura del CMS falló llega `null` y se muestran todos, cada
+ * (`published`, id → título y portada de su entrada): un producto aparece solo
+ * en cuanto se publica. Si la lectura del CMS falló llega `null` y se muestran todos, cada
  * uno con su página de «en preparación».
  *
- * La imagen de la tarjeta es la captura propia del producto (`image`) y, si no
- * la tiene, la portada que se subió al CMS.
+ * El título de la tarjeta es el de la entrada del CMS. La imagen es la captura
+ * propia del producto (`image`) y, si no la tiene, la portada del CMS.
  */
 export async function OwnProductsSection({
   published,
 }: {
-  published: Record<string, string | null> | null;
+  published: Record<string, { title: string; cover: string | null }> | null;
 }) {
   const t = await getTranslations("CaseStudiesPage.ownProducts");
   const tp = await getTranslations("V3.Products.items");
@@ -58,7 +58,8 @@ export async function OwnProductsSection({
 
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
         {visibles.map((product) => {
-          const cover = published?.[product.id] ?? null;
+          const entry = published?.[product.id];
+          const cover = entry?.cover ?? null;
           const image = product.image ?? cover;
           const mark = product.mark ?? product.icon;
           return (
@@ -98,7 +99,7 @@ export async function OwnProductsSection({
               </div>
 
               <h3 className="text-title-subsection font-normal text-foreground mb-3 group-hover:text-primary transition-colors">
-                {product.name}
+                {entry?.title ?? product.name}
               </h3>
               <p className="text-body-sm text-muted line-clamp-3 mb-4">{tp(`${product.id}.description`)}</p>
               <span className="mt-auto inline-flex items-center gap-1.5 text-body-sm text-primary">
