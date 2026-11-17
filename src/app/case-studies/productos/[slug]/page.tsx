@@ -75,7 +75,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `/case-studies/productos/${product.id}`,
       type: "article",
       siteName: "Fcophox",
-      images: post?.cover ? [{ url: post.cover.url, alt: post.cover.alt ?? post.title }] : undefined,
+      images: product.image
+        ? [{ url: product.image, alt: post?.title ?? product.name }]
+        : post?.cover
+          ? [{ url: post.cover.url, alt: post.cover.alt ?? post.title }]
+          : undefined,
     },
   };
 }
@@ -103,7 +107,7 @@ export default async function ProductCasePage({ params }: PageProps) {
         title={post.title}
         description={resumenDe(post)}
         date={new Date(post.publishedAt).getFullYear().toString()}
-        imageUrl={post.cover?.url}
+        imageUrl={product.image ?? post.cover?.url}
         slug={post.slug}
         footerSection={<ProductCta product={product} />}
       >

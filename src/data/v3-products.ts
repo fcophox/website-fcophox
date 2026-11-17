@@ -11,7 +11,7 @@ export type Product = {
   /** Sitio del producto; la tarjeta enlaza aquí con el botón «Visitar». */
   url?: string;
   /**
-   * Captura real del producto, p. ej. "/products/tanzo.png" (16:9, guardada en
+   * Captura real del producto, p. ej. "/products/tanzo.webp" (16:9, guardada en
    * public/products/). Sin ella, la tarjeta usa PRODUCT_IMAGE_PLACEHOLDER.
    */
   image?: string;
@@ -57,7 +57,7 @@ const ALL_PRODUCTS: Product[] = [
     id: "kanri",
     name: "Kanri",
     url: "https://www.kanri.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
-    image: "/products/kanri.png",
+    image: "/products/kanri.webp",
     logo: "/products/isotipos/kanri.svg",
     mark: "/products/isotipos/kanri.svg",
   },
@@ -65,7 +65,7 @@ const ALL_PRODUCTS: Product[] = [
     id: "tanzo",
     name: "Tanzō",
     url: "https://tanzo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
-    image: "/products/tanzo.png",
+    image: "/products/tanzo.webp",
     logo: "/tanzo/tanzo-logotipo.svg",
     mark: "/products/isotipos/tanzo.svg",
   },
