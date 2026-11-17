@@ -16,7 +16,7 @@ interface PageProps {
 }
 
 /**
- * Página interna de un producto propio (Kanri, Tanzō, Mozo…).
+ * Página interna de un producto propio (Kanri, Tanzō, Mozō…).
  *
  * El contenido se escribe en Kontorōru como una entrada cuyo slug es el `id`
  * del producto en src/data/v3-products.ts (`kanri`, `tanzo`, `mozo`). Conviene

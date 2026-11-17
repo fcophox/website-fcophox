@@ -426,7 +426,7 @@
     "profileP3": "Opero como un Full Stack Experience Builder: diseño, construyo y lanzo productos con IA de punta a punta, desde el discovery y Figma hasta productos funcionales en React / Next.js conectados a Supabase, con despliegue continuo.",
     "impactTitle": "Impacto & Logros",
     "impactItems": [
-      "Creación de productos digitales con IA de punta a punta (Kanri, Tanzō, Mozo)",
+      "Creación de productos digitales con IA de punta a punta (Kanri, Tanzō, Mozō)",
       "Uso de Supabase para base de datos y login de usuarios en mis productos",
       "Despliegue continuo (CI/CD) con GitHub y Vercel",
       "Integración de IA en procesos UX y en el desarrollo de producto",
@@ -440,7 +440,7 @@
         "title": "Senior Product Designer – IA",
         "company": "Productos propios · Remoto — 2026 – Presente",
         "tasks": [
-          "Diseño y desarrollo end-to-end de productos con IA: Kanri (CMS multisitio), Tanzō (suite de herramientas de producto) y Mozo (plugin de Figma)",
+          "Diseño y desarrollo end-to-end de productos con IA: Kanri (CMS multisitio), Tanzō (suite de herramientas de producto) y Mozō (plugin de Figma)",
           "Prototipos y productos funcionales en Next.js, conectados a Supabase (base de datos y autenticación)",
           "Despliegue continuo (CI/CD) con GitHub y Vercel para publicar cambios en producción",
           "Uso de IA (Claude, ChatGPT, Gemini) para acelerar discovery, prototipado y desarrollo"
@@ -592,7 +592,7 @@
       },
       "mozo": {
         "title": "¿Quieres iterar sobre una web sin empezar de cero?",
-        "text": "Con Mozo llevas cualquier sitio a Figma como capas editables. Puedo ayudarte a aprovecharlo en tu próximo proyecto."
+        "text": "Con Mozō llevas cualquier sitio a Figma como capas editables. Puedo ayudarte a aprovecharlo en tu próximo proyecto."
       },
       "mawaru": {
         "title": "¿Quieres mostrar tu producto en movimiento?",

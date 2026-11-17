@@ -45,13 +45,13 @@ export async function FeaturedProductsV3() {
               </a>
             );
 
-            // Producto con icono de app: tarjeta horizontal a todo el ancho.
+            // Producto con icono de app: tarjeta horizontal (icono + texto) en una columna.
             if (product.icon) {
               return (
                 <HoverField
                   key={product.id}
                   as="li"
-                  className="group/card relative rounded-3xl bg-surface overflow-hidden md:col-span-2"
+                  className="group/card relative rounded-3xl bg-surface overflow-hidden"
                 >
                   <div className="relative p-6 lg:p-8 flex flex-col md:flex-row md:items-center gap-6 lg:gap-8">
                     <Image

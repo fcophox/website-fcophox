@@ -21,8 +21,8 @@ export type Product = {
    */
   logo?: string;
   /**
-   * Icono cuadrado de app (p. ej. "/products/mozo.png"). Si lo tiene, la
-   * tarjeta ocupa todo el ancho de la grilla en formato horizontal.
+   * Icono cuadrado de app (p. ej. "/products/isotipos/mozo.svg"). Si lo tiene, la
+   * tarjeta de la home pasa a formato horizontal (icono + texto) en una columna.
    */
   icon?: string;
   /**
@@ -41,7 +41,7 @@ export type Product = {
   hidden?: boolean;
   /**
    * Sólo en /case-studies (Productos propios), no en la home. Para productos
-   * sin sitio público ni tarjeta de home, como Mawaru.
+   * sin sitio público ni tarjeta de home.
    */
   caseStudyOnly?: boolean;
 };
@@ -58,8 +58,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "Kanri",
     url: "https://www.kanri.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
     image: "/products/kanri.png",
-    logo: "/products/kanri.svg",
-    mark: "/products/kanri.svg",
+    logo: "/products/isotipos/kanri.svg",
+    mark: "/products/isotipos/kanri.svg",
   },
   {
     id: "tanzo",
@@ -67,19 +67,19 @@ const ALL_PRODUCTS: Product[] = [
     url: "https://tanzo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
     image: "/products/tanzo.png",
     logo: "/tanzo/tanzo-logotipo.svg",
-    mark: "/tanzo/tanzo-logotipo.svg",
-  },
-  {
-    id: "mozo",
-    name: "Mozo",
-    url: "https://mozo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
-    icon: "/products/mozo.png",
-    github: null,
+    mark: "/products/isotipos/tanzo.svg",
   },
   {
     id: "mawaru",
     name: "Mawaru",
-    caseStudyOnly: true,
+    icon: "/products/isotipos/mawaru.svg",
+    github: null,
+  },
+  {
+    id: "mozo",
+    name: "Mozō",
+    url: "https://mozo.fcophox.com/?utm_source=fcophox.com&utm_medium=referral&utm_campaign=portfolio-v3",
+    icon: "/products/isotipos/mozo.svg",
     github: null,
   },
   {

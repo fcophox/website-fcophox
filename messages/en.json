@@ -426,7 +426,7 @@
     "profileP3": "I operate as a Full Stack Experience Builder: I design, build, and ship AI products end to end, from discovery and Figma to working products in React / Next.js connected to Supabase, with continuous deployment.",
     "impactTitle": "Impact & Achievements",
     "impactItems": [
-      "End-to-end creation of AI-powered digital products (Kanri, Tanzō, Mozo)",
+      "End-to-end creation of AI-powered digital products (Kanri, Tanzō, Mozō)",
       "Using Supabase for databases and user login in my products",
       "Continuous deployment (CI/CD) with GitHub and Vercel",
       "AI integration in UX processes and product development",
@@ -440,7 +440,7 @@
         "title": "Senior Product Designer – AI",
         "company": "Own products · Remote — 2026 – Present",
         "tasks": [
-          "End-to-end design and development of AI products: Kanri (multi-site CMS), Tanzō (product tooling suite), and Mozo (Figma plugin)",
+          "End-to-end design and development of AI products: Kanri (multi-site CMS), Tanzō (product tooling suite), and Mozō (Figma plugin)",
           "Working prototypes and products in Next.js, connected to Supabase (database and authentication)",
           "Continuous deployment (CI/CD) with GitHub and Vercel to ship changes to production",
           "Using AI (Claude, ChatGPT, Gemini) to speed up discovery, prototyping, and development"
@@ -592,7 +592,7 @@
       },
       "mozo": {
         "title": "Want to iterate on a website without starting from scratch?",
-        "text": "With Mozo you bring any site into Figma as editable layers. I can help you make the most of it on your next project."
+        "text": "With Mozō you bring any site into Figma as editable layers. I can help you make the most of it on your next project."
       },
       "mawaru": {
         "title": "Want to show your product in motion?",
