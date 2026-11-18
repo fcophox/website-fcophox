@@ -407,6 +407,23 @@
       "secondary": "Secondary",
       "accent": "Accent",
       "muted": "Muted"
+    },
+    "versions": {
+      "title": "Versiones del sitio",
+      "note": "La versión actual y las anteriores, cada una con su deploy. El código de cada versión queda en su tag de git.",
+      "current": "Actual",
+      "visit": "Abrir sitio",
+      "protected": "Requiere sesión en Vercel",
+      "items": {
+        "v3": {
+          "period": "Nov 2026 – hoy",
+          "description": "Rediseño con home nueva, productos propios y contenido desde Kontororu."
+        },
+        "v2": {
+          "period": "Jun – Nov 2026",
+          "description": "Versión con CMS propio sobre Supabase, antes del lanzamiento de la v3."
+        }
+      }
     }
   },
   "ResourcesPage": {
