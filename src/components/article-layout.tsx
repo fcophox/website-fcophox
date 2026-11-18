@@ -43,7 +43,6 @@ export function ArticleLayout({
 
   return (
     <>
-      <ReadingProgressBar />
       <main className="w-full flex-1 flex flex-col items-center pt-8 pb-32">
       <article className="dm-container">
         {/* Back Button */}
@@ -148,6 +147,8 @@ export function ArticleLayout({
       {/* Related Articles Carousel */}
       {relatedArticlesSection}
     </main>
+    {/* Después del <main>, nunca primero: ver reading-progress-bar.tsx. */}
+    <ReadingProgressBar />
     </>
   );
 }

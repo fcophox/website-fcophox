@@ -6,6 +6,15 @@ import { motion, useScroll, useSpring } from "framer-motion";
 
 const subscribeToNothing = () => () => {};
 
+/**
+ * Barra de progreso de lectura, fija arriba de la ventana.
+ *
+ * Va siempre DESPUÉS del contenido de la página, nunca como primer elemento:
+ * al navegar, Next.js decide si subir al inicio mirando el primer nodo de la
+ * página. Si ese nodo es esta barra (fija y montada en el body), Next la salta,
+ * sigue por los hermanos del body, no encuentra la página y deja el scroll
+ * donde estaba: el artículo se abría a media altura.
+ */
 export function ReadingProgressBar() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
