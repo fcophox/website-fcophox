@@ -438,19 +438,19 @@
     "tag3": "Product Builder",
     "tag4": "UX Consultant",
     "profileTitle": "Professional Profile",
-    "profileP1": "Senior Product Designer specialized in AI, with over 14 years of experience designing and scaling digital products, working remotely with distributed teams.",
+    "profileP1": "Senior Product Designer with over 14 years of experience designing and scaling digital products, working remotely with different teams and professionals.",
     "profileP2": "I specialize in combining UX, Product Strategy, and Artificial Intelligence to create high-impact solutions. My focus is on improving conversion, reducing friction, and aligning user experience with business goals.",
-    "profileP3": "I operate as a Full Stack Experience Builder: I design, build, and ship AI products end to end, from discovery and Figma to working products in React / Next.js connected to Supabase, with continuous deployment.",
+    "profileP3": "I operate as a Full Stack Experience Builder: I design, build, and ship AI products end to end, from discovery and Figma to working products in React / Next.js connected to databases, with deployment and measurement.",
     "impactTitle": "Impact & Achievements",
     "impactItems": [
-      "End-to-end creation of AI-powered digital products (Kanri, Tanzō, Mozō)",
-      "Accessibility, usability and UX consulting for AI-built products",
-      "Building digital products in code with good taste, visual harmony, order and clear hierarchy",
-      "Databases and user login in my products, with continuous deployment (CI/CD)",
-      "AI integration in UX processes and product development",
-      "UX leadership (11+ designers) in remote, distributed teams",
+      "User experience research, information architecture, and usability",
       "UX strategy and Conversion Rate Optimization (CRO) across multiple industries",
-      "User experience research, information architecture, and usability"
+      "Accessibility, usability and UX consulting for AI-built products",
+      "Building digital products in code with good taste, visual harmony and hierarchy",
+      "AI integration in UX processes for product and experience development",
+      "End-to-end creation of AI-powered digital products (Kanri, Tanzō, Mozō)",
+      "Databases and user login in my products, with continuous deployment (CI/CD)",
+      "UX leadership (11+ designers) in remote, distributed teams"
     ],
     "experienceTitle": "Work Experience",
     "jobs": [
