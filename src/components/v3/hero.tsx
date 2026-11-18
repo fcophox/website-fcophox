@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "framer-motion";
@@ -9,14 +10,45 @@ import { GradientField } from "@/components/gradient-field";
 
 const EASE_OUT = [0.23, 1, 0.32, 1] as const;
 
+/** Cada cuánto cambia el titular del hero (el mismo ritmo del hero anterior). */
+const TITLE_INTERVAL_MS = 4500;
+
+/*
+  Mismo movimiento que el hero anterior (components/hero.tsx): la frase que
+  sale sube y se desvanece, y recién entonces entra la nueva desde abajo
+  —sin cruzarse—, 0,5 s cada tramo. `wait` deja las frases ocultas abajo, sin
+  transición, listas para entrar.
+*/
+const TITLE_VARIANTS = {
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeInOut", delay: 0.5 } },
+  leave: { opacity: 0, y: -20, transition: { duration: 0.5, ease: "easeInOut" } },
+  wait: { opacity: 0, y: 20, transition: { duration: 0 } },
+} as const;
+
+type HeroTitle = { text: string; accent: string };
+
 /**
- * Hero de la v3. Conserva el fondo y el avatar del hero actual; cambia el
- * mensaje: un solo H1 fijo en lugar de cuatro titulares rotando, para que el
- * posicionamiento se lea en el primer vistazo.
+ * Hero de la v3. Conserva el fondo y el avatar del hero anterior. El H1 rota
+ * entre tres frases (`V3.Hero.titles`), cada una con su parte destacada.
+ *
+ * Las tres frases se apilan en la misma celda de una grilla: la grilla toma el
+ * alto de la más larga, así el contenido de abajo no salta al cambiar. La
+ * transición copia la del hero anterior (ver TITLE_VARIANTS). Sólo la activa es
+ * legible por lectores de pantalla; con «reducir movimiento» no rota.
  */
 export function HeroV3() {
   const t = useTranslations("V3.Hero");
   const shouldReduceMotion = useReducedMotion();
+  const titles = t.raw("titles") as HeroTitle[];
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    if (shouldReduceMotion || titles.length < 2) return;
+    const id = window.setInterval(() => {
+      setActive((i) => (i + 1) % titles.length);
+    }, TITLE_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, [shouldReduceMotion, titles.length]);
 
   /*
     `data-reveal` sólo importa sin JavaScript: framer-motion escribe la opacidad
@@ -75,12 +107,27 @@ export function HeroV3() {
 
         <motion.h1
           {...rise(0.3)}
-          className="text-display font-normal text-foreground mb-6 text-balance"
+          className="grid text-display font-normal text-foreground mb-6"
         >
-          {t("title")}{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            {t("titleAccent")}
-          </span>
+          {titles.map((title, i) => {
+            const isActive = i === active;
+            const isLeaving = i === (active - 1 + titles.length) % titles.length;
+            return (
+              <motion.span
+                key={title.accent}
+                aria-hidden={!isActive}
+                variants={TITLE_VARIANTS}
+                initial={false}
+                animate={isActive ? "show" : isLeaving ? "leave" : "wait"}
+                className={`col-start-1 row-start-1 text-balance ${isActive ? "" : "pointer-events-none"}`}
+              >
+                {title.text}{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+                  {title.accent}
+                </span>
+              </motion.span>
+            );
+          })}
         </motion.h1>
 
         <motion.p {...rise(0.4)} className="text-subtitle text-muted max-w-3xl mb-10 text-pretty">

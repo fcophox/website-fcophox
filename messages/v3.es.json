@@ -4,9 +4,12 @@
     "description": "Product Builder y UX Engineer con más de 14 años de experiencia. Diseño y construyo productos digitales combinando UX, React, Next.js e inteligencia artificial."
   },
   "Hero": {
-    "eyebrow": "Product Builder · UX Engineer · AI",
-    "title": "Transformo ideas en productos digitales",
-    "titleAccent": "que funcionan.",
+    "eyebrow": "Senior Product Design · UX Engineer · Product Builder · UX Consultant",
+    "titles": [
+      {"text": "Investigación y optimización de", "accent": "experiencias digitales."},
+      {"text": "Pensamiento estratégico para", "accent": "descubrir oportunidades."},
+      {"text": "Diseño y desarrollo con criterio,", "accent": "construyo, optimizo y mido con IA."}
+    ],
     "description": "Combino estrategia de producto, diseño, código e inteligencia artificial para resolver problemas reales y crear experiencias digitales de principio a fin.",
     "ctaPrimary": "Explorar productos",
     "ctaSecondary": "Conocer mi experiencia"
