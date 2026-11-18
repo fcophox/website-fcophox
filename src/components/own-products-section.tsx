@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 
 import { GradientField } from "@/components/gradient-field";
 import { PRODUCTS, PRODUCT_IMAGE_PLACEHOLDER } from "@/data/v3-products";
+import type { ProductoPublicado } from "@/utils/productos-cms";
 
 /** Ruta de la página interna de un producto propio. */
 export const productCaseHref = (id: string) => `/case-studies/productos/${id}`;
@@ -26,7 +27,7 @@ export const productCaseHref = (id: string) => `/case-studies/productos/${id}`;
 export async function OwnProductsSection({
   published,
 }: {
-  published: Record<string, { title: string; excerpt: string | null; cover: string | null }> | null;
+  published: Record<string, ProductoPublicado> | null;
 }) {
   const t = await getTranslations("CaseStudiesPage.ownProducts");
   const tp = await getTranslations("V3.Products.items");

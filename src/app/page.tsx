@@ -38,9 +38,9 @@ const COLOR_PALETTES = [
  * Home (v3): Product Builder & UX Engineer. La home anterior queda
  * respaldada en /org.
  *
- * Orden: posicionamiento → cómo trabajo → productos construidos → trayectoria
- * → casos de estudio → blog → contacto. Los productos van antes que la
- * trayectoria: la experiencia respalda, no encabeza.
+ * Orden: posicionamiento → casos de estudio → cómo trabajo → productos
+ * construidos → trayectoria → blog → contacto. Los casos van primero, justo
+ * bajo el hero; la experiencia respalda, no encabeza.
  */
 export default async function Home() {
   const t = await getTranslations("V3.CaseStudies");
@@ -61,9 +61,6 @@ export default async function Home() {
     <main className="min-h-screen flex flex-col relative bg-background">
       <NoscriptReveal />
       <HeroV3 />
-      <PillarsV3 />
-      <FeaturedProductsV3 />
-      <ExperienceV3 />
       <ProjectCard
         projects={projects}
         label={t("label")}
@@ -76,6 +73,9 @@ export default async function Home() {
         })}
         variant="v3"
       />
+      <PillarsV3 />
+      <FeaturedProductsV3 />
+      <ExperienceV3 />
       <Blog />
       <ContactCtaV3 />
     </main>

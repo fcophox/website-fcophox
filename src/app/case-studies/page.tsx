@@ -4,6 +4,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { CATEGORIA } from "@/utils/kontororu";
 import { listarLocalizado } from "@/utils/kontororu-i18n";
 import { aListadoArray } from "@/utils/kontororu-adapter";
+import { leerProductosPublicados } from "@/utils/productos-cms";
 import { Metadata } from 'next';
 
 export const revalidate = 3600; // el webhook invalida antes; ver blog/page.tsx
@@ -25,17 +26,12 @@ export default async function CasosDeEstudioPage() {
    */
   const [casos, productos] = await Promise.all([
     listarLocalizado({ categoria: CATEGORIA.casosDeEstudio, limit: 100 }),
-    listarLocalizado({ categoria: CATEGORIA.productos, limit: 100 }).catch((error) => {
-      console.error("[case-studies] No se pudieron leer los productos de Kontorōru:", error);
-      return null;
-    }),
+    leerProductosPublicados("case-studies"),
   ]);
 
   return (
     <CaseStudiesClient cases={aListadoArray(casos)}>
-      <OwnProductsSection
-        published={productos ? Object.fromEntries(productos.map((p) => [p.slug, { title: p.title, excerpt: p.excerpt?.trim() || null, cover: p.cover?.url ?? null }])) : null}
-      />
+      <OwnProductsSection published={productos} />
     </CaseStudiesClient>
   );
 }

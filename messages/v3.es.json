@@ -31,8 +31,8 @@
   },
   "Products": {
     "label": "Productos",
-    "title": "De las ideas al código.",
-    "description": "Una selección de productos, herramientas y experimentos donde participo directamente en la definición, diseño y construcción de soluciones digitales.",
+    "title": "De una <hl>necesidad real</hl> a un producto que funciona y escala.",
+    "description": "Cada uno resuelve un problema concreto. Creados de punta a punta, desde la idea y el diseño hasta el código y el lanzamiento, sin perder el control sobre cada decisión de diseño y de código.",
     "visit": "Visitar",
     "items": {
       "kanri": {

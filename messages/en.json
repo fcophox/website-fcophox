@@ -258,9 +258,9 @@
     "subtitle": "A selection of projects where I've applied strategy, design, and code to solve real problems.",
     "catAll": "All",
     "ownProducts": {
-      "label": "Own products",
-      "title": "Products I <accent>design and build</accent> as a Senior Product Designer – AI.",
-      "description": "Digital products created end to end, from the idea and design to code and launch, using artificial intelligence at every stage.",
+      "label": "Products",
+      "title": "Products I <accent>design and build</accent> as an AI-powered Senior Product Designer.",
+      "description": "Each one solves a concrete problem. Built end to end, from the idea and design to the code and launch, without losing control over any design or code decision.",
       "viewCase": "View case"
     }
   },
