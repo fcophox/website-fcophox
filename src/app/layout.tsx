@@ -30,10 +30,10 @@ export async function generateMetadata(): Promise<Metadata> {
       default: t('defaultTitle'),
       template: t('templateTitle'),
     },
-    description: "Portafolio de Fcophox, consultor especializado en UX/UI, diseño de producto e ingeniería Frontend para crear experiencias digitales con impacto real.",
+    description: t('description'),
     openGraph: {
       title: t('defaultTitle'),
-      description: "Portafolio de Fcophox, consultor especializado en UX/UI, diseño de producto e ingeniería Frontend para crear experiencias digitales con impacto real.",
+      description: t('description'),
       url: "/",
       siteName: "fcoPhox",
       locale: locale === 'es' ? 'es_ES' : 'en_US',
@@ -43,14 +43,14 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: "fcoPhox - UX Engineer & Product Design Consultant",
+          alt: t('ogAlt'),
         }
       ]
     },
     twitter: {
       card: "summary_large_image",
       title: t('defaultTitle'),
-      description: "Portafolio de Fcophox, consultor especializado en UX/UI, diseño de producto e ingeniería Frontend para crear experiencias digitales con impacto real.",
+      description: t('description'),
       images: ["/og-image.jpg"],
     },
   };

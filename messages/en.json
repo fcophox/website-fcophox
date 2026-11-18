@@ -332,9 +332,11 @@
     ]
   },
   "Metadata": {
-    "defaultTitle": "fcoPhox | UX Engineer & Product Design Consultant",
-    "templateTitle": "%s | UX Engineer & Product Design Consultant - fcoPhox",
-    "homeTitle": "Home | UX Engineer & Product Design Consultant - fcoPhox",
+    "defaultTitle": "Francisco | Senior Product Designer – AI",
+    "templateTitle": "%s | Francisco · Senior Product Designer – AI",
+    "homeTitle": "Home | Francisco · Senior Product Designer – AI",
+    "description": "Senior Product Designer with 14+ years of experience. I design and build digital products with judgment, UX and AI, from research to measurement.",
+    "ogAlt": "Francisco Hormazábal – Senior Product Designer – AI",
     "caseStudiesTitle": "Case Studies",
     "blogTitle": "Blog",
     "methodologyTitle": "Methodology",
