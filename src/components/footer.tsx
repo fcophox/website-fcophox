@@ -63,7 +63,11 @@ export function Footer() {
               <li><Link href="/methodology" className="text-body-sm text-muted hover:text-foreground transition-colors">{t('methodology')}</Link></li>
               <li><Link href="/case-studies" className="text-body-sm text-muted hover:text-foreground transition-colors">{t('caseStudies')}</Link></li>
               <li><Link href="/blog" className="text-body-sm text-muted hover:text-foreground transition-colors">{t('blog')}</Link></li>
-              <li><Link href="/logs" className="text-body-sm text-muted hover:text-foreground transition-colors">{t('logs')}</Link></li>
+              {/*
+                Novedades (/logs) oculto del pie por ahora; la página sigue activa.
+                Para mostrarlo de nuevo, descomenta esta línea:
+                <li><Link href="/logs" className="text-body-sm text-muted hover:text-foreground transition-colors">{t('logs')}</Link></li>
+              */}
             </ul>
           </div>
 
