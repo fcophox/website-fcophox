@@ -31,6 +31,27 @@ export function ConsentedAnalytics() {
   );
 }
 
+type TesutoFn = (command: string, ...args: unknown[]) => unknown;
+
+/**
+ * Pasa la elección de cookies a Tesuto (el snippet del <head> carga con
+ * data-consent="required"). Sus cookies de visitante/variante son analíticas,
+ * así que dependen del mismo interruptor que Google Analytics. Mientras el
+ * visitante no elige no se le dice nada: Tesuto ya se queda quieto sin
+ * consentimiento, y un `false` prematuro guardaría un rechazo que no hubo.
+ */
+export function TesutoConsent() {
+  const consent = useConsent();
+  const analytics = consent?.analytics;
+
+  useEffect(() => {
+    if (analytics === undefined) return;
+    (window as unknown as { tesuto?: TesutoFn }).tesuto?.("consent", analytics);
+  }, [analytics]);
+
+  return null;
+}
+
 /**
  * Aviso de cookies como toast inferior.
  *
