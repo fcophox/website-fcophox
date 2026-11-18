@@ -433,23 +433,24 @@
     "backHome": "Volver al inicio",
     "printPdf": "Imprimir / Guardar PDF",
     "role": "Senior Product Designer – IA",
-    "tag1": "Diseño de Producto",
-    "tag2": "IA",
-    "tag3": "Supabase",
-    "tag4": "CI/CD",
+    "tag1": "Senior Product Design",
+    "tag2": "UX Engineer",
+    "tag3": "Product Builder",
+    "tag4": "UX Consultant",
     "profileTitle": "Perfil Profesional",
-    "profileP1": "Senior Product Designer especializado en IA, con más de 14 años de experiencia diseñando y escalando productos digitales, y trabajando en remoto con equipos distribuidos.",
+    "profileP1": "Senior Product Designer, con más de 14 años de experiencia diseñando y escalando productos digitales, y trabajando en remoto con diferentes equipos y profesionales.",
     "profileP2": "Me especializo en combinar UX, Estrategia de Producto e Inteligencia Artificial para crear soluciones de alto impacto. Mi enfoque se centra en mejorar la conversión, reducir fricción y alinear la experiencia de usuario con los objetivos de negocio.",
-    "profileP3": "Opero como un Full Stack Experience Builder: diseño, construyo y lanzo productos con IA de punta a punta, desde el discovery y Figma hasta productos funcionales en React / Next.js conectados a Supabase, con despliegue continuo.",
+    "profileP3": "Opero como un Full Stack Experience Builder: diseño, construyo y lanzo productos con IA de punta a punta, desde el discovery y Figma hasta productos funcionales en React / Next.js conectados a bases de datos, con despliegue y medición.",
     "impactTitle": "Impacto & Logros",
     "impactItems": [
-      "Creación de productos digitales con IA de punta a punta (Kanri, Tanzō, Mozō)",
-      "Uso de Supabase para base de datos y login de usuarios en mis productos",
-      "Despliegue continuo (CI/CD) con GitHub y Vercel",
-      "Integración de IA en procesos UX y en el desarrollo de producto",
-      "Liderazgo UX (11+ diseñadores) en equipos remotos y distribuidos",
+      "Investigación en experiencia de usuario, arquitectura de información y usabilidad",
       "Estrategia UX y optimización de conversión (CRO) en múltiples industrias",
-      "Investigación en experiencia de usuario, arquitectura de información y usabilidad"
+      "Consultoría en accesibilidad, usabilidad y UX para productos creados con IA",
+      "Creación de productos digitales en código con buen gusto, armonía visual y jerarquía",
+      "Integración de IA en procesos UX para el desarrollo de producto y experiencias",
+      "Creación de productos digitales con IA de punta a punta (Kanri, Tanzō, Mozō)",
+      "Uso de base de datos y login de usuarios en mis productos con despliegue continuo (CI/CD)",
+      "Liderazgo UX (11+ diseñadores) en equipos remotos y distribuidos"
     ],
     "experienceTitle": "Experiencia Laboral",
     "jobs": [
@@ -520,7 +521,7 @@
       "Supabase",
       "CI/CD",
       "CRO",
-      "Liderazgo remoto"
+      "Liderazgo"
     ],
     "toolsTitle": "Herramientas",
     "tools": [
