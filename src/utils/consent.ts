@@ -78,6 +78,17 @@ export function saveConsent(analytics: boolean) {
   window.dispatchEvent(new Event(CHANGE_EVENT));
 
   /*
+   * Tesuto guarda su propio permiso en una cookie (_tst_consent). Se le avisa
+   * aquí, de forma síncrona, porque si se retira el consentimiento la recarga
+   * de abajo llegaría antes que el efecto de <TesutoConsent /> y Tesuto
+   * aplicaría una variante y registraría una visita con el permiso antiguo.
+   */
+  (window as unknown as { tesuto?: (command: string, ...args: unknown[]) => unknown }).tesuto?.(
+    "consent",
+    analytics,
+  );
+
+  /*
    * Retirar el consentimiento debe ser tan efectivo como darlo. gtag.js ya
    * cargado no se puede descargar de la página, así que se borran sus cookies
    * y se recarga: en la recarga Analytics ya no se monta.

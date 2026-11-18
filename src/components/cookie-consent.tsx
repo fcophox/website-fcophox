@@ -1,7 +1,8 @@
 "use client";
 
-import { Suspense, useEffect, useId, useState } from "react";
+import { Suspense, useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Cookie, X } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -29,6 +30,49 @@ export function ConsentedAnalytics() {
       </Suspense>
     </>
   );
+}
+
+type TesutoFn = (command: string, ...args: unknown[]) => unknown;
+
+/**
+ * Pasa la elección de cookies a Tesuto (el snippet del <head> carga con
+ * data-consent="required"). Sus cookies de visitante/variante son analíticas,
+ * así que dependen del mismo interruptor que Google Analytics. Mientras el
+ * visitante no elige no se le dice nada: Tesuto ya se queda quieto sin
+ * consentimiento, y un `false` prematuro guardaría un rechazo que no hubo.
+ */
+export function TesutoConsent() {
+  const consent = useConsent();
+  const analytics = consent?.analytics;
+
+  useEffect(() => {
+    if (analytics === undefined) return;
+    (window as unknown as { tesuto?: TesutoFn }).tesuto?.("consent", analytics);
+  }, [analytics]);
+
+  return null;
+}
+
+/**
+ * Avisa a Tesuto de cada cambio de ruta del lado del cliente. Sin esto sólo
+ * evalúa experiencias y objetivos en la carga completa de la página: una
+ * experiencia segmentada a /blog no se activaría al llegar desde la portada por
+ * un <Link>. La carga inicial ya la procesa el propio snippet, por eso se
+ * compara con la ruta anterior (y así el doble efecto de StrictMode no cuenta
+ * una visita de más). Sin consentimiento, `tesuto('pageview')` no hace nada.
+ */
+export function TesutoPageview() {
+  const pathname = usePathname();
+  const previous = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (previous.current !== null && previous.current !== pathname) {
+      (window as unknown as { tesuto?: TesutoFn }).tesuto?.("pageview");
+    }
+    previous.current = pathname;
+  }, [pathname]);
+
+  return null;
 }
 
 /**

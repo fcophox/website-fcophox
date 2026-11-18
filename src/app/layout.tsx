@@ -4,7 +4,7 @@ import "./globals.css";
 import "./tiptap-content.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-import { ConsentedAnalytics, CookieConsent } from "@/components/cookie-consent";
+import { ConsentedAnalytics, CookieConsent, TesutoConsent, TesutoPageview } from "@/components/cookie-consent";
 
 
 const sansation = Sansation({
@@ -93,6 +93,25 @@ export default async function RootLayout({
       style={{ backgroundColor: "var(--background, #101012)" }}
       suppressHydrationWarning
     >
+      <head>
+        {/*
+          Tesuto (tests A/B). Va arriba del todo y en etiquetas crudas, no con
+          next/script: el anti-flicker tiene que ocultar el documento antes del
+          primer pintado y tesuto.js debe cargar síncrono para aplicar la
+          variante sin parpadeo. Modifica la clase de <html> antes de hidratar;
+          lo cubre el suppressHydrationWarning de arriba.
+          Con data-consent="required" no crea cookies ni asigna variantes hasta
+          que <TesutoConsent /> le pasa el consentimiento analítico.
+        */}
+        <style>{`.tesuto-hide{opacity:0 !important}`}</style>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,c,t){d.documentElement.className+=" "+c;w.tesutoHide={end:function(){d.documentElement.className=d.documentElement.className.replace(new RegExp("\\\\s?"+c+"\\\\b","g"),"")}};setTimeout(w.tesutoHide.end,t);w.tesuto=w.tesuto||function(){(w.tesuto.q=w.tesuto.q||[]).push(arguments)};})(window,document,"tesuto-hide",4000);`,
+          }}
+        />
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="https://tesuto.fcophox.com/tesuto.js?id=TST-JTE36YR" data-consent="required" />
+      </head>
       <body className="min-h-full overflow-x-hidden relative flex flex-col bg-background text-foreground transition-colors duration-300">
         <NextIntlClientProvider messages={messages}>
           {/*
@@ -117,6 +136,8 @@ export default async function RootLayout({
             <ChromaticEdge />
             <CookieConsent />
             <ConsentedAnalytics />
+            <TesutoConsent />
+            <TesutoPageview />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
