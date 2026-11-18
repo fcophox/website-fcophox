@@ -20,6 +20,10 @@ export const productCaseHref = (id: string) => `/case-studies/productos/${id}`;
  * en cuanto se publica. Si la lectura del CMS falló llega `null` y se muestran todos, cada
  * uno con su página de «en preparación».
  *
+ * Usa el mismo formato que Productos de la home (v3/featured-products.tsx): en
+ * escritorio el texto queda fijo a la izquierda mientras los productos pasan a
+ * la derecha, con imágenes 21:9 y el isotipo junto al título.
+ *
  * El título y el texto de la tarjeta son el título y el extracto de la entrada
  * del CMS; sin ellos, se usan el nombre y la descripción corta del producto. La imagen es la captura
  * propia del producto (`image`) y, si no la tiene, la portada del CMS.
@@ -47,72 +51,73 @@ export async function OwnProductsSection({
         <GradientField className="absolute inset-0" params={{ topFade: 0.7, bottomFade: 0.25 }} />
       </div>
 
-      <div className="relative z-10">
-      <p className="text-label font-mono uppercase text-foreground/80 mb-4">{t("label")}</p>
-      <h2 className="text-title-section font-normal text-foreground md:max-w-[750px] mb-4 text-balance">
-        {t.rich("title", {
-          accent: (chunks) => (
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">{chunks}</span>
-          ),
-        })}
-      </h2>
-      <p className="text-subtitle text-muted md:max-w-[750px] mb-12 text-pretty">{t("description")}</p>
+      {/* Mismo formato que Productos de la home: texto fijo a la izquierda en escritorio. */}
+      <div className="relative z-10 dm-grid items-start gap-y-12">
+        <div className="col-span-4 md:col-span-8 lg:col-span-5 lg:sticky lg:top-32 h-fit">
+          <p className="text-label font-mono uppercase text-foreground/80 mb-4">{t("label")}</p>
+          <h2 className="text-title-section font-normal text-foreground mb-4 text-balance">
+            {t.rich("title", {
+              accent: (chunks) => (
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">{chunks}</span>
+              ),
+            })}
+          </h2>
+          <p className="text-subtitle text-muted max-w-md text-pretty">{t("description")}</p>
+        </div>
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
-        {visibles.map((product) => {
-          const entry = published?.[product.id];
-          const cover = entry?.cover ?? null;
-          const image = product.image ?? cover;
-          const mark = product.mark ?? product.icon;
-          return (
-          <li key={product.id}>
-            <Link
-              href={productCaseHref(product.id)}
-              className="group flex flex-col h-full cursor-none"
-              data-custom-cursor="true"
-            >
-              <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden mb-4 bg-surface">
-                {!image && product.icon ? (
-                  <div className="absolute inset-0 flex items-center justify-center hover-zoom">
-                    <Image src={product.icon} alt="" width={96} height={96} className="size-20 rounded-full" />
+        <ul className="col-span-4 md:col-span-8 lg:col-span-7 flex flex-col gap-16 lg:gap-24">
+          {visibles.map((product) => {
+            const entry = published?.[product.id];
+            const cover = entry?.cover ?? null;
+            const image = product.image ?? cover;
+            const isotipo = product.mark ?? product.icon;
+            return (
+              <li key={product.id}>
+                <Link
+                  href={productCaseHref(product.id)}
+                  className="group flex flex-col items-start cursor-none"
+                  data-custom-cursor="true"
+                >
+                  <div className="relative aspect-[21/9] w-full rounded-3xl overflow-hidden mb-6 bg-surface">
+                    {!image && product.icon ? (
+                      <div className="absolute inset-0 flex items-center justify-center hover-zoom">
+                        <Image src={product.icon} alt="" width={96} height={96} className="size-20 rounded-full" />
+                      </div>
+                    ) : (
+                      <Image
+                        src={image ?? PRODUCT_IMAGE_PLACEHOLDER}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 55vw, 100vw"
+                        // La portada del CMS es una URL firmada que caduca a las 24 h: se sirve tal cual.
+                        unoptimized={!product.image && !!cover}
+                        className="object-cover hover-zoom"
+                      />
+                    )}
                   </div>
-                ) : (
-                  <Image
-                    src={image ?? PRODUCT_IMAGE_PLACEHOLDER}
-                    alt=""
-                    fill
-                    sizes="(min-width: 768px) 50vw, 100vw"
-                    // La portada del CMS es una URL firmada que caduca a las 24 h: se sirve tal cual.
-                    unoptimized={!product.image && !!cover}
-                    className="object-cover hover-zoom"
-                  />
-                )}
 
-                {/* Decorativo: el nombre del producto va justo debajo. */}
-                {image && mark && (
-                  <Image
-                    src={mark}
-                    alt=""
-                    width={48}
-                    height={48}
-                    className="absolute top-4 left-4 z-10 size-10 md:size-12 rounded-full shadow-lg shadow-black/40"
-                  />
-                )}
-              </div>
-
-              <h3 className="text-title-subsection font-normal text-foreground mb-3 group-hover:text-primary transition-colors">
-                {entry?.title ?? product.name}
-              </h3>
-              <p className="text-body-sm text-muted line-clamp-3 mb-4">{entry?.excerpt || tp(`${product.id}.description`)}</p>
-              <span className="mt-auto inline-flex items-center gap-1.5 text-body-sm text-primary">
-                {t("viewCase")}
-                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden />
-              </span>
-            </Link>
-          </li>
-          );
-        })}
-      </ul>
+                  {/* Los títulos del CMS pueden ocupar dos líneas: el isotipo se alinea con la primera. */}
+                  <div className="flex items-start gap-3 mb-3">
+                    {/* Decorativo: el nombre del producto va al lado. */}
+                    {isotipo && (
+                      <Image src={isotipo} alt="" width={40} height={40} className="shrink-0 size-10 rounded-full" />
+                    )}
+                    <h3 className="text-title-subsection font-normal text-foreground group-hover:text-primary transition-colors">
+                      {entry?.title ?? product.name}
+                    </h3>
+                  </div>
+                  <p className="text-body-sm text-muted max-w-xl line-clamp-3 mb-4">
+                    {entry?.excerpt || tp(`${product.id}.description`)}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-body-sm text-primary">
+                    {t("viewCase")}
+                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" aria-hidden />
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
