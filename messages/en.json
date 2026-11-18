@@ -253,6 +253,18 @@
     "catDiplomas": "Diplomas",
     "catCourses": "Courses & Bootcamps"
   },
+  "PortfolioPage": {
+    "backHome": "Back to Home",
+    "metaTitle": "Portfolio"
+,
+    "otherTitle": "Other design projects",
+    "moreTitle": "More designs",
+    "galleryOpen": "Open image",
+    "galleryClose": "Close",
+    "galleryPrevious": "Previous image",
+    "galleryNext": "Next image",
+    "galleryCounter": "{current} of {total}"
+  },
   "CaseStudiesPage": {
     "backHome": "Back to Home",
     "title": "Case Studies",
