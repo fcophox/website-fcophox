@@ -332,9 +332,11 @@
     ]
   },
   "Metadata": {
-    "defaultTitle": "fcoPhox | UX Engineer & Product Design Consultant",
-    "templateTitle": "%s | UX Engineer & Product Design Consultant - fcoPhox",
-    "homeTitle": "Inicio | UX Engineer & Product Design Consultant - fcoPhox",
+    "defaultTitle": "Francisco | Senior Product Designer – IA",
+    "templateTitle": "%s | Francisco · Senior Product Designer – IA",
+    "homeTitle": "Inicio | Francisco · Senior Product Designer – IA",
+    "description": "Senior Product Designer con más de 14 años de experiencia. Diseño y construyo productos digitales con criterio, UX e IA, de la investigación a la medición.",
+    "ogAlt": "Francisco Hormazábal – Senior Product Designer – IA",
     "caseStudiesTitle": "Casos de Estudio",
     "blogTitle": "Blog",
     "methodologyTitle": "Metodología",
