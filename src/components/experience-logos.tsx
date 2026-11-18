@@ -6,16 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-const logos = [
-  { name: "UDD", path: "/studies/udd.svg" },
-  { name: "FinisTerrae", path: "/studies/uft.svg" },
-  { name: "AyerViernes", path: "/studies/ayerviernes.svg" },
-  { name: "AprendeUX", path: "/studies/aprendeux.svg" },
-  { name: "DuocUC", path: "/studies/duoc.svg" },
-  { name: "UXAlliance", path: "/studies/uxalliance.svg" },
-  { name: "PUC", path: "/studies/uc.svg" },
-  { name: "UNIR", path: "/studies/unir.svg" }
-];
+import { STUDY_LOGOS as logos } from "@/data/study-logos";
 
 export function ExperienceLogos() {
   const t = useTranslations('ExperienceLogos');

@@ -57,7 +57,8 @@
     "statement": "Soy Diseñador — Más de 14 años construyendo <hl>experiencias y productos digitales</hl>. He trabajado como <hl>Product Designer, UX Manager y Head of UX</hl> para diferentes clientes y proyectos.",
     "industriesLabel": "Industrias",
     "industries": ["Banca", "Educación", "Fintech", "Logística", "Retail", "Ecommerce", "Salud", "Seguros", "Tecnología"],
-    "ctaAbout": "Sobre mí",
+    "knowledgeLabel": "Formación",
+    "ctaAbout": "Conoce más de mí",
     "ctaCv": "Ver CV"
   },
   "CaseStudies": {
