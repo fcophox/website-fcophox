@@ -69,7 +69,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
     return (
       <>
-        <ReadingProgressBar />
         <main className="min-h-screen relative py-8 md:py-20">
 
         <div className="dm-container">
@@ -383,6 +382,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           })()}
         </div>
       </main>
+      {/* Después del <main>, nunca primero: ver reading-progress-bar.tsx. */}
+      <ReadingProgressBar />
       </>
     );
   }

@@ -258,9 +258,9 @@
     "subtitle": "A selection of projects where I've applied strategy, design, and code to solve real problems.",
     "catAll": "All",
     "ownProducts": {
-      "label": "Own products",
-      "title": "Products I <accent>design and build</accent> as a Senior Product Designer – AI.",
-      "description": "Digital products created end to end, from the idea and design to code and launch, using artificial intelligence at every stage.",
+      "label": "Products",
+      "title": "Products I <accent>design and build</accent> as an AI-powered Senior Product Designer.",
+      "description": "Each one solves a concrete problem. Built end to end, from the idea and design to the code and launch, without losing control over any design or code decision.",
       "viewCase": "View case"
     }
   },
@@ -407,6 +407,23 @@
       "secondary": "Secondary",
       "accent": "Accent",
       "muted": "Muted"
+    },
+    "versions": {
+      "title": "Site versions",
+      "note": "The current version and earlier ones, each with its deployment. The code for each version lives in its git tag.",
+      "current": "Current",
+      "visit": "Open site",
+      "protected": "Requires Vercel sign-in",
+      "items": {
+        "v3": {
+          "period": "Nov 2026 – present",
+          "description": "Redesign with a new home, own products and content from Kontororu."
+        },
+        "v2": {
+          "period": "Jun – Nov 2026",
+          "description": "Version with its own Supabase-based CMS, before the v3 launch."
+        }
+      }
     }
   },
   "ResourcesPage": {

@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, GitBranch, Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { SITE_VERSIONS } from "@/data/site-versions";
 
 const colors = [
   { id: 'primary', bgClass: 'bg-primary' },
@@ -71,6 +72,63 @@ export default function DesignSystemPage() {
           <h1 className="text-title-page font-normal text-foreground mb-8">{t('title')}</h1>
           <p className="text-subtitle text-muted font-normal md:max-w-[60%]">{t('subtitle')}</p>
         </motion.div>
+
+        {/* Site Versions */}
+        <section className="mb-24">
+          <h2 className="text-title-section font-normal text-foreground mb-4">{t('versions.title')}</h2>
+          <p className="text-body-sm text-muted mb-8 max-w-3xl">{t('versions.note')}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {SITE_VERSIONS.map((version) => (
+              <a
+                key={version.id}
+                href={version.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group flex flex-col gap-6 p-8 rounded-3xl border transition-colors ${
+                  version.current
+                    ? 'bg-surface border-primary/40 hover:border-primary'
+                    : 'bg-surface border-border hover:border-foreground/30'
+                }`}
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-title-card font-mono text-foreground">{version.label}</span>
+                    {version.current && (
+                      <span className="text-label uppercase px-2.5 py-1 rounded-full bg-primary/10 text-primary">
+                        {t('versions.current')}
+                      </span>
+                    )}
+                  </div>
+                  <span className="text-caption text-muted">{t(`versions.items.${version.id}.period`)}</span>
+                </div>
+                <p className="text-body-sm text-muted">{t(`versions.items.${version.id}.description`)}</p>
+                <div className="mt-auto flex flex-col gap-2">
+                  <span className="text-code font-mono text-foreground break-all">
+                    {version.url.replace(/^https?:\/\//, '')}
+                  </span>
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-caption text-muted">
+                    {version.gitRef && (
+                      <span className="inline-flex items-center gap-1.5 font-mono">
+                        <GitBranch className="w-3.5 h-3.5" />
+                        {version.gitRef}
+                      </span>
+                    )}
+                    {version.protected && (
+                      <span className="inline-flex items-center gap-1.5">
+                        <Lock className="w-3.5 h-3.5" />
+                        {t('versions.protected')}
+                      </span>
+                    )}
+                    <span className="inline-flex items-center gap-1 ml-auto text-foreground group-hover:text-primary transition-colors">
+                      {t('versions.visit')}
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </span>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
 
         {/* Colors - Light Mode */}
         <section className="mb-16">
