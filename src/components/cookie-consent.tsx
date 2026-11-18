@@ -1,7 +1,8 @@
 "use client";
 
-import { Suspense, useEffect, useId, useState } from "react";
+import { Suspense, useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Cookie, X } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -48,6 +49,28 @@ export function TesutoConsent() {
     if (analytics === undefined) return;
     (window as unknown as { tesuto?: TesutoFn }).tesuto?.("consent", analytics);
   }, [analytics]);
+
+  return null;
+}
+
+/**
+ * Avisa a Tesuto de cada cambio de ruta del lado del cliente. Sin esto sólo
+ * evalúa experiencias y objetivos en la carga completa de la página: una
+ * experiencia segmentada a /blog no se activaría al llegar desde la portada por
+ * un <Link>. La carga inicial ya la procesa el propio snippet, por eso se
+ * compara con la ruta anterior (y así el doble efecto de StrictMode no cuenta
+ * una visita de más). Sin consentimiento, `tesuto('pageview')` no hace nada.
+ */
+export function TesutoPageview() {
+  const pathname = usePathname();
+  const previous = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (previous.current !== null && previous.current !== pathname) {
+      (window as unknown as { tesuto?: TesutoFn }).tesuto?.("pageview");
+    }
+    previous.current = pathname;
+  }, [pathname]);
 
   return null;
 }

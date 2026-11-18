@@ -4,7 +4,7 @@ import "./globals.css";
 import "./tiptap-content.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
-import { ConsentedAnalytics, CookieConsent, TesutoConsent } from "@/components/cookie-consent";
+import { ConsentedAnalytics, CookieConsent, TesutoConsent, TesutoPageview } from "@/components/cookie-consent";
 
 
 const sansation = Sansation({
@@ -137,6 +137,7 @@ export default async function RootLayout({
             <CookieConsent />
             <ConsentedAnalytics />
             <TesutoConsent />
+            <TesutoPageview />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
