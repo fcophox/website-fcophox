@@ -253,6 +253,18 @@
     "catDiplomas": "Diplomados",
     "catCourses": "Cursos & Bootcamps"
   },
+  "PortfolioPage": {
+    "backHome": "Volver al Inicio",
+    "metaTitle": "Portafolio"
+,
+    "otherTitle": "Otros proyectos de diseño",
+    "moreTitle": "Más diseños",
+    "galleryOpen": "Abrir imagen",
+    "galleryClose": "Cerrar",
+    "galleryPrevious": "Imagen anterior",
+    "galleryNext": "Imagen siguiente",
+    "galleryCounter": "{current} de {total}"
+  },
   "CaseStudiesPage": {
     "backHome": "Volver al Inicio",
     "title": "Casos de Estudio",
