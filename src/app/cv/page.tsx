@@ -172,13 +172,13 @@ export default function CvPage() {
 
             {/* Print-only contact bar for ATS / Clean PDF layout */}
             <div className="hidden print:flex flex-wrap gap-x-4 gap-y-1 text-[9pt] text-slate-600 mt-3 font-normal">
-              <span className="flex items-center gap-1"><MapPin className="w-3 h-3 text-slate-500" /> Santiago, Chile</span>
+              <span>Santiago, Chile</span>
               <span>•</span>
-              <span className="flex items-center gap-1"><Mail className="w-3 h-3 text-slate-500" /> fcojhormazabalh@gmail.com</span>
+              <span>fcojhormazabalh@gmail.com</span>
               <span>•</span>
-              <span className="flex items-center gap-1"><LinkedinIcon className="w-3 h-3 text-slate-500" /> linkedin.com/in/fcophox</span>
+              <span>linkedin.com/in/fcophox</span>
               <span>•</span>
-              <span className="flex items-center gap-1"><Globe className="w-3 h-3 text-slate-500" /> fcophox.com</span>
+              <span>fcophox.com</span>
             </div>
           </header>
 
@@ -236,11 +236,11 @@ export default function CvPage() {
                     const isLast = index === jobs.length - 1;
                     const isFirst = index === 0;
                     return (
-                      <div key={index} className={`relative pl-8 ${isLast ? 'print:pl-6' : 'pb-10 print:pl-6 print:pb-5'}`}>
+                      <div key={index} className={`relative pl-8 ${isLast ? 'print:pl-0' : 'pb-10 print:pl-0 print:pb-5'}`}>
                         {!isLast && (
-                          <div className="absolute left-[11px] top-3.5 bottom-0 w-0.5 bg-border/20 print:bg-slate-200 print:left-[4px]" />
+                          <div className="absolute left-[11px] top-3.5 bottom-0 w-0.5 bg-border/20 print:hidden" />
                         )}
-                        <div className={`absolute left-[7px] top-1.5 w-2.5 h-2.5 rounded-full print:left-[0px] ${isFirst ? 'bg-[#0ea5e9] print:bg-slate-800' : 'bg-muted-foreground/30 print:bg-slate-400'}`} />
+                        <div className={`absolute left-[7px] top-1.5 w-2.5 h-2.5 rounded-full print:hidden ${isFirst ? 'bg-[#0ea5e9]' : 'bg-muted-foreground/30'}`} />
                         <div className="flex flex-col md:flex-row md:justify-between mb-3 print:mb-1">
                           <h3 className="font-bold text-foreground text-body print:text-slate-950 print:text-[10pt]">{job.title}</h3>
                           <span className="text-label font-mono text-muted/80 uppercase print:text-[8pt] print:text-slate-500">{job.company}</span>
