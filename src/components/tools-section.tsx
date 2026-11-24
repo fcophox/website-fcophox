@@ -16,7 +16,7 @@ export function ToolsSection() {
         loop
         muted
         playsInline
-        poster="/tanzo/bg-tanzo.png"
+        poster="/tanzo/bg-tanzo.webp"
         className="absolute inset-0 w-full h-full object-cover object-center md:object-right opacity-90 z-0 pointer-events-none"
       >
         <source src="/tanzo/bg-tanzo.mp4" type="video/mp4" />

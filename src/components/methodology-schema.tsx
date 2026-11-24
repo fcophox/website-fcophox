@@ -65,7 +65,7 @@ export function MethodologySchema() {
             >
               {/* Background SVG Header */}
               <div
-                className="absolute top-0 left-0 w-full h-full bg-[url('/brand/headercard.png')] bg-top bg-repeat-x opacity-60 pointer-events-none"
+                className="absolute top-0 left-0 w-full h-full bg-[url('/brand/headercard.webp')] bg-top bg-repeat-x opacity-60 pointer-events-none"
                 style={{ backgroundSize: 'auto' }}
               />
 

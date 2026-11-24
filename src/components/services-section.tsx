@@ -11,25 +11,25 @@ export function ServicesSection() {
   const services = [
     {
       id: "ux-strategy",
-      image: "/services/ux-strategy.png",
+      image: "/services/ux-strategy.webp",
       title: t("service1Title"),
       description: t("service1Desc"),
     },
     {
       id: "ui-design",
-      image: "/services/ui-design.png",
+      image: "/services/ui-design.webp",
       title: t("service2Title"),
       description: t("service2Desc"),
     },
     {
       id: "ux-engineering",
-      image: "/services/ux-engineering.png",
+      image: "/services/ux-engineering.webp",
       title: t("service3Title"),
       description: t("service3Desc"),
     },
     {
       id: "ai-innovation",
-      image: "/services/ai-innovation.png",
+      image: "/services/ai-innovation.webp",
       title: t("service4Title"),
       description: t("service4Desc"),
     },

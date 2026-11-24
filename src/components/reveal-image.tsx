@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image, { ImageProps } from "next/image";
+import { isSignedStorageUrl } from "@/utils/image";
 
 interface RevealImageProps extends Omit<ImageProps, "src" | "alt"> {
   src: string;
@@ -207,6 +208,7 @@ export function RevealImage({
           height={height}
           style={imageStyle}
           {...props}
+          unoptimized={props.unoptimized ?? isSignedStorageUrl(src)}
         />
       )}
 

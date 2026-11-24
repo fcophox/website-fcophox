@@ -90,7 +90,7 @@ export function BentoSection() {
             className="md:col-span-1 rounded-3xl bg-surface border-none p-8 flex flex-col justify-between overflow-hidden relative group h-[400px] md:h-[450px]"
           >
             <div className="absolute inset-0 z-0 opacity-40 transition-opacity duration-700 group-hover:opacity-70 pointer-events-none">
-              <Image src="/methodology/bg-card-ia.png" alt="Background IA" fill className="object-cover" />
+              <Image src="/methodology/bg-card-ia.png" alt="Background IA" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
             </div>
             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-primary/10 to-transparent opacity-50 pointer-events-none z-0" />
 

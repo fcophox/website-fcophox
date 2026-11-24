@@ -414,7 +414,7 @@ export default function MethodologyPage() {
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
             className="absolute left-0 lg:left-[1%] top-[25%] md:top-[30%] w-[42%] md:w-[35%] aspect-square rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl grayscale"
           >
-            <RevealImage src="/methodology/aa.png" alt="Methodology Phase 1" fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
+            <RevealImage src="/methodology/aa.webp" alt="Methodology Phase 1" fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
           </motion.div>
 
           {/* Middle Image (ab.png) */}
@@ -425,7 +425,7 @@ export default function MethodologyPage() {
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             className="absolute left-[29%] lg:left-[32.5%] top-[45%] md:top-[50%] w-[42%] md:w-[35%] aspect-[4/5] md:aspect-square rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl grayscale z-10"
           >
-            <RevealImage src="/methodology/ab.png" alt="Methodology Phase 2" fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
+            <RevealImage src="/methodology/ab.webp" alt="Methodology Phase 2" fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
           </motion.div>
 
           {/* Right Image (ac.png) */}
@@ -436,7 +436,7 @@ export default function MethodologyPage() {
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
             className="absolute right-0 lg:right-[1%] top-[10%] md:top-[15%] w-[42%] md:w-[35%] aspect-square rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl grayscale"
           >
-            <RevealImage src="/methodology/ac.png" alt="Methodology Phase 3" fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
+            <RevealImage src="/methodology/ac.webp" alt="Methodology Phase 3" fill className="object-cover" sizes="(max-width: 768px) 50vw, 33vw" />
           </motion.div>
         </div>
 
@@ -494,9 +494,10 @@ export default function MethodologyPage() {
               className="lg:col-span-6 w-full aspect-[4/3] rounded-3xl overflow-hidden bg-surface relative border border-border/50 shadow-2xl"
             >
               <RevealImage
-                src="/methodology/ebook.png"
+                src="/methodology/ebook.webp"
                 alt="Ebook Full Stack Experience Builder"
                 fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
                 delayMs={200}
               />

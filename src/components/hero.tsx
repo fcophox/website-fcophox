@@ -99,7 +99,7 @@ export function Hero() {
           />
           <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden ring-1 ring-border/60 shadow-lg shadow-background/40">
             <Image
-              src="/brand/francisco-avatar.png?v=2"
+              src="/brand/francisco-avatar.webp"
               alt="Francisco Hormazábal"
               fill
               sizes="80px"

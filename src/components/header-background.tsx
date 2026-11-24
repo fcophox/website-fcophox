@@ -18,9 +18,10 @@ export function HeaderBackground() {
   return (
     <div className="absolute top-0 left-0 right-0 w-full h-[600px] overflow-hidden pointer-events-none z-0 opacity-0 dark:opacity-100 transition-opacity duration-300">
       <Image
-        src="/brand/background-page.png"
+        src="/brand/background-page.webp"
         alt="Page Header Background"
         fill
+        sizes="100vw"
         priority
         className="object-cover object-top opacity-40"
       />

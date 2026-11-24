@@ -47,11 +47,11 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
       whyNeed: "Porque antes de diseñar o desarrollar, necesitas saber qué problema vale la pena resolver, para quién lo estás resolviendo y cómo esa solución aporta al negocio. Este servicio ayuda a reducir incertidumbre, evitar decisiones basadas solo en intuición y priorizar con mayor claridad.",
       whatYouGet: "Obtendrás una visión clara del usuario, sus necesidades, fricciones y oportunidades; además de recomendaciones accionables, mapas de experiencia, flujos, hipótesis priorizadas y un roadmap inicial para avanzar con mayor seguridad hacia diseño, prototipo o desarrollo.",
       audienceCards: [
-        { title: "Startups en etapa temprana", description: "Para equipos que tienen una idea, hipótesis o MVP inicial y necesitan entender mejor el problema, el usuario y la oportunidad antes de construir.", image: "/services/ux-strategy.png" },
-        { title: "Empresas con productos digitales existentes", description: "Para organizaciones que ya tienen una plataforma, sitio, app o sistema, pero necesitan identificar fricciones, mejorar flujos o tomar decisiones con mayor evidencia.", image: "/services/ui-design.png" },
-        { title: "Equipos de producto e innovación", description: "Para equipos que deben definir prioridades, validar oportunidades, ordenar requerimientos y conectar las necesidades del usuario con los objetivos del negocio.", image: "/services/ux-engineering.png" },
-        { title: "Áreas comerciales, marketing u operaciones", description: "Para áreas que detectan problemas en la conversión, adopción, atención o eficiencia, pero necesitan traducirlos en oportunidades claras de experiencia.", image: "/services/ai-innovation.png" },
-        { title: "Negocios que quieren rediseñar o escalar", description: "Para empresas que están creciendo y necesitan una base estratégica antes de rediseñar, lanzar nuevas funcionalidades o mejorar su producto digital.", image: "/services/ux-strategy.png" },
+        { title: "Startups en etapa temprana", description: "Para equipos que tienen una idea, hipótesis o MVP inicial y necesitan entender mejor el problema, el usuario y la oportunidad antes de construir.", image: "/services/ux-strategy.webp" },
+        { title: "Empresas con productos digitales existentes", description: "Para organizaciones que ya tienen una plataforma, sitio, app o sistema, pero necesitan identificar fricciones, mejorar flujos o tomar decisiones con mayor evidencia.", image: "/services/ui-design.webp" },
+        { title: "Equipos de producto e innovación", description: "Para equipos que deben definir prioridades, validar oportunidades, ordenar requerimientos y conectar las necesidades del usuario con los objetivos del negocio.", image: "/services/ux-engineering.webp" },
+        { title: "Áreas comerciales, marketing u operaciones", description: "Para áreas que detectan problemas en la conversión, adopción, atención o eficiencia, pero necesitan traducirlos en oportunidades claras de experiencia.", image: "/services/ai-innovation.webp" },
+        { title: "Negocios que quieren rediseñar o escalar", description: "Para empresas que están creciendo y necesitan una base estratégica antes de rediseñar, lanzar nuevas funcionalidades o mejorar su producto digital.", image: "/services/ux-strategy.webp" },
       ],
       roadmap: [
         { milestone: "Kickoff y entendimiento del negocio", percentage: "10%", description: "Reunión inicial para conocer objetivos, contexto, stakeholders, restricciones, métricas y expectativas del producto." },
@@ -107,7 +107,7 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
         "La profundidad del análisis dependerá del plan seleccionado.",
         "Se recomienda contar con al menos un responsable interno para validar avances y desbloquear información."
       ],
-      imageUrl: "/services/ux-strategy.png",
+      imageUrl: "/services/ux-strategy.webp",
       badge: "UX Strategy"
     },
     en: {
@@ -120,11 +120,11 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
       whyNeed: "Because before designing or developing, you need to know what problem is worth solving, who you're solving it for, and how that solution contributes to the business. This service helps reduce uncertainty, avoid decisions based solely on intuition, and prioritize with greater clarity.",
       whatYouGet: "You'll get a clear vision of the user, their needs, frictions, and opportunities; plus actionable recommendations, experience maps, flows, prioritized hypotheses, and an initial roadmap to move forward with greater confidence toward design, prototype, or development.",
       audienceCards: [
-        { title: "Early-stage startups", description: "For teams with an idea, hypothesis, or initial MVP that need to better understand the problem, the user, and the opportunity before building.", image: "/services/ux-strategy.png" },
-        { title: "Companies with existing digital products", description: "For organizations that already have a platform, site, app, or system but need to identify friction, improve flows, or make decisions with more evidence.", image: "/services/ui-design.png" },
-        { title: "Product & innovation teams", description: "For teams that need to define priorities, validate opportunities, organize requirements, and connect user needs with business goals.", image: "/services/ux-engineering.png" },
-        { title: "Sales, marketing & operations areas", description: "For areas that detect conversion, adoption, support, or efficiency issues but need to translate them into clear experience opportunities.", image: "/services/ai-innovation.png" },
-        { title: "Businesses looking to redesign or scale", description: "For growing companies that need a strategic foundation before redesigning, launching new features, or improving their digital product.", image: "/services/ux-strategy.png" },
+        { title: "Early-stage startups", description: "For teams with an idea, hypothesis, or initial MVP that need to better understand the problem, the user, and the opportunity before building.", image: "/services/ux-strategy.webp" },
+        { title: "Companies with existing digital products", description: "For organizations that already have a platform, site, app, or system but need to identify friction, improve flows, or make decisions with more evidence.", image: "/services/ui-design.webp" },
+        { title: "Product & innovation teams", description: "For teams that need to define priorities, validate opportunities, organize requirements, and connect user needs with business goals.", image: "/services/ux-engineering.webp" },
+        { title: "Sales, marketing & operations areas", description: "For areas that detect conversion, adoption, support, or efficiency issues but need to translate them into clear experience opportunities.", image: "/services/ai-innovation.webp" },
+        { title: "Businesses looking to redesign or scale", description: "For growing companies that need a strategic foundation before redesigning, launching new features, or improving their digital product.", image: "/services/ux-strategy.webp" },
       ],
       roadmap: [
         { milestone: "Kickoff & business understanding", percentage: "10%", description: "Initial meeting to learn about goals, context, stakeholders, constraints, metrics, and product expectations." },
@@ -180,7 +180,7 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
         "The depth of the analysis will depend on the selected plan.",
         "It is recommended to have at least one internal stakeholder to validate progress and unlock information."
       ],
-      imageUrl: "/services/ux-strategy.png",
+      imageUrl: "/services/ux-strategy.webp",
       badge: "UX Strategy"
     }
   },
@@ -195,11 +195,11 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
       whyNeed: "Porque una idea necesita verse, probarse y sentirse real antes de desarrollarse. Este servicio permite detectar errores, mejorar la experiencia y alinear expectativas antes de invertir tiempo y presupuesto en código.",
       whatYouGet: "Obtendrás interfaces limpias, flujos claros, pantallas de alta fidelidad y prototipos interactivos listos para presentar, validar con usuarios, alinear stakeholders o entregar como base al equipo de desarrollo.",
       audienceCards: [
-        { title: "Startups que necesitan validar rápido", description: "Para equipos que quieren transformar una idea en un prototipo realista antes de invertir en desarrollo completo.", image: "/services/ux-strategy.png" },
-        { title: "Founders que buscan presentar una solución", description: "Para emprendedores que necesitan mostrar su producto a inversionistas, socios, clientes o stakeholders de forma clara, visual y navegable.", image: "/services/ui-design.png" },
-        { title: "Empresas que quieren mejorar su experiencia digital", description: "Para negocios que tienen interfaces confusas, desordenadas o poco intuitivas y necesitan rediseñar pantallas, flujos o módulos clave.", image: "/services/ux-engineering.png" },
-        { title: "Equipos de producto y tecnología", description: "Para squads que necesitan alinear diseño, negocio y desarrollo mediante prototipos claros, componentes definidos y flujos bien resueltos.", image: "/services/ai-innovation.png" },
-        { title: "Negocios que lanzan nuevos productos o funcionalidades", description: "Para organizaciones que necesitan visualizar, validar y ajustar una experiencia antes de pasar a construcción.", image: "/services/ui-design.png" },
+        { title: "Startups que necesitan validar rápido", description: "Para equipos que quieren transformar una idea en un prototipo realista antes de invertir en desarrollo completo.", image: "/services/ux-strategy.webp" },
+        { title: "Founders que buscan presentar una solución", description: "Para emprendedores que necesitan mostrar su producto a inversionistas, socios, clientes o stakeholders de forma clara, visual y navegable.", image: "/services/ui-design.webp" },
+        { title: "Empresas que quieren mejorar su experiencia digital", description: "Para negocios que tienen interfaces confusas, desordenadas o poco intuitivas y necesitan rediseñar pantallas, flujos o módulos clave.", image: "/services/ux-engineering.webp" },
+        { title: "Equipos de producto y tecnología", description: "Para squads que necesitan alinear diseño, negocio y desarrollo mediante prototipos claros, componentes definidos y flujos bien resueltos.", image: "/services/ai-innovation.webp" },
+        { title: "Negocios que lanzan nuevos productos o funcionalidades", description: "Para organizaciones que necesitan visualizar, validar y ajustar una experiencia antes de pasar a construcción.", image: "/services/ui-design.webp" },
       ],
       roadmap: [
         { milestone: "Entendimiento del desafío", percentage: "10%", description: "Revisión de objetivos, usuarios, requerimientos, referencias, funcionalidades y criterios de éxito." },
@@ -260,7 +260,7 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
         "El prototipo no corresponde a desarrollo funcional, sino a una simulación interactiva de alta fidelidad.",
         "Los cambios se gestionan por rondas de feedback previamente definidas."
       ],
-      imageUrl: "/services/ui-design.png",
+      imageUrl: "/services/ui-design.webp",
       badge: "UX/UI Design"
     },
     en: {
@@ -273,11 +273,11 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
       whyNeed: "Because an idea needs to be seen, tested, and felt before being developed. This service helps detect errors, improve the experience, and align expectations before investing time and budget in code.",
       whatYouGet: "You'll get clean interfaces, clear flows, high-fidelity screens, and interactive prototypes ready to present, validate with users, align stakeholders, or deliver as a base to the development team.",
       audienceCards: [
-        { title: "Startups that need to validate fast", description: "For teams that want to transform an idea into a realistic prototype before investing in full development.", image: "/services/ux-strategy.png" },
-        { title: "Founders looking to present a solution", description: "For entrepreneurs who need to showcase their product to investors, partners, clients, or stakeholders in a clear, visual, and navigable way.", image: "/services/ui-design.png" },
-        { title: "Companies wanting to improve their digital experience", description: "For businesses with confusing, cluttered, or unintuitive interfaces that need to redesign screens, flows, or key modules.", image: "/services/ux-engineering.png" },
-        { title: "Product & technology teams", description: "For squads that need to align design, business, and development through clear prototypes, defined components, and well-resolved flows.", image: "/services/ai-innovation.png" },
-        { title: "Businesses launching new products or features", description: "For organizations that need to visualize, validate, and refine an experience before moving to development.", image: "/services/ui-design.png" },
+        { title: "Startups that need to validate fast", description: "For teams that want to transform an idea into a realistic prototype before investing in full development.", image: "/services/ux-strategy.webp" },
+        { title: "Founders looking to present a solution", description: "For entrepreneurs who need to showcase their product to investors, partners, clients, or stakeholders in a clear, visual, and navigable way.", image: "/services/ui-design.webp" },
+        { title: "Companies wanting to improve their digital experience", description: "For businesses with confusing, cluttered, or unintuitive interfaces that need to redesign screens, flows, or key modules.", image: "/services/ux-engineering.webp" },
+        { title: "Product & technology teams", description: "For squads that need to align design, business, and development through clear prototypes, defined components, and well-resolved flows.", image: "/services/ai-innovation.webp" },
+        { title: "Businesses launching new products or features", description: "For organizations that need to visualize, validate, and refine an experience before moving to development.", image: "/services/ui-design.webp" },
       ],
       roadmap: [
         { milestone: "Understanding the challenge", percentage: "10%", description: "Reviewing objectives, users, requirements, references, features, and success criteria." },
@@ -338,7 +338,7 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
         "The prototype is not functional development, but a high-fidelity interactive simulation.",
         "Changes are managed through pre-defined feedback rounds."
       ],
-      imageUrl: "/services/ui-design.png",
+      imageUrl: "/services/ui-design.webp",
       badge: "UX/UI Design"
     }
   },
@@ -353,11 +353,11 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
       whyNeed: "Porque muchas veces el diseño y el desarrollo avanzan separados, generando inconsistencias, retrabajo y pérdida de calidad en la experiencia final. Este servicio ayuda a conectar ambos mundos con una mirada técnica y de producto.",
       whatYouGet: "Obtendrás interfaces front-end mejor estructuradas, componentes reutilizables, sistemas de diseño más ordenados, mayor consistencia visual y una implementación más fiel entre lo diseñado y lo construido.",
       audienceCards: [
-        { title: "Startups que necesitan construir rápido y bien", description: "Para equipos que requieren transformar diseños en interfaces front-end funcionales, escalables y visualmente consistentes.", image: "/services/ux-engineering.png" },
-        { title: "Empresas con brechas entre diseño y desarrollo", description: "Para organizaciones donde lo diseñado en Figma no siempre se implementa con precisión en el producto final.", image: "/services/ui-design.png" },
-        { title: "Equipos de diseño que necesitan sistematizar componentes", description: "Para áreas UX/UI que buscan ordenar estilos, patrones, componentes, variantes y reglas visuales en un sistema reutilizable.", image: "/services/ux-strategy.png" },
-        { title: "Equipos de desarrollo que necesitan mejorar la calidad visual", description: "Para equipos técnicos que necesitan una capa de experiencia, consistencia visual y criterio de interfaz en la construcción front-end.", image: "/services/ai-innovation.png" },
-        { title: "Productos digitales en crecimiento", description: "Para plataformas, SaaS, dashboards o sistemas internos que requieren escalar su interfaz sin acumular deuda visual o técnica.", image: "/services/ux-engineering.png" },
+        { title: "Startups que necesitan construir rápido y bien", description: "Para equipos que requieren transformar diseños en interfaces front-end funcionales, escalables y visualmente consistentes.", image: "/services/ux-engineering.webp" },
+        { title: "Empresas con brechas entre diseño y desarrollo", description: "Para organizaciones donde lo diseñado en Figma no siempre se implementa con precisión en el producto final.", image: "/services/ui-design.webp" },
+        { title: "Equipos de diseño que necesitan sistematizar componentes", description: "Para áreas UX/UI que buscan ordenar estilos, patrones, componentes, variantes y reglas visuales en un sistema reutilizable.", image: "/services/ux-strategy.webp" },
+        { title: "Equipos de desarrollo que necesitan mejorar la calidad visual", description: "Para equipos técnicos que necesitan una capa de experiencia, consistencia visual y criterio de interfaz en la construcción front-end.", image: "/services/ai-innovation.webp" },
+        { title: "Productos digitales en crecimiento", description: "Para plataformas, SaaS, dashboards o sistemas internos que requieren escalar su interfaz sin acumular deuda visual o técnica.", image: "/services/ux-engineering.webp" },
       ],
       roadmap: [
         { milestone: "Evaluación diseño/código", percentage: "10%", description: "Revisión del estado actual del diseño, componentes, front-end, stack tecnológico y principales brechas." },
@@ -418,7 +418,7 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
         "La accesibilidad puede incluir una revisión base o una evaluación avanzada según alcance.",
         "La integración en ambientes productivos dependerá de los permisos, arquitectura y equipo técnico del cliente."
       ],
-      imageUrl: "/services/ux-engineering.png",
+      imageUrl: "/services/ux-engineering.webp",
       badge: "UX Engineering"
     },
     en: {
@@ -431,11 +431,11 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
       whyNeed: "Because design and development often move separately, creating inconsistencies, rework, and quality loss in the final experience. This service helps connect both worlds with a technical and product perspective.",
       whatYouGet: "You'll get better-structured front-end interfaces, reusable components, more organized design systems, greater visual consistency, and a more faithful implementation between what's designed and what's built.",
       audienceCards: [
-        { title: "Startups that need to build fast and well", description: "For teams that need to transform designs into functional, scalable, and visually consistent front-end interfaces.", image: "/services/ux-engineering.png" },
-        { title: "Companies with design-to-development gaps", description: "For organizations where what's designed in Figma doesn't always get implemented accurately in the final product.", image: "/services/ui-design.png" },
-        { title: "Design teams that need to systematize components", description: "For UX/UI areas looking to organize styles, patterns, components, variants, and visual rules into a reusable system.", image: "/services/ux-strategy.png" },
-        { title: "Dev teams that need better visual quality", description: "For technical teams that need an experience layer, visual consistency, and interface criteria in front-end development.", image: "/services/ai-innovation.png" },
-        { title: "Growing digital products", description: "For platforms, SaaS, dashboards, or internal systems that need to scale their interface without accumulating visual or technical debt.", image: "/services/ux-engineering.png" },
+        { title: "Startups that need to build fast and well", description: "For teams that need to transform designs into functional, scalable, and visually consistent front-end interfaces.", image: "/services/ux-engineering.webp" },
+        { title: "Companies with design-to-development gaps", description: "For organizations where what's designed in Figma doesn't always get implemented accurately in the final product.", image: "/services/ui-design.webp" },
+        { title: "Design teams that need to systematize components", description: "For UX/UI areas looking to organize styles, patterns, components, variants, and visual rules into a reusable system.", image: "/services/ux-strategy.webp" },
+        { title: "Dev teams that need better visual quality", description: "For technical teams that need an experience layer, visual consistency, and interface criteria in front-end development.", image: "/services/ai-innovation.webp" },
+        { title: "Growing digital products", description: "For platforms, SaaS, dashboards, or internal systems that need to scale their interface without accumulating visual or technical debt.", image: "/services/ux-engineering.webp" },
       ],
       roadmap: [
         { milestone: "Design/code evaluation", percentage: "10%", description: "Reviewing the current state of design, components, front-end, tech stack, and key gaps." },
@@ -496,7 +496,7 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
         "Accessibility may include a base review or an advanced evaluation depending on scope.",
         "Production environment integration will depend on the client's permissions, architecture, and technical team."
       ],
-      imageUrl: "/services/ux-engineering.png",
+      imageUrl: "/services/ux-engineering.webp",
       badge: "UX Engineering"
     }
   },
@@ -511,11 +511,11 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
       whyNeed: "Porque la IA puede generar mucho valor, pero solo cuando se aplica a problemas reales. Este servicio ayuda a identificar dónde tiene sentido usar inteligencia artificial, qué procesos pueden optimizarse y qué casos de uso tienen mayor impacto.",
       whatYouGet: "Obtendrás oportunidades priorizadas, flujos optimizados, prototipos con IA, automatizaciones iniciales, recomendaciones de implementación y un roadmap para avanzar desde la idea hacia una solución útil, medible y escalable.",
       audienceCards: [
-        { title: "Startups que quieren diferenciar su producto con IA", description: "Para equipos que buscan incorporar inteligencia artificial en su propuesta de valor, flujos o funcionalidades sin caer en soluciones innecesarias.", image: "/services/ai-innovation.png" },
-        { title: "Empresas que necesitan optimizar procesos internos", description: "Para organizaciones que tienen tareas repetitivas, procesos manuales o flujos operativos que podrían automatizarse o acelerarse con IA.", image: "/services/ux-engineering.png" },
-        { title: "Equipos de innovación y transformación digital", description: "Para áreas que necesitan explorar casos de uso, priorizar oportunidades y convertir ideas de IA en prototipos o soluciones aplicables.", image: "/services/ux-strategy.png" },
-        { title: "Equipos de producto que buscan nuevas capacidades", description: "Para squads que quieren integrar asistentes, automatizaciones, análisis inteligente, generación de contenido o experiencias personalizadas.", image: "/services/ui-design.png" },
-        { title: "Áreas de negocio que quieren mayor eficiencia", description: "Para marketing, operaciones, atención al cliente, recursos humanos o áreas comerciales que necesitan reducir esfuerzo, ordenar información o mejorar tiempos de respuesta.", image: "/services/ai-innovation.png" },
+        { title: "Startups que quieren diferenciar su producto con IA", description: "Para equipos que buscan incorporar inteligencia artificial en su propuesta de valor, flujos o funcionalidades sin caer en soluciones innecesarias.", image: "/services/ai-innovation.webp" },
+        { title: "Empresas que necesitan optimizar procesos internos", description: "Para organizaciones que tienen tareas repetitivas, procesos manuales o flujos operativos que podrían automatizarse o acelerarse con IA.", image: "/services/ux-engineering.webp" },
+        { title: "Equipos de innovación y transformación digital", description: "Para áreas que necesitan explorar casos de uso, priorizar oportunidades y convertir ideas de IA en prototipos o soluciones aplicables.", image: "/services/ux-strategy.webp" },
+        { title: "Equipos de producto que buscan nuevas capacidades", description: "Para squads que quieren integrar asistentes, automatizaciones, análisis inteligente, generación de contenido o experiencias personalizadas.", image: "/services/ui-design.webp" },
+        { title: "Áreas de negocio que quieren mayor eficiencia", description: "Para marketing, operaciones, atención al cliente, recursos humanos o áreas comerciales que necesitan reducir esfuerzo, ordenar información o mejorar tiempos de respuesta.", image: "/services/ai-innovation.webp" },
       ],
       roadmap: [
         { milestone: "Diagnóstico de oportunidades", percentage: "15%", description: "Revisión de procesos, dolores, tareas repetitivas, flujos críticos y oportunidades donde IA puede generar impacto." },
@@ -577,7 +577,7 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
         "La integración productiva puede requerir apoyo del equipo técnico del cliente.",
         "El servicio puede incluir prototipos, automatizaciones iniciales o diseño de solución, pero no necesariamente una plataforma completa lista para producción, salvo que se defina en alcance."
       ],
-      imageUrl: "/services/ai-innovation.png",
+      imageUrl: "/services/ai-innovation.webp",
       badge: "AI & Innovation"
     },
     en: {
@@ -590,11 +590,11 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
       whyNeed: "Because AI can generate a lot of value, but only when applied to real problems. This service helps identify where it makes sense to use artificial intelligence, what processes can be optimized, and which use cases have the greatest impact.",
       whatYouGet: "You'll get prioritized opportunities, optimized flows, AI prototypes, initial automations, implementation recommendations, and a roadmap to move from idea to a useful, measurable, and scalable solution.",
       audienceCards: [
-        { title: "Startups looking to differentiate with AI", description: "For teams looking to incorporate artificial intelligence into their value proposition, flows, or features without falling into unnecessary solutions.", image: "/services/ai-innovation.png" },
-        { title: "Companies needing to optimize internal processes", description: "For organizations with repetitive tasks, manual processes, or operational flows that could be automated or accelerated with AI.", image: "/services/ux-engineering.png" },
-        { title: "Innovation & digital transformation teams", description: "For areas that need to explore use cases, prioritize opportunities, and turn AI ideas into prototypes or applicable solutions.", image: "/services/ux-strategy.png" },
-        { title: "Product teams seeking new capabilities", description: "For squads wanting to integrate assistants, automations, intelligent analysis, content generation, or personalized experiences.", image: "/services/ui-design.png" },
-        { title: "Business areas seeking greater efficiency", description: "For marketing, operations, customer support, HR, or sales areas that need to reduce effort, organize information, or improve response times.", image: "/services/ai-innovation.png" },
+        { title: "Startups looking to differentiate with AI", description: "For teams looking to incorporate artificial intelligence into their value proposition, flows, or features without falling into unnecessary solutions.", image: "/services/ai-innovation.webp" },
+        { title: "Companies needing to optimize internal processes", description: "For organizations with repetitive tasks, manual processes, or operational flows that could be automated or accelerated with AI.", image: "/services/ux-engineering.webp" },
+        { title: "Innovation & digital transformation teams", description: "For areas that need to explore use cases, prioritize opportunities, and turn AI ideas into prototypes or applicable solutions.", image: "/services/ux-strategy.webp" },
+        { title: "Product teams seeking new capabilities", description: "For squads wanting to integrate assistants, automations, intelligent analysis, content generation, or personalized experiences.", image: "/services/ui-design.webp" },
+        { title: "Business areas seeking greater efficiency", description: "For marketing, operations, customer support, HR, or sales areas that need to reduce effort, organize information, or improve response times.", image: "/services/ai-innovation.webp" },
       ],
       roadmap: [
         { milestone: "Opportunity diagnosis", percentage: "15%", description: "Reviewing processes, pain points, repetitive tasks, critical flows, and opportunities where AI can generate impact." },
@@ -656,7 +656,7 @@ export const servicesData: Record<string, { es: ServiceDetail; en: ServiceDetail
         "Production integration may require support from the client's technical team.",
         "The service may include prototypes, initial automations, or solution design, but not necessarily a complete production-ready platform, unless defined in scope."
       ],
-      imageUrl: "/services/ai-innovation.png",
+      imageUrl: "/services/ai-innovation.webp",
       badge: "AI & Innovation"
     }
   }

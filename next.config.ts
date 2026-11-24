@@ -6,9 +6,28 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   images: {
+    /*
+     * Ajustes para no agotar la cuota de Image Optimization de Vercel, que
+     * cuenta cada variante generada (transformación) y sus KB escritos en caché:
+     *
+     * - `deviceSizes` sin 2048 ni 3840: en un `fill` sin `sizes` Next ofrecía
+     *   hasta 3840 px, y cada variante de ese tamaño son cientos de KB escritos.
+     * - `minimumCacheTTL` de 31 días: las imágenes locales se indexan por su
+     *   contenido, así que cambiar el archivo ya invalida la caché por sí solo.
+     *   Las portadas firmadas del CMS no pasan por el optimizador (ver
+     *   `isSignedStorageUrl`), así que este valor no choca con su caducidad.
+     * - `localPatterns` con `search: ''`: sin query strings, cada `?v=` distinto
+     *   sería otra entrada en caché.
+     *
+     * `qualities` ([75]) y `formats` (webp) ya son los valores por defecto de
+     * Next 16.
+     */
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    minimumCacheTTL: 2678400,
     localPatterns: [
       {
         pathname: '/**',
+        search: '',
       },
     ],
     remotePatterns: [

@@ -66,7 +66,7 @@ export default function AboutPage() {
           >
             <div className="group relative aspect-[9/16] rounded-2xl overflow-hidden">
               <RevealImage
-                src="/about/fcophox-about.png"
+                src="/about/fcophox-about.webp"
                 alt="Francisco Hormazábal"
                 fill
                 className="object-cover grayscale transition-[filter] duration-700 ease-out group-hover:grayscale-0"
